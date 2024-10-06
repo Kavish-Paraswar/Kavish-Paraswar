@@ -4,9 +4,9 @@
 I'm a Computer Science student specializing in Artificial Intelligence at Vishwakarma Institute Of Technology, Pune. I'm passionate about exploring innovative technologies and developing impactful projects in various domains, including competetive programming, machine learning ,etc.
 
 ## Skills
-- **Programming Languages:** C++, JavaScript
-- **Web Development:** HTML, CSS
-- **Data Structures and Algorithms:** Strong understanding of DSA concepts
+- **Programming Languages:** C++ , C
+- **Web Development:** HTML, CSS , JavaScript
+- **Data Structures and Algorithms:** Strong understanding of DSA concepts inclduing Trees , Graphs ,etc
 - **Machine Learning:** Experience with regression and classification algorithms
 
 ## Projects
