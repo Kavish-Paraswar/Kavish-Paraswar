@@ -1,29 +1,26 @@
-# Hi World, I'm Kavish Paraswar 👋
+<h1 align="center">Hi 👋, I'm Kavish Paraswar</h1>
+<h3 align="center">I'm a Computer Science student specializing in Artificial Intelligence at Vishwakarma Institute Of Technology, Pune. I'm passionate about exploring innovative technologies and developing impactful projects in various domains, including competetive programming, machine learning ,etc.</h3>
 
-## About Me
-I'm a Computer Science student specializing in Artificial Intelligence at Vishwakarma Institute Of Technology, Pune. I'm passionate about exploring innovative technologies and developing impactful projects in various domains, including competetive programming, machine learning ,etc.
+- 🔭 I’m currently working on **AI BASED SOIL HEALTH PREDICTION**
 
-## Skills
-- **Programming Languages:** C++ , C
-- **Web Development:** HTML, CSS , JavaScript
-- **Data Structures and Algorithms:** Strong understanding of DSA concepts inclduing Trees , Graphs ,etc
-- **Machine Learning:** Experience with regression and classification algorithms
+- 🌱 I’m currently learning **Machine Learning**
 
-## Projects
-Here are some of the projects I've developed:
+- 💬 Ask me about **C,C++ ,HTML,CSS,HTML**
 
-- **[Face Sketch To Real (Sketch2Face.AI)](https://github.com/yourusername/sketch2face)**: A cross-platform mobile and web application that converts hand-drawn human face sketches into realistic images using Conditional GANs and deep learning in real time. Built with a custom dataset of approximately 5,000 AI-generated images and sketches.
+- 📫 How to reach me **kavishp9721@gmail.com**
 
-- **[Smart Energy Meter](https://github.com/yourusername/smart-energy-meter)**: A project using ESP8266 and PZEM-004T to monitor energy consumption with both hardware and software components.
+- ⚡ Fun fact **I love to cook and watch Tv series**
 
-- **[Music Playlist Organizer](https://github.com/yourusername/music-playlist-organizer)**: A web application that manages music collections, organizes playlists, and provides features like smart shuffling and mood-based sorting.
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/kavish-paraswar-3763ba2a3/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/kavish-paraswar-3763ba2a3/" height="30" width="40" /></a>
+<a href="https://instagram.com/heyy_kavish" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="heyy_kavish" height="30" width="40" /></a>
+<a href="https://www.codechef.com/users/matcross7" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="matcross7" height="30" width="40" /></a>
+<a href="https://www.leetcode.com/kavish-paraswar" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="kavish-paraswar" height="30" width="40" /></a>
+</p>
 
-- **[Soil Health Prediction](https://github.com/yourusername/soil-health-prediction)**: A project focused on predicting soil health using weather data, featuring a comprehensive analysis and presentation.
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"/> </a> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://scikit-learn.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> </a> <a href="https://seaborn.pydata.org/" target="_blank" rel="noreferrer"> <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" alt="seaborn" width="40" height="40"/> </a> </p>
 
-## Contributions
-I'm eager to contribute to open-source projects, particularly through GSoC (Google Summer of Code) extended projects. I intend to add my strong background in HTML, CSS, and JavaScript to enhance user experience and functionality in various applications. Additionally, I'm looking to request assignments for UI development tasks to contribute effectively.
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=kavish-paraswar&show_icons=true&locale=en" alt="kavish-paraswar" /></p>
 
-## Let's Connect!
-Feel free to reach out on [LinkedIn](https://www.linkedin.com/in/kavish-paraswar-3763ba2a3/) or explore my repositories to see my work.
-
-Thank you for visiting my profile! 😊
