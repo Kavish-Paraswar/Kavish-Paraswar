@@ -5,9 +5,7 @@ I'm a Computer Science student specializing in Artificial Intelligence at Vishwa
 
 ## Skills
 - **Programming Languages:** C++ , C , Java , Python
-- **Development:** HTML, CSS , JavaScript , MYSQL , Git , Github
-- **Data Structures and Algorithms:** Strong understanding of DSA concepts inclduing Trees , Graphs ,etc
-- **Machine Learning:** Experience with regression and classification algorithms
+- **Development:** HTML, CSS , JavaScript , MYSQL , Git , Github , Flask , Yolov3 , Google Cloud **
 
 ## Projects
 Here are some of the projects I've developed:
