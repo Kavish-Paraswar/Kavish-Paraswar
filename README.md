@@ -13,15 +13,20 @@
   <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
   
   
-  * 🔭 I’m looking to collaborate on **Frontend, ML, and Product builds**
+  * 🔭 I’m looking to collaborate on **Frontend, ML, etc**
   * 💬 Ask me about **JavaScript, React, Java,etc**   
 
   * 📫 How to reach me: **[kavishp9721@gmail.com](mailto:kavishp9721@gmail.com)**
   
   ### Connect with me
-  
-  <a href="https://www.linkedin.com/in/kavish-paraswar/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white" /></a> <a href="https://www.instagram.com/_kavissh/"><img src="https://img.shields.io/badge/Instagram-E4405F?logo=instagram&logoColor=white" /></a>
-  
+<a href="https://www.linkedin.com/in/kavish-paraswar/">
+  <img align="left" alt="Kavish LinkedIn" width="32px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"/>
+</a>
+
+<a href="https://www.instagram.com/_kavissh/">
+  <img align="left" alt="Kavish Instagram" width="32px" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"/>
+</a>
+<br clear="left"/>
   ---
   
   ### Languages and Tools
