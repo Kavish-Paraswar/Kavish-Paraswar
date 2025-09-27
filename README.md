@@ -3,6 +3,7 @@
   <h1 align="center">Hi 👋, I'm Kavish Paraswar</h1>
   <p align="center">Exploring AI, web and software development.</p>
   
+   <img align="right" width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
   <p align="center">
     <img src="https://komarev.com/ghpvc/?username=Kavish-Paraswar&label=Profile%20views&style=flat" />
     <a href="https://github.com/Kavish-Paraswar?tab=followers"><img src="https://img.shields.io/github/followers/Kavish-Paraswar?label=Followers" /></a>
@@ -11,7 +12,6 @@
   
   
   <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
-   <img align="right" width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
   
   
   * 🔭 I’m looking to collaborate on **Frontend, ML, and Product builds**
