@@ -1,15 +1,14 @@
-# Hi, I'm Kavish Paraswar
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=2000&color=2DD4BF&width=700&lines=Hi,+I'm+Kavish+Paraswar;AI+Enthusiast;Open+Source+Contributor" alt="Typing SVG" />
 
 ### Computer Science Student | AI Enthusiast
 
 <!-- Typing animation -->
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=2000&color=2DD4BF&width=700&lines=Hi,+I'm+Kavish+Paraswar;AI+Enthusiast;Open+Source+Contributor" alt="Typing SVG" />
 
 ---
 
 ### About Me  
 I’m a Computer Science student specializing in **Artificial Intelligence** at Vishwakarma Institute Of Technology, Pune.  
-I’m passionate about exploring innovative technologies and developing impactful projects in domains like **competitive programming, machine learning, and more**. :contentReference[oaicite:1]{index=1}
+I’m passionate about exploring innovative technologies and developing impactful projects in domains like **development, machine learning, and more**. :contentReference[oaicite:1]{index=1}
 
 ---
 
@@ -19,12 +18,6 @@ I’m passionate about exploring innovative technologies and developing impactfu
 - AI / ML / Tools: YOLOv3, Google Cloud  
 
 ---
-
-### Projects  
-- **Sketch2Face.AI (Face Sketch To Real):** Converts hand-drawn human face sketches into realistic images using Conditional GANs + deep learning, working in real time  
-- **Smart Energy Meter:** Hardware + software project using ESP8266 + PZEM-004T to monitor energy usage  
-- **Music Playlist Organizer:** Web app to manage collections, smart shuffling, mood-based sorting  
-- **Soil Health Prediction:** Predict soil health from weather & environmental data  
 
 ---
 
