@@ -1,7 +1,7 @@
   <!-- Profile README for https://github.com/Kavish-Paraswar | cloned vibe of https://github.com/Vanshika814 -->
   
   <h1 align="center">Hi 👋, I'm Kavish Paraswar</h1>
-  <p align="center">Exploring AI, web and software development.</p>
+  <h3 align="center">Exploring AI, web and software development.</h3>
   
   <p align="center">
     <img src="https://komarev.com/ghpvc/?username=Kavish-Paraswar&label=Profile%20views&style=flat" />
