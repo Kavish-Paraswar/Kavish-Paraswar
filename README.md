@@ -15,7 +15,7 @@
   
   
   * 🔭 I’m looking to collaborate on **frontend, ML, and product builds**
-  * 💬 Ask me about **JavaScript, React,, Java,etc**    <img width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
+  * 💬 Ask me about **JavaScript, React,, Java,etc**    <img align="right" width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
 
   * 📫 How to reach me: **[kavishp9721@gmail.com](mailto:kavishp9721@gmail.com)**
   
