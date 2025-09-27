@@ -11,11 +11,11 @@
   
   
   <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
-  
+   <img align="right" width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
   
   
   * 🔭 I’m looking to collaborate on **Frontend, ML, and Product builds**
-  * 💬 Ask me about **JavaScript, React, Java,etc**    <img align="right" width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
+  * 💬 Ask me about **JavaScript, React, Java,etc**   
 
   * 📫 How to reach me: **[kavishp9721@gmail.com](mailto:kavishp9721@gmail.com)**
   
