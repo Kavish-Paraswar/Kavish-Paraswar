@@ -3,13 +3,13 @@
   <h1 align="center">Hi 👋, I'm Kavish Paraswar</h1>
   <p align="center">Exploring AI, web and software development.</p>
   
-   <img align="right" width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
   <p align="center">
     <img src="https://komarev.com/ghpvc/?username=Kavish-Paraswar&label=Profile%20views&style=flat" />
     <a href="https://github.com/Kavish-Paraswar?tab=followers"><img src="https://img.shields.io/github/followers/Kavish-Paraswar?label=Followers" /></a>
     <a href="https://github.com/Kavish-Paraswar?tab=repositories&sort=stargazers"><img src="https://img.shields.io/github/stars/Kavish-Paraswar?label=Stars" /></a>
   </p>
   
+   <img align="right" width="470" height="400" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
   
   <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
   
