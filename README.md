@@ -15,7 +15,8 @@
   
   
   * 🔭 I’m looking to collaborate on **frontend, ML, and product builds**
-  * 💬 Ask me about **JavaScript, React,, Java,etc**    ![Peachcry Peachmad GIF - Peachcry Peachmad Typing - Discover   Share GIFs](https://github.com/user-attachments/assets/6c4e51b7-56d5-468b-a0e8-d8c5010342f0) 
+  * 💬 Ask me about **JavaScript, React,, Java,etc**    <img width="370" height="300" alt="image" src="https://github.com/user-attachments/assets/09f29ead-22b9-48a0-a004-fb37d4d87c2d" />
+
   * 📫 How to reach me: **[kavishp9721@gmail.com](mailto:kavishp9721@gmail.com)**
   
   ### Connect with me
