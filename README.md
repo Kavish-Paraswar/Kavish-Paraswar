@@ -9,9 +9,9 @@
   <a href="https://github.com/Kavish-Paraswar?tab=repositories&sort=stargazers"><img src="https://img.shields.io/github/stars/Kavish-Paraswar?label=Stars" /></a>
 </p>
 
-![Peachcry Peachmad GIF - Peachcry Peachmad Typing - Discover   Share GIFs](https://github.com/user-attachments/assets/6c4e51b7-56d5-468b-a0e8-d8c5010342f0)
 
 <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
+![Peachcry Peachmad GIF - Peachcry Peachmad Typing - Discover   Share GIFs](https://github.com/user-attachments/assets/6c4e51b7-56d5-468b-a0e8-d8c5010342f0)
 
 <img align="right" alt="peep" width="260" src="assets/mascot.gif" />
 
