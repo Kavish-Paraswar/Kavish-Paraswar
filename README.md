@@ -21,10 +21,9 @@
   ### Connect with me
 <a href="https://www.linkedin.com/in/kavish-paraswar/">
   <img align="left" alt="Kavish LinkedIn" width="32px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"/>
-</a>
-
 <a href="https://www.instagram.com/_kavissh/">
   <img align="left" alt="Kavish Instagram" width="32px" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"/>
+</a>
 </a>
 <br clear="left"/>
   ---
