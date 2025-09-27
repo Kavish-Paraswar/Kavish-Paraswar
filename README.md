@@ -24,7 +24,7 @@
 </a>
   
 <a href="https://www.instagram.com/_kavissh/">
-  <img align="left" alt="Kavish Instagram" width="32px" src="https://raw.githubusercontent.com/dheereshagrwal/colored-icons/master/public/icons/instagram-dark.svg"/>
+  <img align="left" alt="Kavish Instagram" width="32px" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"/>
 </a>
 <br clear="left"/>
 
