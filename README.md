@@ -12,14 +12,14 @@
 
 <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
 
-<img align="right" alt="peep" width="260" src="assets/mascot.gif"
-![Peachcry Peachmad GIF - Peachcry Peachmad Typing - Discover   Share GIFs](https://github.com/user-attachments/assets/6c4e51b7-56d5-468b-a0e8-d8c5010342f0) />
+
 
 * 🔭 I’m looking to collaborate on **frontend, ML, and product builds**
 * 💬 Ask me about **JavaScript, React,, Java,etc**
 * 📫 How to reach me: **[kavishp9721@gmail.com](mailto:kavishp9721@gmail.com)**
 
 ### Connect with me
+<![Peachcry Peachmad GIF - Peachcry Peachmad Typing - Discover   Share GIFs](https://github.com/user-attachments/assets/6c4e51b7-56d5-468b-a0e8-d8c5010342f0) />
 
 <a href="https://www.linkedin.com/in/kavish-paraswar/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white" /></a> <a href="https://www.instagram.com/_kavissh/"><img src="https://img.shields.io/badge/Instagram-E4405F?logo=instagram&logoColor=white" /></a>
 
