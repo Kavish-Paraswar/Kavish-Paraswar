@@ -12,8 +12,8 @@
 
 <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
 
-<img align="right" alt="peep" width="260" src="assets/mascot.gif" />
-![Peachcry Peachmad GIF - Peachcry Peachmad Typing - Discover   Share GIFs](https://github.com/user-attachments/assets/6c4e51b7-56d5-468b-a0e8-d8c5010342f0)
+<img align="right" alt="peep" width="260" src="assets/mascot.gif"
+![Peachcry Peachmad GIF - Peachcry Peachmad Typing - Discover   Share GIFs](https://github.com/user-attachments/assets/6c4e51b7-56d5-468b-a0e8-d8c5010342f0) />
 
 * 🔭 I’m looking to collaborate on **frontend, ML, and product builds**
 * 💬 Ask me about **JavaScript, React,, Java,etc**
