@@ -1,7 +1,7 @@
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=2000&color=2DD4BF&width=700&lines=Hi,+I'm+Kavish+Paraswar;AI+Enthusiast;Open+Source+Contributor" alt="Typing SVG" />
-
+Hey , I'm Kavish Paraswar
 ### Computer Science Student | AI Enthusiast
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=2000&color=2DD4BF&width=700&lines=Hi,+I'm+Kavish+Paraswar;AI+Enthusiast;Open+Source+Contributor" alt="Typing SVG" />
 <!-- Typing animation -->
 
 ---
