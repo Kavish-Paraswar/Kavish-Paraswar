@@ -9,9 +9,6 @@
   </p>
   
 <img align="right" src="https://media.tenor.com/1I0X05AjCIsAAAAC/pollito.gif" width="260" alt="Pollito GIF" />
-
-
-  
   <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
   
   
