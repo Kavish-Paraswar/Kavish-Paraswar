@@ -8,6 +8,7 @@
     <a href="https://github.com/Kavish-Paraswar?tab=repositories&sort=stargazers"><img src="https://img.shields.io/github/stars/Kavish-Paraswar?label=Stars" /></a>
   </p>
   
+<img align="right" src="https://raw.githubusercontent.com/Kavish-Paraswar/Kavish-Paraswar/main/assets/pollito.gif" width="260" alt="Pollito GIF" />
 
 
   
