@@ -8,14 +8,14 @@
     <a href="https://github.com/Kavish-Paraswar?tab=repositories&sort=stargazers"><img src="https://img.shields.io/github/stars/Kavish-Paraswar?label=Stars" /></a>
   </p>
   
-<img align="right" src="https://media.tenor.com/1I0X05AjCIsAAAAC/pollito.gif" width="260" alt="Pollito GIF" />
+
   <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
   
   
   * 🔭 I’m looking to collaborate on **Frontend, ML, etc**
   * 💬 Ask me about **JavaScript, React, Java,etc**   
 
-  * 📫 How to reach me: **[kavishp9721@gmail.com](mailto:kavishp9721@gmail.com)**
+  * 📫 Reach me at : **[kavishp9721@gmail.com](mailto:kavishp9721@gmail.com)**
   
   ### Connect with me
 <a href="https://www.linkedin.com/in/kavish-paraswar/">
