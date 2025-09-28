@@ -8,7 +8,8 @@
     <a href="https://github.com/Kavish-Paraswar?tab=repositories&sort=stargazers"><img src="https://img.shields.io/github/stars/Kavish-Paraswar?label=Stars" /></a>
   </p>
   
-   <div class="tenor-gif-embed" data-postid="23633505" data-share-method="host" data-aspect-ratio="1.5311" data-width="100%"><a href="https://tenor.com/view/pollito-gif-23633505">Pollito GIF</a>from <a href="https://tenor.com/search/pollito-gifs">Pollito GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+   <img src="https://media.tenor.com/1I0X05AjCIsAAAAC/pollito.gif" width="300" alt="Pollito GIF" />
+
   
   <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
   
