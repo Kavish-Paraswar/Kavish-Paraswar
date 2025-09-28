@@ -9,8 +9,7 @@
   </p>
   
 
-  <!-- Right-side mascot GIF (add the file to your repo at assets/mascot.gif) -->
-  
+
   
   * 🔭 I’m looking to collaborate on **Frontend, ML, etc**
   * 💬 Ask me about **JavaScript, React, Java,etc**   
