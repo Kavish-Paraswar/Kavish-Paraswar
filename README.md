@@ -4,7 +4,6 @@
   <h3 align="center">Exploring AI, web and software development.</h3>
   
   <p align="center">
-    <img src="https://komarev.com/ghpvc/?username=Kavish-Paraswar&label=Profile%20views&style=flat" />
     <a href="https://github.com/Kavish-Paraswar?tab=repositories&sort=stargazers"><img src="https://img.shields.io/github/stars/Kavish-Paraswar?label=Stars" /></a>
   </p>
   
