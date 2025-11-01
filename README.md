@@ -83,11 +83,15 @@
   </p>
   
   ---
+  ### 🏅 Holopin Badges
+
+
+  
+  [![An image of @kavishparaswar's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/kavishparaswar)](https://holopin.io/@kavishparaswar)
   
   <!-- Optional: Contribution Snake (enable GH Actions to generate the SVG) -->
   
   <!-- ![Snake animation](https://github.com/Kavish-Paraswar/Kavish-Paraswar/blob/output/github-contribution-grid-snake.svg) -->
   
   <p align="center">Thanks for visiting 🙏</p>
-  
-  <!-- Profile README for https://github.com/Kavish-Paraswar | cloned vibe of https://github.com/Vanshika814 -->
+
