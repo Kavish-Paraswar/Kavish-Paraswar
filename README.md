@@ -63,19 +63,6 @@
   
   ---
   
-  ### Most Used Languages & GitHub Stats
-  
-  <table>
-    <tr>
-      <td>
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Kavish-Paraswar&layout=compact&langs_count=8" alt="Top Languages" />
-      </td>
-      <td>
-        <img src="https://github-readme-stats.vercel.app/api?username=Kavish-Paraswar&show_icons=true&count_private=true&hide_title=false" alt="GitHub Stats" />
-      </td>
-    </tr>
-  </table>
-  
   ### Current Streak
   
   <p>
@@ -89,7 +76,20 @@
   
   [![An image of @kavishparaswar's Holopin badges, which is a link to view their full Holopin profile](https://holopin.me/kavishparaswar)](https://holopin.io/@kavishparaswar)
   
-  <!-- Optional: Contribution Snake (enable GH Actions to generate the SVG) -->
+  <!-- Optional: Contribution Snake (enable GH Actions to generate the SVG)
+  ### Most Used Languages & GitHub Stats
+  
+  <table>
+    <tr>
+      <td>
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Kavish-Paraswar&layout=compact&langs_count" alt="Top Languages" />
+      </td>
+      <td>
+        <img src="https://github-readme-stats.vercel.app/api?username=Kavish-Paraswar&show_icons=true&count_private=true&hide_title=false" alt="GitHub Stats" />
+      </td>
+    </tr>
+  </table>
+  -->
   
   <!-- ![Snake animation](https://github.com/Kavish-Paraswar/Kavish-Paraswar/blob/output/github-contribution-grid-snake.svg) -->
   
