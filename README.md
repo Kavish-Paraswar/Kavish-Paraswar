@@ -91,7 +91,13 @@
   </table>
   -->
   
-  <!-- ![Snake animation](https://github.com/Kavish-Paraswar/Kavish-Paraswar/blob/output/github-contribution-grid-snake.svg) -->
+---
+
+### My Contribution 
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Kavish-Paraswar/Kavish-Paraswar/output/snake.svg" alt="Snake animation" />
+</p>
   
   <p align="center">Thanks for visiting 🙏</p>
 
