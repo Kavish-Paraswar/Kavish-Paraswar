@@ -21,9 +21,6 @@
   <img align="left" alt="Kavish LinkedIn" width="32px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"/>
 </a>
   
-<a href="https://www.instagram.com/_kavissh/">
-  <img align="left" alt="Kavish Instagram" width="32px" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"/>
-</a>
 <br clear="left"/>
 
   ### Languages and Tools
