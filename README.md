@@ -43,7 +43,17 @@ $ current-streak
 $ achievements
 ```
 
-<img src="./assets/achievements.svg" width="100%" alt="Holopin badges grid" />
+<p align="center">
+  <img src="./assets/badges/badge-01.svg" width="160" alt="Badge 01" />
+  <img src="./assets/badges/badge-02.svg" width="160" alt="Badge 02" />
+  <img src="./assets/badges/badge-03.svg" width="160" alt="Badge 03" />
+  <img src="./assets/badges/badge-04.svg" width="160" alt="Badge 04" />
+  <img src="./assets/badges/badge-05.svg" width="160" alt="Badge 05" />
+  <img src="./assets/badges/badge-06.svg" width="160" alt="Badge 06" />
+  <img src="./assets/badges/badge-07.svg" width="160" alt="Badge 07" />
+  <img src="./assets/badges/badge-08.svg" width="160" alt="Badge 08" />
+  <img src="./assets/badges/badge-09.svg" width="160" alt="Badge 09" />
+</p>
 
 ```bash
 $ featured-projects
@@ -68,7 +78,7 @@ $ snake
 ```
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Kavish-Paraswar/Kavish-Paraswar/output/snake.svg" alt="Snake animation" />
+  <img src="./assets/snake/snake.svg" alt="Snake animation" />
 </p>
 
 ```bash
