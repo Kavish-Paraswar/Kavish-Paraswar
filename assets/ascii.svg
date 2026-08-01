@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-label="ASCII portrait">
+  <rect width="100%" height="100%" fill="#0d1117" rx="14"/>
+  <rect x="12" y="12" width="876" height="446" rx="10" fill="#010409" stroke="#30363d"/>
+  <text x="24" y="36" font-family="monospace" font-size="14" fill="#8b949e">kavish@github:~$ ./render-ascii</text>
+  <style>
+    .ascii { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #c9d1d9; }
+  </style>
+  <text x="24" y="56" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.28s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="70" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.36000000000000004s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="84" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.44000000000000006s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="98" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.52s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="112" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.6000000000000001s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="126" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.68s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="140" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.76s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="154" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.8400000000000001s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="168" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="0.92s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="182" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.0s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="196" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.08s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="210" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.1600000000000001s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="224" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.24s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="238" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.32s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="252" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.4000000000000001s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="266" class="ascii" opacity="0">@@@@@@@@@@@@@%%%%@@@@@@@@@%%%%%@@@@%%%%%%%%%%%%%@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.48s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="280" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@@@@@@*:::::-%@@#::::::::::::::-+#@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.56s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="294" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@@@@#-:::::+@@@@#:::::::::::::::::-%@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.6400000000000001s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="308" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@@@+:::::-#@@@@@#:::::*%%%%%#+:::::-%@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.72s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="322" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@#-:::::+@@@@@@@#:::::#@@@@@@@*:::::*@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.8s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="336" class="ascii" opacity="0">@@@@@@@@@@@@=:::::=:::::-%@@@@@@@@#:::::#@@@@@@@#:::::*@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.8800000000000001s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="350" class="ascii" opacity="0">@@@@@@@@@@@@=::::::::::*@@@@@@@@@@#:::::#@@@@@@#-:::::#@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="1.96s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="364" class="ascii" opacity="0">@@@@@@@@@@@@=:::::::::=@@@@@@@@@@@#::::::::::::::::::*@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.04s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="378" class="ascii" opacity="0">@@@@@@@@@@@@=::::::::::-#@@@@@@@@@#:::::::::::::::-+%@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.12s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="392" class="ascii" opacity="0">@@@@@@@@@@@@=::::-*::::::+@@@@@@@@#:::::=******#%@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.2s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="406" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@%=:::::-#@@@@@@#:::::*@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.2800000000000002s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="420" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@@@#-:::::+@@@@@#:::::*@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.3600000000000003s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="434" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@@@@@+:::::-#@@@#:::::*@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.4400000000000004s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="448" class="ascii" opacity="0">@@@@@@@@@@@@=::::-@@@@@@#-:::::=@@#:::::*@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.5200000000000005s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="462" class="ascii" opacity="0">@@@@@@@@@@@@@####%@@@@@@@@%#####@@@#####@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.5999999999999996s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="476" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.6799999999999997s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="490" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.76s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="504" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.84s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="518" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="2.92s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="532" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.0s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="546" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.08s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="560" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.16s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="574" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.24s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="588" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.3200000000000003s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="602" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.4000000000000004s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="616" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.4800000000000004s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="630" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.5600000000000005s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="644" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.6399999999999997s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="658" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.7199999999999998s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="672" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.8s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="686" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.88s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="700" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="3.96s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>  <text x="24" y="714" class="ascii" opacity="0">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    <animate attributeName="opacity" begin="4.04s" dur="0.02s" from="0" to="1" fill="freeze" />
+  </text>
+  <rect x="24" y="44" width="8" height="12" fill="#3fb950">
+    <animate attributeName="y" begin="0.28s" dur="3.84s" values="44;58;72;86;100;114;128;142;156;170;184;198;212;226;240;254;268;282;296;310;324;338;352;366;380;394;408;422;436;450;464;478;492;506;520;534;548;562;576;590;604;618;632;646;660;674;688;702" keyTimes="0.0000;0.0213;0.0426;0.0638;0.0851;0.1064;0.1277;0.1489;0.1702;0.1915;0.2128;0.2340;0.2553;0.2766;0.2979;0.3191;0.3404;0.3617;0.3830;0.4043;0.4255;0.4468;0.4681;0.4894;0.5106;0.5319;0.5532;0.5745;0.5957;0.6170;0.6383;0.6596;0.6809;0.7021;0.7234;0.7447;0.7660;0.7872;0.8085;0.8298;0.8511;0.8723;0.8936;0.9149;0.9362;0.9574;0.9787;1.0000" fill="freeze" />
+    <animate attributeName="opacity" begin="0.28s" dur="0.24s" values="1;0;1" repeatCount="16" />
+    <set attributeName="opacity" to="0" begin="4.16s" />
+  </rect>
+</svg>

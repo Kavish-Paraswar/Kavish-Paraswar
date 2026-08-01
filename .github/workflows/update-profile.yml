@@ -1,0 +1,44 @@
+name: Update Profile Assets
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * *"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 requests opencv-python-headless numpy
+
+      - name: Refresh contribution data
+        run: |
+          python scripts/fetch_contributions.py
+          python scripts/render_heatmap.py
+
+      - name: Regenerate terminal assets
+        run: |
+          python scripts/banner_generator.py
+          python scripts/info_card_generator.py
+          python scripts/experience_generator.py
+          python scripts/ascii_generator.py
+
+      - name: Commit generated changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(profile): refresh generated assets"
+          file_pattern: assets/*.svg data/contributions.json

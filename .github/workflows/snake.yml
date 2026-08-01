@@ -12,14 +12,14 @@ jobs:
       contents: write
 
     steps:
+      - uses: actions/checkout@v4
+
       - uses: Platane/snk@v3
         with:
           github_user_name: Kavish-Paraswar
-          outputs: dist/snake.svg
+          outputs: assets/snake/snake.svg
 
-      - uses: crazy-max/ghaction-github-pages@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "chore(snake): refresh snake animation"
+          file_pattern: assets/snake/snake.svg

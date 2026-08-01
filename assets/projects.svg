@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-label="Featured projects">
+  <rect width="100%" height="100%" fill="#0d1117" rx="14"/>
+  <rect x="12" y="12" width="876" height="446" rx="10" fill="#010409" stroke="#30363d"/>
+  <text x="24" y="36" font-family="monospace" font-size="14" fill="#8b949e">kavish@github:~$ ls featured-projects</text>
+  <style>
+    .title{font:700 20px 'JetBrains Mono',monospace;fill:#3fb950}
+    .desc{font:14px 'JetBrains Mono',monospace;fill:#c9d1d9}
+    .stack{font:13px 'JetBrains Mono',monospace;fill:#8b949e}
+    .btn{font:12px 'JetBrains Mono',monospace;fill:#0d1117}
+  </style>
+  <defs>
+    <g id="card">
+      <rect width="408" height="164" rx="10" fill="#0d1117" stroke="#30363d"/>
+    </g>
+  </defs>
+
+  <g transform="translate(32,58)" opacity="0">
+    <animate attributeName="opacity" begin="0.20s" dur="0.25s" from="0" to="1" fill="freeze"/>
+    <use href="#card"/>
+    <text x="18" y="34" class="title">Yatri Mitra</text>
+    <text x="18" y="64" class="desc">Smart travel assistant for routes and local discoveries.</text>
+    <text x="18" y="90" class="stack">Stack: React · Node.js · MongoDB · AI</text>
+    <a href="https://github.com/Kavish-Paraswar"><rect x="18" y="112" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="132" class="btn">GitHub ↗</text></a>
+  </g>
+
+  <g transform="translate(460,58)" opacity="0">
+    <animate attributeName="opacity" begin="0.45s" dur="0.25s" from="0" to="1" fill="freeze"/>
+    <use href="#card"/>
+    <text x="18" y="34" class="title">Sketch2Face AI</text>
+    <text x="18" y="64" class="desc">Converts rough sketches into realistic face outputs.</text>
+    <text x="18" y="90" class="stack">Stack: Python · PyTorch · Computer Vision</text>
+    <a href="https://github.com/Kavish-Paraswar"><rect x="18" y="112" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="132" class="btn">GitHub ↗</text></a>
+  </g>
+
+  <g transform="translate(32,246)" opacity="0">
+    <animate attributeName="opacity" begin="0.70s" dur="0.25s" from="0" to="1" fill="freeze"/>
+    <use href="#card"/>
+    <text x="18" y="34" class="title">ClubHub</text>
+    <text x="18" y="64" class="desc">Campus platform for clubs, events, and communities.</text>
+    <text x="18" y="90" class="stack">Stack: React · FastAPI · PostgreSQL</text>
+    <a href="https://github.com/Kavish-Paraswar"><rect x="18" y="112" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="132" class="btn">GitHub ↗</text></a>
+  </g>
+
+  <g transform="translate(460,246)" opacity="0">
+    <animate attributeName="opacity" begin="0.95s" dur="0.25s" from="0" to="1" fill="freeze"/>
+    <use href="#card"/>
+    <text x="18" y="34" class="title">Resume Builder</text>
+    <text x="18" y="64" class="desc">Terminal-inspired resume builder with instant export.</text>
+    <text x="18" y="90" class="stack">Stack: TypeScript · Vite · Node.js</text>
+    <a href="https://github.com/Kavish-Paraswar"><rect x="18" y="112" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="132" class="btn">GitHub ↗</text></a>
+  </g>
+</svg>

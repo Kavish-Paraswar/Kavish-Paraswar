@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="470" viewBox="0 0 900 470" role="img" aria-label="Neofetch style info card">
+  <rect width="100%" height="100%" fill="#0d1117" rx="14" />
+  <rect x="12" y="12" width="876" height="446" rx="10" fill="#010409" stroke="#30363d" />
+  <text x="24" y="36" font-family="monospace" font-size="14" fill="#8b949e">kavish@github:~$ neofetch</text>
+  <style>
+    .label { font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }
+    .value { font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #c9d1d9; }
+  </style>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="0.28s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="0.28s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="78" class="label">Name</text>
+    <text x="186" y="78" class="value">Kavish Paraswar</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="0.5s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="0.5s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="110" class="label">Education</text>
+    <text x="186" y="110" class="value">B.Tech Computer Science (Artificial Intelligence)</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="0.72s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="0.72s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="142" class="label"></text>
+    <text x="186" y="142" class="value">Vishwakarma Institute Of Technology</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="0.9400000000000001s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="0.9400000000000001s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="174" class="label">Location</text>
+    <text x="186" y="174" class="value">Pune</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="1.1600000000000001s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="1.1600000000000001s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="206" class="label">Languages</text>
+    <text x="186" y="206" class="value">Java | Python | C++ | JavaScript | TypeScript</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="1.3800000000000001s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="1.3800000000000001s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="238" class="label">Frontend</text>
+    <text x="186" y="238" class="value">React | Redux | Vite</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="1.6s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="1.6s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="270" class="label">Backend</text>
+    <text x="186" y="270" class="value">Node.js | FastAPI</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="1.82s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="1.82s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="302" class="label">Database</text>
+    <text x="186" y="302" class="value">MongoDB | PostgreSQL | MySQL</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="2.04s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="2.04s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="334" class="label">AI</text>
+    <text x="186" y="334" class="value">PyTorch | LangChain | RAG</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="2.26s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="2.26s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="366" class="label">Cloud</text>
+    <text x="186" y="366" class="value">Google Cloud</text>
+  </g>
+
+  <g opacity="0" transform="translate(0,12)">
+    <animate attributeName="opacity" begin="2.4800000000000004s" dur="0.24s" from="0" to="1" fill="freeze" />
+    <animateTransform attributeName="transform" type="translate" begin="2.4800000000000004s" dur="0.24s" from="0 12" to="0 0" fill="freeze" />
+    <text x="28" y="398" class="label">Contact</text>
+    <text x="186" y="398" class="value">kavishp9721@gmail.com</text>
+  </g>
+</svg>
