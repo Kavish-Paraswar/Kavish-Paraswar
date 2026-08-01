@@ -4,7 +4,7 @@
 
 <br/>
 
-<img src="./assets/heatmap.svg" width="100%" alt="Custom contributions heatmap" />
+<!-- <img src="./assets/heatmap.svg" width="100%" alt="Custom contributions heatmap" /> -->
 
 <br/>
 
