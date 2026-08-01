@@ -38,7 +38,7 @@
   <img src="./assets/badges/badge-04.svg" width="160" alt="Badge 04" />
   <img src="./assets/badges/badge-05.svg" width="160" alt="Badge 05" />
   <img src="./assets/badges/badge-06.svg" width="160" alt="Badge 06" />
-  <img src="./assets/badges/badge-07.svg" width="160" alt="Badge 07" />
+  <!-- <img src="./assets/badges/badge-07.svg" width="160" alt="Badge 07" /> -->
   <img src="./assets/badges/badge-08.svg" width="160" alt="Badge 08" />
   <img src="./assets/badges/badge-09.svg" width="160" alt="Badge 09" />
 </p>
