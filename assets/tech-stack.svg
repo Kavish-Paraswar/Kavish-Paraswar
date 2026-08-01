@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-label="Tech stack categories">
+  <rect width="100%" height="100%" fill="#0d1117" rx="14"/>
+  <rect x="12" y="12" width="876" height="406" rx="10" fill="#010409" stroke="#30363d"/>
+  <text x="24" y="36" font-family="monospace" font-size="14" fill="#8b949e">kavish@github:~$ ./tech-stack</text>
+  <style>
+    .cat{font:700 17px 'JetBrains Mono',monospace;fill:#3fb950}
+  </style>
+
+  <g opacity="0"><animate attributeName="opacity" begin="0.15s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <text x="30" y="76" class="cat">Cloud</text>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" x="30" y="86" width="36" height="36"/>
+  </g>
+
+  <g opacity="0"><animate attributeName="opacity" begin="0.33s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <text x="148" y="76" class="cat">Frontend</text>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" x="148" y="86" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" x="190" y="86" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" x="232" y="86" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" x="274" y="86" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" x="316" y="86" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" x="358" y="86" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" x="400" y="86" width="36" height="36"/>
+  </g>
+
+  <g opacity="0"><animate attributeName="opacity" begin="0.51s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <text x="30" y="168" class="cat">Backend</text>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" x="30" y="178" width="36" height="36"/>
+  </g>
+
+  <g opacity="0"><animate attributeName="opacity" begin="0.69s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <text x="148" y="168" class="cat">Languages</text>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" x="148" y="178" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" x="190" y="178" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" x="232" y="178" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" x="274" y="178" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" x="316" y="178" width="36" height="36"/>
+  </g>
+
+  <g opacity="0"><animate attributeName="opacity" begin="0.87s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <text x="30" y="260" class="cat">Database</text>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" x="30" y="270" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" x="72" y="270" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" x="114" y="270" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" x="156" y="270" width="36" height="36"/>
+  </g>
+
+  <g opacity="0"><animate attributeName="opacity" begin="1.05s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <text x="248" y="260" class="cat">AI/ML</text>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" x="248" y="270" width="36" height="36"/>
+  </g>
+
+  <g opacity="0"><animate attributeName="opacity" begin="1.23s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <text x="360" y="260" class="cat">Tools</text>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" x="360" y="270" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" x="402" y="270" width="36" height="36"/>
+    <image href="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" x="444" y="270" width="36" height="36"/>
+  </g>
+</svg>
