@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="64" viewBox="0 0 260 64" role="img" aria-label="Download resume">
+  <style>
+    .lbl { font: 700 18px 'JetBrains Mono', monospace; fill: #0d1117; }
+    .cursor { fill: #0d1117; }
+  </style>
+ 
+  <rect x="0" y="0" width="260" height="64" rx="10" fill="#3fb950" opacity="0">
+    <animate attributeName="opacity" begin="0.1s" dur="0.3s" from="0" to="1" fill="freeze"/>
+  </rect>
+  <rect x="0" y="0" width="260" height="64" rx="10" fill="none" stroke="#56d364" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" begin="0.1s" dur="1.4s" values="0;0.9;0" keyTimes="0;0.5;1" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" begin="0.1s" dur="1.4s" values="2;5;2" keyTimes="0;0.5;1" repeatCount="indefinite"/>
+  </rect>
+ 
+  <g opacity="0">
+    <animate attributeName="opacity" begin="0.35s" dur="0.25s" from="0" to="1" fill="freeze"/>
+ 
+    <path class="cursor" d="M32 20 L32 34 L26 27 Z" transform="rotate(90 32 27)">
+      <animateTransform attributeName="transform" type="translate" begin="0.35s" dur="0.9s" values="0,0; 0,4; 0,0" keyTimes="0;0.5;1" repeatCount="indefinite" additive="sum"/>
+    </path>
+    <rect x="22" y="38" width="20" height="3" rx="1.5" class="cursor"/>
+ 
+    <text x="56" y="39" class="lbl">Resume ↓</text>
+  </g>
+</svg>
+ 
