@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install beautifulsoup4 requests opencv-python-headless numpy
+          pip install beautifulsoup4 requests opencv-python-headless numpy rembg onnxruntime
 
       - name: Refresh contribution data
         run: |
@@ -35,6 +35,9 @@ jobs:
           python scripts/banner_generator.py
           python scripts/info_card_generator.py
           python scripts/experience_generator.py
+          python scripts/tech_stack_generator.py
+          python scripts/projects_generator.py
+          python scripts/prep_photo.py
           python scripts/ascii_generator.py
 
       - name: Commit generated changes

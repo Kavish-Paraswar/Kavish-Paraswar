@@ -2,46 +2,34 @@
   <img src="./assets/banner.svg" width="100%" alt="Animated terminal banner" />
 </div>
 
-```bash
-$ ./contributions.sh
-```
+<br/>
 
 <img src="./assets/heatmap.svg" width="100%" alt="Custom contributions heatmap" />
 
-```bash
-$ whoami
-```
+<br/>
 
-<table>
+<table width="100%">
   <tr>
-    <td width="50%"><img src="./assets/ascii.svg" width="100%" alt="ASCII portrait" /></td>
-    <td width="50%"><img src="./assets/info-card.svg" width="100%" alt="Neofetch profile card" /></td>
+    <td width="50%" valign="top"><img src="./assets/ascii.svg" width="100%" alt="ASCII portrait" /></td>
+    <td width="50%" valign="top"><img src="./assets/info-card.svg" width="100%" alt="Neofetch profile card" /></td>
   </tr>
 </table>
 
-```bash
-$ experience
-```
+<br/>
 
 <img src="./assets/experience.svg" width="100%" alt="Experience terminal card" />
 
-```bash
-$ tech-stack
-```
+<br/>
 
 <img src="./assets/tech-stack.svg" width="100%" alt="Tech stack categories" />
 
-```bash
-$ current-streak
-```
+<br/>
 
 <p>
   <img src="https://streak-stats.demolab.com?user=Kavish-Paraswar" alt="GitHub Streak" />
 </p>
 
-```bash
-$ achievements
-```
+<br/>
 
 <p align="center">
   <img src="./assets/badges/badge-01.svg" width="160" alt="Badge 01" />
@@ -55,33 +43,20 @@ $ achievements
   <img src="./assets/badges/badge-09.svg" width="160" alt="Badge 09" />
 </p>
 
-```bash
-$ featured-projects
-```
+<br/>
 
 <img src="./assets/projects.svg" width="100%" alt="Featured project cards" />
 
-```bash
-$ coding
-```
+<br/>
 
 <img src="./assets/coding.svg" width="100%" alt="Coding profiles" />
 
-```bash
-$ currently
-```
+<br/>
 
 <img src="./assets/currently.svg" width="100%" alt="Current focus" />
 
-```bash
-$ snake
-```
+<br/>
 
 <p align="center">
   <img src="./assets/snake/snake.svg" alt="Snake animation" />
 </p>
-
-```bash
-kavish@github:~$ exit
-Session terminated successfully.
-```

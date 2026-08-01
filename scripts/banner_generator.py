@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the animated terminal banner SVG."""
+"""Generate the premium one-shot terminal boot banner SVG."""
 
 from pathlib import Path
 import json
@@ -14,39 +14,49 @@ def load_profile() -> dict:
     return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
 
 
-def typed_line(text: str, y: int, index: int) -> str:
-    """Create one typed line with a one-shot reveal animation."""
-    start = 0.35 + index * 1.35
-    clip_id = f"lineClip{index}"
-    return f"""
-  <defs>
-    <clipPath id=\"{clip_id}\">
-      <rect x=\"40\" y=\"{y - 34}\" width=\"0\" height=\"48\">
-        <animate attributeName=\"width\" begin=\"{start}s\" dur=\"1.1s\" from=\"0\" to=\"860\" fill=\"freeze\" />
-      </rect>
-    </clipPath>
-  </defs>
-  <text x=\"40\" y=\"{y}\" class=\"typed\" clip-path=\"url(#{clip_id})\">{text}</text>"""
+def line(text: str, y: int, begin: float, cls: str = "boot") -> str:
+    """Build an animated boot line."""
+    return (
+        f"<text x=\"40\" y=\"{y}\" class=\"{cls}\" opacity=\"0\">{text}"
+        f"<animate attributeName=\"opacity\" begin=\"{begin:.2f}s\" dur=\"0.01s\" from=\"0\" to=\"1\" fill=\"freeze\"/></text>"
+    )
 
 
 def build_svg(profile: dict) -> str:
     """Render full banner SVG."""
-    lines = [profile["name"].upper(), profile["title"], profile["tagline"]]
-    typed = "\n".join(typed_line(text, 86 + i * 62, i) for i, text in enumerate(lines))
-    return f"""<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"280\" viewBox=\"0 0 900 280\" role=\"img\" aria-label=\"Animated profile banner\">
+    lines = [
+        line("● ● ●", 48, 0.0, "dots"),
+        line("kavish@github:~$", 80, 0.28),
+        line("./init-profile", 112, 0.55, "cmd"),
+        line("Loading modules...", 148, 0.9),
+        line("████████████████████", 176, 1.25, "ok"),
+        line("WELCOME", 222, 1.7, "headline"),
+        line(profile["name"].upper(), 258, 2.0, "name"),
+        line(profile["title"], 292, 2.3, "role"),
+        line(profile["tagline"], 324, 2.6, "tag"),
+        line("Ready.", 356, 2.9, "ok"),
+    ]
+
+    return f"""<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"390\" viewBox=\"0 0 900 390\" role=\"img\" aria-label=\"Animated profile boot banner\">
   <rect width=\"100%\" height=\"100%\" fill=\"#0d1117\" rx=\"18\" />
-  <rect x=\"18\" y=\"18\" width=\"864\" height=\"244\" rx=\"12\" fill=\"#010409\" stroke=\"#30363d\" />
-  <circle cx=\"44\" cy=\"36\" r=\"6\" fill=\"#f85149\"/><circle cx=\"66\" cy=\"36\" r=\"6\" fill=\"#d29922\"/><circle cx=\"88\" cy=\"36\" r=\"6\" fill=\"#3fb950\"/>
-  <text x=\"120\" y=\"40\" font-size=\"14\" fill=\"#8b949e\" font-family=\"monospace\">kavish@github:~$ ./init-profile</text>
+  <rect x=\"18\" y=\"18\" width=\"864\" height=\"354\" rx=\"12\" fill=\"#010409\" stroke=\"#30363d\" />
   <style>
-    .typed {{ font-family: 'Fira Code', 'JetBrains Mono', monospace; font-size: 42px; fill: #3fb950; font-weight: 600; }}
+    .dots {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }}
+    .boot {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #8b949e; }}
+    .cmd {{ font-family: 'JetBrains Mono', monospace; font-size: 24px; fill: #c9d1d9; }}
+    .headline {{ font-family: 'JetBrains Mono', monospace; font-size: 30px; fill: #3fb950; font-weight: 700; }}
+    .name {{ font-family: 'JetBrains Mono', monospace; font-size: 34px; fill: #e6edf3; font-weight: 700; }}
+    .role {{ font-family: 'JetBrains Mono', monospace; font-size: 23px; fill: #8b949e; }}
+    .tag {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; }}
+    .ok {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; }}
   </style>
-{typed}
-  <rect x=\"40\" y=\"176\" width=\"16\" height=\"34\" fill=\"#3fb950\">
-    <animate attributeName=\"x\" begin=\"0.35s\" dur=\"4.2s\" values=\"40;780;780;650\" keyTimes=\"0;0.36;0.7;1\" fill=\"freeze\" />
-    <animate attributeName=\"y\" begin=\"0.35s\" dur=\"4.2s\" values=\"52;52;114;176\" keyTimes=\"0;0.36;0.7;1\" fill=\"freeze\" />
-    <animate attributeName=\"opacity\" begin=\"0.35s\" dur=\"0.35s\" values=\"1;0;1\" repeatCount=\"12\" />
-    <set attributeName=\"opacity\" to=\"0\" begin=\"4.55s\" />
+  {''.join(lines)}
+
+  <rect x=\"40\" y=\"96\" width=\"12\" height=\"20\" fill=\"#3fb950\" opacity=\"1\">
+    <animate attributeName=\"x\" begin=\"0.55s\" dur=\"2.5s\" values=\"40;228;40;280;120;520;120\" fill=\"freeze\" />
+    <animate attributeName=\"y\" begin=\"0.55s\" dur=\"2.5s\" values=\"96;96;132;132;206;206;350\" fill=\"freeze\" />
+    <animate attributeName=\"opacity\" begin=\"0.55s\" dur=\"0.24s\" values=\"1;0;1\" repeatCount=\"indefinite\" />
+    <set attributeName=\"opacity\" to=\"0\" begin=\"3.15s\" />
   </rect>
 </svg>"""
 
