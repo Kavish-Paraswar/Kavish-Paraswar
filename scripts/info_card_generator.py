@@ -56,6 +56,61 @@ def build_info(profile: dict) -> str:
 </svg>"""
 
 
+def build_coding(coding: dict) -> str:
+    """Build requested coding panel output."""
+    entries = [
+        ("LeetCode", coding["LeetCode"]),
+        ("CodeChef", coding["CodeChef"]),
+        ("Codeforces", coding["Codeforces"]),
+    ]
+
+    parts = ["<text x='24' y='36' class='cmd'>$ cat coding.log</text>"]
+    y = 82
+    t = 0.2
+    for index, (name, details) in enumerate(entries):
+        parts.append(
+            f"<text x='28' y='{y}' class='label' opacity='0'>{name}<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
+        )
+        y += 30
+        t += 0.18
+        parts.append(
+            f"<text x='28' y='{y}' class='value' opacity='0'>{details['tier']}<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
+        )
+        y += 28
+        t += 0.16
+        parts.append(
+            f"<text x='28' y='{y}' class='value' opacity='0'>{details['max_rating']} Max Rating<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
+        )
+        y += 28
+        t += 0.16
+        if details.get("extra"):
+            parts.append(
+                f"<text x='28' y='{y}' class='muted' opacity='0'>{details['extra']}<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
+            )
+            y += 30
+            t += 0.16
+        if index < len(entries) - 1:
+            parts.append(
+                f"<text x='28' y='{y}' class='rule' opacity='0'>────────────<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
+            )
+            y += 32
+            t += 0.16
+
+    height = max(390, y + 26)
+    return f"""<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"{height}\" viewBox=\"0 0 900 {height}\" role=\"img\" aria-label=\"Coding profiles\">
+  <rect width=\"100%\" height=\"100%\" fill=\"#0d1117\" rx=\"14\" />
+  <rect x=\"12\" y=\"12\" width=\"876\" height=\"{height - 24}\" rx=\"10\" fill=\"#010409\" stroke=\"#30363d\" />
+  <style>
+    .cmd {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #8b949e; }}
+    .label {{ font-family: 'JetBrains Mono', monospace; font-size: 26px; fill: #3fb950; font-weight: 700; }}
+    .value {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #e6edf3; }}
+    .muted {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #c9d1d9; }}
+    .rule {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }}
+  </style>
+  {''.join(parts)}
+</svg>"""
+
+
 def build_terminal_kv(title: str, command: str, entries: dict[str, str], height: int) -> str:
     """Build a compact terminal key-value card."""
     body = "\n".join(row(k, v, 84 + i * 42, i) for i, (k, v) in enumerate(entries.items()))
@@ -75,10 +130,7 @@ def main() -> None:
     """Generate all data-driven terminal cards."""
     profile = load_profile()
     INFO_PATH.write_text(build_info(profile), encoding="utf-8")
-    CODING_PATH.write_text(
-        build_terminal_kv("Coding profiles", "cat coding.json", profile["coding"], 250),
-        encoding="utf-8",
-    )
+    CODING_PATH.write_text(build_coding(profile["coding"]), encoding="utf-8")
     CURRENTLY_PATH.write_text(
         build_terminal_kv("Currently", "cat currently.log", profile["currently"], 290),
         encoding="utf-8",
