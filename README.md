@@ -4,7 +4,13 @@
 
 <br/>
 
-<!-- <img src="./assets/heatmap.svg" width="100%" alt="Custom contributions heatmap" /> -->
+<p align="center">
+  <a href="./assets/resume.pdf"><img src="./assets/resume-button.svg" alt="Download Resume" /></a>
+</p>
+
+<br/>
+
+<!-- <img src="./assets/heatmap.svg" width="100%" alt="Custom contributions heatmap" />  -->
 
 <br/>
 
