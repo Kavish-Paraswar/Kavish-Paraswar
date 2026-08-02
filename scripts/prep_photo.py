@@ -51,6 +51,7 @@ def discover_source_image() -> Path:
     return best
 
 
+
 def download_remote_photo() -> Path:
     """Download portrait from configured URL when no local file exists."""
     target = ROOT / "data" / "profile-photo.jpg"
