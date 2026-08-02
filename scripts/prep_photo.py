@@ -52,7 +52,6 @@ def discover_source_image() -> Path:
 
 
 
-
 def download_remote_photo() -> Path:
     """Download portrait from configured URL when no local file exists."""
     target = ROOT / "data" / "profile-photo.jpg"
@@ -83,9 +82,20 @@ def remove_background(image: np.ndarray) -> np.ndarray:
 def detect_face_crop(image: np.ndarray, padding: float = 0.45) -> np.ndarray:
     """Detect and crop face region with generous padding for hairstyle and jawline."""
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    cascade_path = Path(cv2.data.haarcascades) / "haarcascade_frontalface_default.xml"
-    detector = cv2.CascadeClassifier(str(cascade_path))
-    faces = detector.detectMultiScale(gray, scaleFactor=1.08, minNeighbors=5, minSize=(120, 120))
+
+    cascade_candidates = []
+    if hasattr(cv2, "data") and hasattr(cv2.data, "haarcascades"):
+        cascade_candidates.append(Path(cv2.data.haarcascades) / "haarcascade_frontalface_default.xml")
+    cascade_candidates.append(ROOT / "data" / "haarcascade_frontalface_default.xml")
+
+    cascade_path = next((path for path in cascade_candidates if path.exists()), None)
+    detector = None
+    if cascade_path is not None and hasattr(cv2, "CascadeClassifier"):
+        detector = cv2.CascadeClassifier(str(cascade_path))
+
+    faces = ()
+    if detector is not None and not detector.empty():
+        faces = detector.detectMultiScale(gray, scaleFactor=1.08, minNeighbors=5, minSize=(120, 120))
 
     h, w = image.shape[:2]
     if len(faces) == 0:
