@@ -54,8 +54,7 @@ def discover_source_image() -> Path:
 def download_remote_photo() -> Path:
     """Download portrait from configured URL when no local file exists."""
     target = ROOT / "data" / "profile-photo.jpg"
-    url = DEFAULT_REMOTE_PHOTO
-    response = requests.get(url, timeout=45, headers={"User-Agent": "Mozilla/5.0"})
+    response = requests.get(DEFAULT_REMOTE_PHOTO, timeout=45, headers={"User-Agent": "Mozilla/5.0"})
     response.raise_for_status()
     target.write_bytes(response.content)
     return target
@@ -74,29 +73,31 @@ def remove_background(image: np.ndarray) -> np.ndarray:
 
     alpha = rgba[:, :, 3:4].astype(np.float32) / 255.0
     rgb = rgba[:, :, :3].astype(np.float32)
-    composed = (rgb * alpha).astype(np.uint8)
-    return composed
+    return (rgb * alpha).astype(np.uint8)
 
 
 def detect_face_crop(image: np.ndarray, padding: float = 0.45) -> np.ndarray:
-    """Detect and crop face region with generous padding for hairstyle and jawline."""
+    """Detect and crop face region with generous padding for hairstyle and jawline.
+
+    This script intentionally falls back to a centered crop if OpenCV's
+    Haar cascade API is unavailable. That keeps the cron job stable even
+    if the runner image ships a newer cv2 build without CascadeClassifier.
+    """
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-    cascade_candidates = []
-    if hasattr(cv2, "data") and hasattr(cv2.data, "haarcascades"):
-        cascade_candidates.append(Path(cv2.data.haarcascades) / "haarcascade_frontalface_default.xml")
-    cascade_candidates.append(ROOT / "data" / "haarcascade_frontalface_default.xml")
-
-    cascade_path = next((path for path in cascade_candidates if path.exists()), None)
-    detector = None
-    if cascade_path is not None and hasattr(cv2, "CascadeClassifier"):
-        detector = cv2.CascadeClassifier(str(cascade_path))
+    h, w = image.shape[:2]
 
     faces = ()
-    if detector is not None and not detector.empty():
-        faces = detector.detectMultiScale(gray, scaleFactor=1.08, minNeighbors=5, minSize=(120, 120))
+    cascade_path = None
+    if hasattr(cv2, "data") and hasattr(cv2.data, "haarcascades"):
+        candidate = Path(cv2.data.haarcascades) / "haarcascade_frontalface_default.xml"
+        if candidate.exists() and hasattr(cv2, "CascadeClassifier"):
+            cascade_path = candidate
 
-    h, w = image.shape[:2]
+    if cascade_path is not None:
+        detector = cv2.CascadeClassifier(str(cascade_path))
+        if not detector.empty():
+            faces = detector.detectMultiScale(gray, scaleFactor=1.08, minNeighbors=5, minSize=(120, 120))
+
     if len(faces) == 0:
         size = min(h, w)
         x0 = (w - size) // 2
