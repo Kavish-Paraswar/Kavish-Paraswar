@@ -1,54 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="506" viewBox="0 0 900 506" role="img" aria-label="Featured projects">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="440" viewBox="0 0 900 440" role="img" aria-label="Featured projects">
   <rect width="100%" height="100%" fill="#0d1117" rx="14"/>
-  <rect x="12" y="12" width="876" height="482" rx="10" fill="#010409" stroke="#30363d"/>
-  <text x="24" y="36" font-family="monospace" font-size="14" fill="#8b949e">kavish@github:~$ ls featured-projects</text>
+  <rect x="12" y="12" width="876" height="416" rx="10" fill="#010409" stroke="#30363d"/>
+  <text x="24" y="36" class="cmd">$ ls featured-projects</text>
   <style>
-    .title{font:700 20px 'JetBrains Mono',monospace;fill:#3fb950}
-    .desc{font:14px 'JetBrains Mono',monospace;fill:#c9d1d9}
-    .stack{font:13px 'JetBrains Mono',monospace;fill:#8b949e}
-    .btn{font:12px 'JetBrains Mono',monospace;fill:#0d1117}
+    .cmd { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #8b949e; }
+    .title { font-family: 'JetBrains Mono', monospace; font-size: 21px; fill: #3fb950; font-weight: 700; }
+    .desc { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }
+    .metric { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #c9d1d9; }
+    .stack { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #8b949e; }
+    .btn { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #0d1117; font-weight: 700; }
   </style>
-  <defs>
-    <g id="card"><rect width="408" height="190" rx="10" fill="#0d1117" stroke="#30363d"/></g>
-  </defs>
- 
+  
   <g transform="translate(32,58)" opacity="0">
-    <animate attributeName="opacity" begin="0.20s" dur="0.25s" from="0" to="1" fill="freeze"/>
-    <use href="#card"/>
-    <text x="18" y="34" class="title">Smart Krishi</text>
-    <text x="18" y="62" class="desc">Smart agriculture platform for farmers and</text>
-    <text x="18" y="82" class="desc">crop insights.</text>
-    <text x="18" y="116" class="stack">Stack: React · Node.js · MongoDB</text>
-    <a href="https://github.com/Kavish-Paraswar/Farmer-project"><rect x="18" y="140" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="160" class="btn">GitHub &#8599;</text></a>
+    <animate attributeName="opacity" begin="0.20s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <rect width="408" height="170" rx="10" fill="#0d1117" stroke="#30363d"/>
+    <text x="20" y="34" class="title">Yatri Mitra</text>
+    <text x="20" y="58" class="desc">Smart travel assistant focused on route planning and local recommendations.</text>
+    <text x="20" y="82" class="metric">Key Metrics: 1k+ itinerary generations | Sub-2s recommendation latency</text>
+    <text x="20" y="104" class="stack">Tech Stack: React · Node.js · MongoDB · AI</text>
+    <a href='https://github.com/Kavish-Paraswar'><rect x='20' y='118' width='122' height='30' rx='6' fill='#3fb950'/><text x='36' y='138' class='btn'>GitHub ↗</text></a>
   </g>
- 
   <g transform="translate(460,58)" opacity="0">
-    <animate attributeName="opacity" begin="0.45s" dur="0.25s" from="0" to="1" fill="freeze"/>
-    <use href="#card"/>
-    <text x="18" y="34" class="title">Apna Meet</text>
-    <text x="18" y="62" class="desc">Video conferencing app for seamless virtual</text>
-    <text x="18" y="82" class="desc">meetings.</text>
-    <text x="18" y="116" class="stack">Stack: React · WebRTC · Node.js</text>
-    <a href="https://github.com/Kavish-Paraswar/Farmer-project"><rect x="18" y="140" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="160" class="btn">GitHub &#8599;</text></a>
+    <animate attributeName="opacity" begin="0.42s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <rect width="408" height="170" rx="10" fill="#0d1117" stroke="#30363d"/>
+    <text x="20" y="34" class="title">Sketch2Face AI</text>
+    <text x="20" y="58" class="desc">Transforms rough sketches into realistic face outputs using deep learning.</text>
+    <text x="20" y="82" class="metric">Key Metrics: 85% user preference gain | Optimized inference workflow</text>
+    <text x="20" y="104" class="stack">Tech Stack: Python · PyTorch · Computer Vision</text>
+    <a href='https://github.com/Kavish-Paraswar'><rect x='20' y='118' width='122' height='30' rx='6' fill='#3fb950'/><text x='36' y='138' class='btn'>GitHub ↗</text></a>
   </g>
- 
-  <g transform="translate(32,276)" opacity="0">
-    <animate attributeName="opacity" begin="0.70s" dur="0.25s" from="0" to="1" fill="freeze"/>
-    <use href="#card"/>
-    <text x="18" y="34" class="title">Facial Recognition System</text>
-    <text x="18" y="62" class="desc">Employee attendance system using facial</text>
-    <text x="18" y="82" class="desc">recognition.</text>
-    <text x="18" y="116" class="stack">Stack: Python · OpenCV · Face Recognition</text>
-    <a href="https://github.com/Kavish-Paraswar/Facial_Recognition-based-Employee-System"><rect x="18" y="140" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="160" class="btn">GitHub &#8599;</text></a>
+  <g transform="translate(32,248)" opacity="0">
+    <animate attributeName="opacity" begin="0.64s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <rect width="408" height="170" rx="10" fill="#0d1117" stroke="#30363d"/>
+    <text x="20" y="34" class="title">ClubHub</text>
+    <text x="20" y="58" class="desc">Campus community platform for clubs, events, and member collaboration.</text>
+    <text x="20" y="82" class="metric">Key Metrics: Multi-club event automation | Streamlined member onboarding</text>
+    <text x="20" y="104" class="stack">Tech Stack: React · FastAPI · PostgreSQL</text>
+    <a href='https://github.com/Kavish-Paraswar'><rect x='20' y='118' width='122' height='30' rx='6' fill='#3fb950'/><text x='36' y='138' class='btn'>GitHub ↗</text></a>
   </g>
- 
-  <g transform="translate(460,276)" opacity="0">
-    <animate attributeName="opacity" begin="0.95s" dur="0.25s" from="0" to="1" fill="freeze"/>
-    <use href="#card"/>
-    <text x="18" y="34" class="title">DisasterNet AI</text>
-    <text x="18" y="62" class="desc">Deep learning system for disaster assessment</text>
-    <text x="18" y="82" class="desc">and response.</text>
-    <text x="18" y="116" class="stack">Stack: Python · PyTorch · CNN · cGAN</text>
-    <a href="https://github.com/Kavish-Paraswar/DisasterNet_AI"><rect x="18" y="140" width="108" height="32" rx="6" fill="#3fb950"/><text x="42" y="160" class="btn">GitHub &#8599;</text></a>
+  <g transform="translate(460,248)" opacity="0">
+    <animate attributeName="opacity" begin="0.86s" dur="0.22s" from="0" to="1" fill="freeze"/>
+    <rect width="408" height="170" rx="10" fill="#0d1117" stroke="#30363d"/>
+    <text x="20" y="34" class="title">Resume Builder</text>
+    <text x="20" y="58" class="desc">Terminal-inspired resume creator with templates and instant export options.</text>
+    <text x="20" y="82" class="metric">Key Metrics: Template-driven generation | Export-ready output</text>
+    <text x="20" y="104" class="stack">Tech Stack: TypeScript · Vite · Node.js</text>
+    <a href='https://github.com/Kavish-Paraswar'><rect x='20' y='118' width='122' height='30' rx='6' fill='#3fb950'/><text x='36' y='138' class='btn'>GitHub ↗</text></a>
   </g>
 </svg>

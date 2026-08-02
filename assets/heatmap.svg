@@ -1,1 +1,8 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='900' height='250'><rect width='100%' height='100%' fill='#0d1117'/><text x='24' y='38' fill='#8b949e' font-family='monospace'>No contribution data available.</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" role="img" aria-label="Contribution fetch error">
+  <rect width="100%" height="100%" fill="#0d1117" rx="14"/>
+  <rect x="12" y="12" width="876" height="196" rx="10" fill="#010409" stroke="#30363d"/>
+  <text x="24" y="36" font-family="monospace" font-size="14" fill="#8b949e">kavish@github:~$ ./contributions.sh</text>
+  <text x="24" y="78" font-family="monospace" font-size="16" fill="#f85149">Failed to fetch contribution data.</text>
+  <text x="24" y="106" font-family="monospace" font-size="13" fill="#c9d1d9">GitHub returned no contribution cells. The profile might be private, rate-limited, or markup changed.</text>
+  <text x="24" y="146" font-family="monospace" font-size="13" fill="#8b949e">Will retry automatically on next scheduled refresh.</text>
+</svg>

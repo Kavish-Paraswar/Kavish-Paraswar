@@ -1,58 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-label="Experience card">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="566" viewBox="0 0 900 566" role="img" aria-label="Experience card">
   <rect width="100%" height="100%" fill="#0d1117" rx="14" />
-  <rect x="12" y="12" width="876" height="406" rx="10" fill="#010409" stroke="#30363d" />
-  <text x="24" y="36" font-family="monospace" font-size="14" fill="#8b949e">kavish@github:~$ cat experience.log</text>
+  <rect x="12" y="12" width="876" height="542" rx="10" fill="#010409" stroke="#30363d" />
   <style>
-    .company { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; fill: #3fb950; }
-    .role { font-family: 'JetBrains Mono', monospace; font-size: 18px; fill: #c9d1d9; }
-    .bullet { font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #8b949e; }
+    .cmd { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #8b949e; }
+    .company { font-family: 'JetBrains Mono', monospace; font-size: 27px; font-weight: 700; fill: #3fb950; }
+    .rule { font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }
+    .role { font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #e6edf3; }
+    .bullet { font-family: 'JetBrains Mono', monospace; font-size: 18px; fill: #c9d1d9; }
   </style>
-
-  <g opacity="0">
-    <animate attributeName="opacity" begin="0.25s" dur="0.25s" from="0" to="1" fill="freeze" />
-    <text x="34" y="80" class="company">TakeTwo</text>
-    <text x="280" y="80" class="role">AI Software Engineering Intern</text>
-  </g>
-
-  <g opacity="0" transform="translate(0,10)">
-    <animate attributeName="opacity" begin="0.47s" dur="0.22s" from="0" to="1" fill="freeze" />
-    <animateTransform attributeName="transform" type="translate" begin="0.47s" dur="0.22s" from="0 10" to="0 0" fill="freeze" />
-    <text x="52" y="114" class="bullet">• Built AI-powered features for a production video generation platform</text>
-  </g>
-
-  <g opacity="0" transform="translate(0,10)">
-    <animate attributeName="opacity" begin="0.69s" dur="0.22s" from="0" to="1" fill="freeze" />
-    <animateTransform attributeName="transform" type="translate" begin="0.69s" dur="0.22s" from="0 10" to="0 0" fill="freeze" />
-    <text x="52" y="144" class="bullet">• Improved generation pipelines and product workflows</text>
-  </g>
-
-  <g opacity="0" transform="translate(0,10)">
-    <animate attributeName="opacity" begin="0.91s" dur="0.22s" from="0" to="1" fill="freeze" />
-    <animateTransform attributeName="transform" type="translate" begin="0.91s" dur="0.22s" from="0 10" to="0 0" fill="freeze" />
-    <text x="52" y="174" class="bullet">• Delivered production-ready features across multiple modules</text>
-  </g>
-
-  <g opacity="0">
-    <animate attributeName="opacity" begin="1.13s" dur="0.25s" from="0" to="1" fill="freeze" />
-    <text x="34" y="228" class="company">Barclays</text>
-    <text x="280" y="228" class="role">Software Engineering Intern</text>
-  </g>
-
-  <g opacity="0" transform="translate(0,10)">
-    <animate attributeName="opacity" begin="1.35s" dur="0.22s" from="0" to="1" fill="freeze" />
-    <animateTransform attributeName="transform" type="translate" begin="1.35s" dur="0.22s" from="0 10" to="0 0" fill="freeze" />
-    <text x="52" y="262" class="bullet">• Built an internal deployment monitoring system</text>
-  </g>
-
-  <g opacity="0" transform="translate(0,10)">
-    <animate attributeName="opacity" begin="1.57s" dur="0.22s" from="0" to="1" fill="freeze" />
-    <animateTransform attributeName="transform" type="translate" begin="1.57s" dur="0.22s" from="0 10" to="0 0" fill="freeze" />
-    <text x="52" y="292" class="bullet">• Integrated enterprise APIs across OpenShift environments</text>
-  </g>
-
-  <g opacity="0" transform="translate(0,10)">
-    <animate attributeName="opacity" begin="1.79s" dur="0.22s" from="0" to="1" fill="freeze" />
-    <animateTransform attributeName="transform" type="translate" begin="1.79s" dur="0.22s" from="0 10" to="0 0" fill="freeze" />
-    <text x="52" y="322" class="bullet">• Improved deployment validation efficiency</text>
-  </g>
+  <text x="34" y="38" class="cmd" opacity="0">$ cat experience.log<animate attributeName="opacity" begin="0.00s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="82" class="company" opacity="0">TakeTwo<animate attributeName="opacity" begin="0.25s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="108" class="rule" opacity="0">──────────────<animate attributeName="opacity" begin="0.43s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="138" class="role" opacity="0">AI Software Engineering Intern<animate attributeName="opacity" begin="0.59s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="172" class="bullet" opacity="0">✓ Built production AI video generation features<animate attributeName="opacity" begin="0.77s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="202" class="bullet" opacity="0">✓ Improved generation pipelines<animate attributeName="opacity" begin="0.93s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="232" class="bullet" opacity="0">✓ Reduced costs by 30%<animate attributeName="opacity" begin="1.09s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="262" class="bullet" opacity="0">✓ Reduced inference latency by 40%<animate attributeName="opacity" begin="1.25s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="312" class="company" opacity="0">Barclays<animate attributeName="opacity" begin="1.41s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="338" class="rule" opacity="0">──────────────<animate attributeName="opacity" begin="1.59s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="368" class="role" opacity="0">Software Engineering Intern<animate attributeName="opacity" begin="1.75s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="402" class="bullet" opacity="0">✓ Built internal deployment monitoring system<animate attributeName="opacity" begin="1.93s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="432" class="bullet" opacity="0">✓ Integrated enterprise APIs<animate attributeName="opacity" begin="2.09s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="462" class="bullet" opacity="0">✓ OpenShift monitoring<animate attributeName="opacity" begin="2.25s" dur="0.2s" from="0" to="1" fill="freeze"/></text><text x="34" y="492" class="bullet" opacity="0">✓ Automated deployment validation<animate attributeName="opacity" begin="2.41s" dur="0.2s" from="0" to="1" fill="freeze"/></text>
 </svg>
