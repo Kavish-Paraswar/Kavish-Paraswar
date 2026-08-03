@@ -230,7 +230,7 @@
       class="mono text"
       opacity="0">
 
-      role       software engineer
+      role       software engineer intern
 
       <animate
           attributeName="opacity"
@@ -248,7 +248,7 @@
       class="mono green"
       opacity="0">
 
-      building   ai • backend • open source
+      love to work on   ai • backend • open source
 
       <animate
           attributeName="opacity"
@@ -260,9 +260,7 @@
 
   </text>
 
-  <!-- Ready prompt -->
-
-  <text
+  <!-- <text
       x="510"
       y="400"
       class="mono green"
@@ -278,29 +276,8 @@
           to="1"
           fill="freeze"/>
 
-  </text>
+  </text> -->
 
-  <!-- Final Prompt -->
-
-  <text
-      x="40"
-      y="430"
-      class="mono title"
-      opacity="0">
-
-      kavish@github:~$
-
-      <animate
-          attributeName="opacity"
-          begin="4.55s"
-          dur="0.01s"
-          from="0"
-          to="1"
-          fill="freeze"/>
-
-  </text>
-
-  <!-- Blinking Cursor -->
 
   <rect
       x="235"
