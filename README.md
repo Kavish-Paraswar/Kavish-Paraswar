@@ -5,21 +5,24 @@
 <br/>
 
 <p align="center">
-  <a href="./assets/resume.pdf"><img src="./assets/resume-button.svg" alt="Download Resume" /></a>
+  <a href="./assets/resume.pdf">
+    <img src="./assets/resume-button.svg" width="250" alt="Download Resume" />
+  </a>
 </p>
 
+<br/><br/>
+
+<!-- <img src="./assets/heatmap.svg" width="100%" alt="Custom contributions heatmap" /> -->
+
+<div align="center">
+  <img src="./assets/ascii.svg" width="780" alt="ASCII portrait" />
+</div>
+
 <br/>
 
-<!-- <img src="./assets/heatmap.svg" width="100%" alt="Custom contributions heatmap" />  -->
-
-<br/>
-
-<table width="100%">
-  <tr>
-    <td width="50%" valign="top"><img src="./assets/ascii.svg" width="100%" alt="ASCII portrait" /></td>
-    <td width="50%" valign="top"><img src="./assets/info-card.svg" width="100%" alt="Neofetch profile card" /></td>
-  </tr>
-</table>
+<div align="center">
+  <img src="./assets/info-card.svg" width="780" alt="Neofetch profile card" />
+</div>
 
 <br/>
 
@@ -31,22 +34,19 @@
 
 <br/>
 
-<p>
-  <img src="https://streak-stats.demolab.com?user=Kavish-Paraswar" alt="GitHub Streak" />
-</p>
+<img src="./assets/git-stats.svg" width="100%" alt="Git Statistics" />
 
 <br/>
 
 <p align="center">
-  <img src="./assets/badges/badge-01.svg" width="160" alt="Badge 01" />
-  <img src="./assets/badges/badge-02.svg" width="160" alt="Badge 02" />
-  <img src="./assets/badges/badge-03.svg" width="160" alt="Badge 03" />
-  <img src="./assets/badges/badge-04.svg" width="160" alt="Badge 04" />
-  <img src="./assets/badges/badge-05.svg" width="160" alt="Badge 05" />
-  <img src="./assets/badges/badge-06.svg" width="160" alt="Badge 06" />
-  <!-- <img src="./assets/badges/badge-07.svg" width="160" alt="Badge 07" /> -->
-  <img src="./assets/badges/badge-08.svg" width="160" alt="Badge 08" />
-  <img src="./assets/badges/badge-09.svg" width="160" alt="Badge 09" />
+  <img src="./assets/badges/badge-01.svg" width="150" alt="Badge 01" />
+  <img src="./assets/badges/badge-02.svg" width="150" alt="Badge 02" />
+  <img src="./assets/badges/badge-03.svg" width="150" alt="Badge 03" />
+  <img src="./assets/badges/badge-04.svg" width="150" alt="Badge 04" />
+  <img src="./assets/badges/badge-05.svg" width="150" alt="Badge 05" />
+  <img src="./assets/badges/badge-06.svg" width="150" alt="Badge 06" />
+  <img src="./assets/badges/badge-08.svg" width="150" alt="Badge 08" />
+  <img src="./assets/badges/badge-09.svg" width="150" alt="Badge 09" />
 </p>
 
 <br/>
@@ -64,5 +64,5 @@
 <br/>
 
 <p align="center">
-  <img src="./assets/snake/snake.svg" alt="Snake animation" />
+  <img src="./assets/snake/snake.svg" width="100%" alt="Snake animation" />
 </p>
