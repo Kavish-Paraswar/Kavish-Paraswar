@@ -18,9 +18,9 @@
 
 <br/>
 
-<div align="center">
+<!-- <div align="center">
   <img src="./assets/info-card.svg" width="780" alt="Neofetch profile card" />
-</div>
+</div> -->
 
 <br/><br/>
 
