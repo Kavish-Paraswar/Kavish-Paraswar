@@ -7,6 +7,13 @@
     .ascii { font-family: 'JetBrains Mono', monospace; font-size: 9.4px; fill: #e6edf3; letter-spacing: 0.08px; }
   </style>
 
+  <animate
+    id="loop"
+    attributeName="visibility"
+    from="visible"
+    to="visible"
+    begin="0s;loop.end"
+    dur="8s"/>
   <text x="30" y="44" class="boot" opacity="0">$ ./load-profile<animate attributeName="opacity" begin="0s" dur="0.01s" from="0" to="1" fill="freeze"/></text>
   <text x="30" y="70" class="boot" opacity="0">Generating ASCII...<animate attributeName="opacity" begin="1.80s" dur="0.01s" from="0" to="1" fill="freeze"/></text>
   <text x="30" y="94" class="done" opacity="0">████████████████████<animate attributeName="opacity" begin="2.18s" dur="0.15s" from="0" to="1" fill="freeze"/></text>
