@@ -43,15 +43,14 @@
 <br/><br/>
 
 <p align="center">
-  <img src="./assets/achievements.svg" width="100%" alt="Achievements" />
-</p>
-
-<p align="center">
   <img src="./assets/badges/badge-01.svg" width="145" alt="Badge 01" />
   <img src="./assets/badges/badge-02.svg" width="145" alt="Badge 02" />
   <img src="./assets/badges/badge-03.svg" width="145" alt="Badge 03" />
   <img src="./assets/badges/badge-04.svg" width="145" alt="Badge 04" />
   <img src="./assets/badges/badge-05.svg" width="145" alt="Badge 05" />
+</p>
+
+<p align="center">
   <img src="./assets/badges/badge-06.svg" width="145" alt="Badge 06" />
   <img src="./assets/badges/badge-08.svg" width="145" alt="Badge 08" />
   <img src="./assets/badges/badge-09.svg" width="145" alt="Badge 09" />
