@@ -279,21 +279,25 @@
   </text> -->
 
 
-  <rect
-      x="235"
-      y="414"
-      width="12"
-      height="20"
-      class="cursor"
-      opacity="1">
+<text
+    x="615"
+    y="404"
+    class="mono green"
+    opacity="0">█
 
-      <animate
-          attributeName="opacity"
-          values="1;0;1"
-          begin="4.65s"
-          dur="0.9s"
-          repeatCount="indefinite"/>
+    <set
+        attributeName="opacity"
+        to="1"
+        begin="4.4s"
+        fill="freeze"/>
 
-  </rect>
+    <animate
+        attributeName="opacity"
+        values="1;0;1"
+        begin="4.4s"
+        dur="0.8s"
+        repeatCount="indefinite"/>
+
+</text>
 
 </svg>
