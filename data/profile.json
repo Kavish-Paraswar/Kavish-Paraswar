@@ -133,10 +133,16 @@
     }
   ],
   "achievements": [
-    {"icon": "🥇", "text": "Winner of CodeMania 6.0 and Codeverse 2k26 Contests"},
-    {"icon": "📊", "text": "Secured AIR 71 (Starters 215) and AIR 168 (Starters 214) among 30,000 participants on CodeChef"},
-    {"icon": "⭐", "text": "CodeChef (Max Rating 1604) · Codeforces (Max Rating 1414)"},
-    {"icon": "🎓", "text": "Amazon ML Summer School Participant · Flipkart GRID 8.0 Semifinalist"}
+    {
+      "name": "Amazon ML Summer School",
+      "subtitle": "Participant · ML & AI Systems",
+      "icon": "https://api.iconify.design/simple-icons:amazon.svg"
+    },
+    {
+      "name": "Flipkart GRID 8.0",
+      "subtitle": "Semifinalist · National AI Hackathon",
+      "icon": "https://api.iconify.design/simple-icons:flipkart.svg"
+    }
   ],
   "coding": {
     "LeetCode": {

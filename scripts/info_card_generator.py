@@ -56,48 +56,53 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 
 def build_achievements(profile: dict) -> str:
-    """Card-style achievements section from resume."""
+    """Card-style achievements section matching coding-profiles boxes layout."""
     achievements = profile.get("achievements", [])
     PAD = 40
-    y = 82
+    CARD_W = 395
+    CARD_H = 120
+    GAP = 34
+    ICON_SIZE = 44
+
+    cards: list[str] = []
     t = 0.15
 
-    elements: list[str] = []
-    for ach in achievements:
-        icon = ach["icon"]
-        text = esc(ach["text"])
+    for idx, ach in enumerate(achievements):
+        cx = PAD + idx * (CARD_W + GAP)
+        cy = 76
 
-        # Wrap long lines
-        if len(text) > 75:
-            wrap_at = text.rfind(" ", 0, 75)
-            if wrap_at == -1:
-                wrap_at = 75
-            line1 = text[:wrap_at]
-            line2 = text[wrap_at:].lstrip()
+        name = ach.get("name", "")
+        subtitle = ach.get("subtitle", "")
+        icon_url = ach.get("icon", "")
 
-            elements.append(
-                f'<g opacity="0"><animate attributeName="opacity" begin="{t:.2f}s" '
-                f'dur="0.12s" from="0" to="1" fill="freeze"/>'
-                f'<rect x="{PAD - 4}" y="{y - 16}" width="830" height="48" rx="8" '
-                f'fill="#0d1117" stroke="#21262d"/>'
-                f'<text x="{PAD + 8}" y="{y + 2}" class="ach">{icon}  {line1}</text>'
-                f'<text x="{PAD + 30}" y="{y + 22}" class="ach">{line2}</text>'
-                f'</g>'
-            )
-            y += 60
-        else:
-            elements.append(
-                f'<g opacity="0"><animate attributeName="opacity" begin="{t:.2f}s" '
-                f'dur="0.12s" from="0" to="1" fill="freeze"/>'
-                f'<rect x="{PAD - 4}" y="{y - 16}" width="830" height="36" rx="8" '
-                f'fill="#0d1117" stroke="#21262d"/>'
-                f'<text x="{PAD + 8}" y="{y + 5}" class="ach">{icon}  {text}</text>'
-                f'</g>'
-            )
-            y += 48
-        t += 0.1
+        color_override = "#3fb950" if "amazon" in icon_url else "#FF9900" if "flipkart" in icon_url else "#e6edf3"
+        data_uri = to_data_uri(icon_url, color_override=color_override)
 
-    height = y + 20
+        icon_x = cx + 24
+        icon_y = cy + (CARD_H - ICON_SIZE) // 2
+
+        icon_markup = (
+            f'<image href="{data_uri}" x="{icon_x}" y="{icon_y}" '
+            f'width="{ICON_SIZE}" height="{ICON_SIZE}"/>'
+            if data_uri
+            else ""
+        )
+
+        text_x = cx + 82
+
+        cards.append(
+            f'<g class="card-group" opacity="0">'
+            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
+            f'<rect x="{cx}" y="{cy}" width="{CARD_W}" height="{CARD_H}" rx="10" '
+            f'class="card-bg"/>'
+            f'{icon_markup}'
+            f'<text x="{text_x}" y="{cy + 50}" class="title">{esc(name)}</text>'
+            f'<text x="{text_x}" y="{cy + 76}" class="subtitle">{esc(subtitle)}</text>'
+            f'</g>'
+        )
+        t += 0.15
+
+    height = 76 + CARD_H + 28
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Achievements">
@@ -106,10 +111,13 @@ def build_achievements(profile: dict) -> str:
   {traffic_dots(42, 40)}
   <text x="{PAD}" y="62" class="prompt">$ cat achievements.log</text>
   <style>
-    .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
-    .ach    {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }}
+    .prompt    {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .card-bg   {{ fill: #0d1117; stroke: #21262d; stroke-width: 1.5; transition: all 0.2s ease; }}
+    .title     {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
+    .subtitle  {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }}
+    .card-group:hover .card-bg {{ stroke: #3fb950; fill: #161b22; }}
   </style>
-  {''.join(elements)}
+  {''.join(cards)}
 </svg>'''
 
 
