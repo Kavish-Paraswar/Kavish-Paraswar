@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Generate premium tech stack SVG with Base64 icons, text labels, and GitHub green glow."""
+"""Generate premium tech stack SVG with Icon on top and label directly underneath.
+
+Self-contained Base64 icons, centered monospace labels underneath every icon,
+subtle green glow filter on GitHub icon, 9 complete resume-driven categories,
+dynamic height calculation.
+"""
 
 from __future__ import annotations
 
@@ -14,7 +19,6 @@ PROFILE_PATH = ROOT / "data" / "profile.json"
 OUTPUT_PATH = ROOT / "assets" / "tech-stack.svg"
 
 DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
-
 _ICON_CACHE: dict[str, str] = {}
 
 
@@ -49,9 +53,10 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 def build_svg(profile: dict) -> str:
     tech_stack = profile["tech_stack"]
-    PAD = 40
-    ICON_SIZE = 28
-    ICON_GAP = 36
+    PAD_LEFT = 40
+    COL_WIDTH = 120
+    ICON_SIZE = 32
+    MAX_PER_ROW = 6
 
     elements: list[str] = []
     y = 80
@@ -67,46 +72,61 @@ def build_svg(profile: dict) -> str:
     </filter>
   </defs>'''
 
-    for cat_name, cat_data in tech_stack.items():
-        items = cat_data["items"]
-        icons = cat_data.get("icons", [])
-
-        # Category Header
+    for cat_name, items in tech_stack.items():
+        # Category Title
         elements.append(
-            f'<text x="{PAD}" y="{y}" class="cat" opacity="0">{esc(cat_name)}'
+            f'<text x="{PAD_LEFT}" y="{y}" class="cat" opacity="0">{esc(cat_name)}'
             f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" '
             f'from="0" to="1" fill="freeze"/></text>'
         )
         t += 0.08
-        y += 8
+        y += 18
 
-        # Icons row
-        ix = PAD
-        for icon_url in icons:
+        # Render items in grid: Icon on top, label directly under it
+        row_idx = 0
+        col_idx = 0
+        for item in items:
+            name = item["name"]
+            icon_url = item["icon"]
             data_uri = to_data_uri(icon_url)
+
+            cell_x = PAD_LEFT + col_idx * COL_WIDTH
+            cell_y = y + row_idx * 72
+            icon_x = cell_x + (COL_WIDTH - ICON_SIZE) // 2
+            text_x = cell_x + COL_WIDTH // 2
+            text_y = cell_y + ICON_SIZE + 18
+
+            is_github = "github" in name.lower() or ("github" in icon_url.lower() and "gitlab" not in icon_url.lower())
+            filt = ' filter="url(#greenGlow)"' if is_github else ""
+
             if data_uri:
-                is_github = "github" in icon_url.lower() and "gitlab" not in icon_url.lower()
-                filt = ' filter="url(#greenGlow)"' if is_github else ""
                 elements.append(
-                    f'<image href="{data_uri}" x="{ix}" y="{y}" '
-                    f'width="{ICON_SIZE}" height="{ICON_SIZE}"{filt} opacity="0">'
+                    f'<g opacity="0">'
                     f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
-                    f'from="0" to="1" fill="freeze"/></image>'
+                    f'from="0" to="1" fill="freeze"/>'
+                    f'<image href="{data_uri}" x="{icon_x}" y="{cell_y}" '
+                    f'width="{ICON_SIZE}" height="{ICON_SIZE}"{filt}/>'
+                    f'<text x="{text_x}" y="{text_y}" class="label" text-anchor="middle">{esc(name)}</text>'
+                    f'</g>'
                 )
-                ix += ICON_GAP
+            else:
+                elements.append(
+                    f'<g opacity="0">'
+                    f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
+                    f'from="0" to="1" fill="freeze"/>'
+                    f'<text x="{text_x}" y="{text_y}" class="label" text-anchor="middle">{esc(name)}</text>'
+                    f'</g>'
+                )
+
+            t += 0.05
+            col_idx += 1
+            if col_idx >= MAX_PER_ROW:
+                col_idx = 0
+                row_idx += 1
+
+        rows_count = row_idx + (1 if col_idx > 0 else 0)
+        y += max(1, rows_count) * 72 + 16
         t += 0.06
-        y += ICON_SIZE + 10
-
-        # Tech item names below icons
-        label_str = "  ·  ".join(items)
-        elements.append(
-            f'<text x="{PAD}" y="{y}" class="label" opacity="0">{esc(label_str)}'
-            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
-            f'from="0" to="1" fill="freeze"/></text>'
-        )
-
-        t += 0.08
-        y += 34
 
     height = y + 20
     inner_h = height - 36
@@ -116,11 +136,11 @@ def build_svg(profile: dict) -> str:
   <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
   {traffic_dots(42, 40)}
   {glow_filter}
-  <text x="{PAD}" y="62" class="prompt">$ cat tech-stack.yml</text>
+  <text x="{PAD_LEFT}" y="62" class="prompt">$ cat tech-stack.yml</text>
   <style>
     .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
     .cat    {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
-    .label  {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }}
+    .label  {{ font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #c9d1d9; }}
   </style>
   {''.join(elements)}
 </svg>'''

@@ -49,80 +49,64 @@
     }
   ],
   "tech_stack": {
-    "Frontend": {
-      "items": ["React", "Next.js", "HTML", "CSS", "TypeScript"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-      ]
-    },
-    "Backend": {
-      "items": ["Node.js", "Flask", "FastAPI", "REST APIs"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
-      ]
-    },
-    "Programming": {
-      "items": ["C", "C++", "Java", "Python", "JavaScript", "TypeScript", "SQL"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-      ]
-    },
-    "AI/ML": {
-      "items": ["RAG", "Deep Learning", "GAN", "Neural Networks", "Generative AI"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-      ]
-    },
-    "Cloud": {
-      "items": ["AWS (Lambda, S3, Elastic Beanstalk)", "Google Cloud"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
-      ]
-    },
-    "DevOps": {
-      "items": ["Docker", "Kubernetes", "OpenShift", "GitLab CI"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
-      ]
-    },
-    "Databases": {
-      "items": ["PostgreSQL", "MySQL"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-      ]
-    },
-    "Observability": {
-      "items": ["Kafka", "Elasticsearch", "Kibana", "Logstash"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"
-      ]
-    },
-    "Tools": {
-      "items": ["Git", "GitHub", "VS Code", "Claude Code", "CodeRabbit"],
-      "icons": [
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-      ]
-    }
+    "Frontend": [
+      {"name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},
+      {"name": "Next.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"},
+      {"name": "HTML", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"},
+      {"name": "CSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"},
+      {"name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"}
+    ],
+    "Backend": [
+      {"name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"},
+      {"name": "Flask", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"},
+      {"name": "FastAPI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"},
+      {"name": "REST APIs", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"}
+    ],
+    "Programming Languages": [
+      {"name": "C", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"},
+      {"name": "C++", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"},
+      {"name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"},
+      {"name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
+      {"name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"},
+      {"name": "SQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg"}
+    ],
+    "AI/ML": [
+      {"name": "RAG", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
+      {"name": "Deep Learning", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"},
+      {"name": "GAN", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"},
+      {"name": "Neural Networks", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"},
+      {"name": "Generative AI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"}
+    ],
+    "Cloud": [
+      {"name": "AWS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"},
+      {"name": "AWS Lambda", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"},
+      {"name": "S3", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"},
+      {"name": "Elastic Beanstalk", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"},
+      {"name": "Google Cloud", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"}
+    ],
+    "DevOps": [
+      {"name": "Docker", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},
+      {"name": "Kubernetes", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg"},
+      {"name": "OpenShift", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg"},
+      {"name": "GitLab CI/CD", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"}
+    ],
+    "Databases": [
+      {"name": "PostgreSQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"},
+      {"name": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"}
+    ],
+    "Observability": [
+      {"name": "Kafka", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"},
+      {"name": "Elasticsearch", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"},
+      {"name": "Kibana", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kibana/kibana-original.svg"},
+      {"name": "Logstash", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/logstash/logstash-original.svg"}
+    ],
+    "Tools": [
+      {"name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},
+      {"name": "GitHub", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"},
+      {"name": "VS Code", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"},
+      {"name": "Claude Code", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
+      {"name": "CodeRabbit", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"}
+    ]
   },
   "projects": [
     {

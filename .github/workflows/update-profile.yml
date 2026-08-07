@@ -36,6 +36,7 @@ jobs:
           python scripts/experience_generator.py
           python scripts/tech_stack_generator.py
           python scripts/footer_generator.py
+          python scripts/resume_button_generator.py
           python scripts/projects_generator.py
 
       - name: Commit generated changes

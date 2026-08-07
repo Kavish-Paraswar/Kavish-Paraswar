@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Render clean light-mode GitHub-style contribution heatmap SVG.
+"""Render clean, properly bounded contribution heatmap SVG.
 
-Light/white terminal card layout with classic GitHub green contribution palette,
-month labels, streak metrics sidebar, and a Less/More legend.
+Heatmap grid with month labels, Less/More legend, and stats tiles positioned
+under the heatmap grid inside the card container boundaries so nothing overflows.
 """
 
 from __future__ import annotations
@@ -101,39 +101,48 @@ def render(data: dict) -> str:
                 )
                 prev_month = current.month
 
-    # Stats sidebar
-    grid_right = GRID_LEFT + total_weeks * (CELL + GAP)
-    stats_x = max(grid_right + 30, 680)
+    # Heatmap grid height
+    grid_bottom = GRID_TOP + 7 * (CELL + GAP) + 16
+
+    # Bottom bar inside card: Legend on Left, Stats Tiles on Right (all inside 864px inner card width)
+    # Legend
+    legend_y = grid_bottom + 12
+    legend_parts = [
+        f'<text x="{GRID_LEFT}" y="{legend_y + 10}" class="legend-text">Less</text>'
+    ]
+    lx = GRID_LEFT + 36
+    for i, color in enumerate(COLORS):
+        legend_parts.append(
+            f'<rect x="{lx + i * 16}" y="{legend_y}" width="{CELL}" '
+            f'height="{CELL}" rx="2" fill="{color}"/>'
+        )
+    legend_parts.append(
+        f'<text x="{lx + len(COLORS) * 16 + 6}" y="{legend_y + 10}" class="legend-text">More</text>'
+    )
+
+    # Stats Section placed cleanly below heatmap grid (x from 420px to 840px inside card)
     total = data.get("total", 0)
     current_streak = data.get("current_streak", 0)
     longest_streak = data.get("longest_streak", 0)
     year = datetime.now().strftime("%Y")
 
-    stats = [
-        f'<text x="{stats_x}" y="90" class="stat-label">Total ({year})</text>',
-        f'<text x="{stats_x}" y="112" class="stat-value">{total}</text>',
-        f'<text x="{stats_x}" y="140" class="stat-label">Current Streak</text>',
-        f'<text x="{stats_x}" y="162" class="stat-value">{current_streak} days</text>',
-        f'<text x="{stats_x}" y="190" class="stat-label">Longest Streak</text>',
-        f'<text x="{stats_x}" y="212" class="stat-value">{longest_streak} days</text>',
+    stat_box_y = grid_bottom - 4
+    stats_markup = [
+        # Stat Tile 1: Total
+        f'<rect x="420" y="{stat_box_y}" width="130" height="42" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
+        f'<text x="485" y="{stat_box_y + 16}" class="stat-lbl" text-anchor="middle">Total ({year})</text>',
+        f'<text x="485" y="{stat_box_y + 34}" class="stat-val" text-anchor="middle">{total}</text>',
+        # Stat Tile 2: Current Streak
+        f'<rect x="562" y="{stat_box_y}" width="130" height="42" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
+        f'<text x="627" y="{stat_box_y + 16}" class="stat-lbl" text-anchor="middle">Current Streak</text>',
+        f'<text x="627" y="{stat_box_y + 34}" class="stat-val" text-anchor="middle">{current_streak} days</text>',
+        # Stat Tile 3: Longest Streak
+        f'<rect x="704" y="{stat_box_y}" width="130" height="42" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
+        f'<text x="769" y="{stat_box_y + 16}" class="stat-lbl" text-anchor="middle">Longest Streak</text>',
+        f'<text x="769" y="{stat_box_y + 34}" class="stat-val" text-anchor="middle">{longest_streak} days</text>',
     ]
 
-    # Legend
-    grid_bottom = GRID_TOP + 7 * (CELL + GAP) + 16
-    legend_parts = [
-        f'<text x="{GRID_LEFT}" y="{grid_bottom + 2}" class="legend-text">Less</text>'
-    ]
-    lx = GRID_LEFT + 40
-    for i, color in enumerate(COLORS):
-        legend_parts.append(
-            f'<rect x="{lx + i * 18}" y="{grid_bottom - 10}" width="{CELL}" '
-            f'height="{CELL}" rx="2" fill="{color}"/>'
-        )
-    legend_parts.append(
-        f'<text x="{lx + len(COLORS) * 18 + 6}" y="{grid_bottom + 2}" class="legend-text">More</text>'
-    )
-
-    height = grid_bottom + 30
+    height = stat_box_y + 42 + 24
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Contribution graph">
@@ -144,14 +153,14 @@ def render(data: dict) -> str:
   <style>
     .prompt      {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #57606a; }}
     .month       {{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #57606a; }}
-    .stat-label  {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #57606a; }}
-    .stat-value  {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #1f883d; font-weight: 700; }}
+    .stat-lbl    {{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #57606a; }}
+    .stat-val    {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #1f883d; font-weight: 700; }}
     .legend-text {{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #57606a; }}
   </style>
   {''.join(month_labels)}
   {''.join(cells)}
-  {''.join(stats)}
   {''.join(legend_parts)}
+  {''.join(stats_markup)}
 </svg>'''
 
 

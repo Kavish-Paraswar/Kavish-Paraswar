@@ -5,16 +5,22 @@
 <br/>
 
 <p align="center">
+  <video src="./assets/misc/pollito.mp4" width="160" autoplay loop muted playsinline style="border-radius: 8px; border: 1px solid #30363d;"></video>
+</p>
+
+<br/>
+
+<p align="center">
   <a href="./assets/resume.pdf">
     <img src="./assets/resume-button.svg" width="200" alt="Download Resume" />
   </a>
   &nbsp;&nbsp;
   <a href="https://github.com/Kavish-Paraswar">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="36" alt="GitHub" />
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="38" alt="GitHub" />
   </a>
   &nbsp;&nbsp;
   <a href="https://linkedin.com/in/kavish-paraswar">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" height="36" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" height="38" alt="LinkedIn" />
   </a>
 </p>
 
