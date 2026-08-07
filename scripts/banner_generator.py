@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Generate the premium terminal hero banner SVG — Warp/Linear inspired."""
+"""Generate the premium terminal hero banner SVG with embedded Pollito GIF beside name."""
 
 from __future__ import annotations
 
-from pathlib import Path
+import base64
 import json
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "data" / "profile.json"
+POLLITO_PATH = ROOT / "assets" / "misc" / "pollito.gif"
 OUTPUT_PATH = ROOT / "assets" / "banner.svg"
 
 DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
@@ -15,6 +17,13 @@ DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
 
 def load_profile() -> dict:
     return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
+
+
+def get_pollito_b64() -> str:
+    if not POLLITO_PATH.exists():
+        return ""
+    encoded = base64.b64encode(POLLITO_PATH.read_bytes()).decode("ascii")
+    return f"data:image/gif;base64,{encoded}"
 
 
 def esc(text: str) -> str:
@@ -60,7 +69,25 @@ def build_svg(profile: dict) -> str:
     # Greeting & Name
     elements.append(anim_line("Hey,", PAD, y, 1.40, "greeting"))
     y += 40
-    elements.append(anim_line("I'm Kavish Paraswar.", PAD, y, 1.60, "name"))
+
+    # "I'm Kavish Paraswar." + Pollito GIF beside it
+    name_baseline = y
+    elements.append(anim_line("I'm Kavish Paraswar.", PAD, name_baseline, 1.60, "name"))
+
+    pollito_b64 = get_pollito_b64()
+    if pollito_b64:
+        # 30px font baseline is at name_baseline. Text height ~30px (baseline - 25px to baseline + 5px).
+        # Center of text = name_baseline - 10. For a 75px high GIF, y_pos = name_baseline - 10 - 37.5 = name_baseline - 48.
+        gif_x = PAD + 375  # ~20px horizontal spacing after "I'm Kavish Paraswar."
+        gif_y = name_baseline - 48
+        gif_h = 75
+        elements.append(
+            f'<g opacity="0">'
+            f'<animate attributeName="opacity" begin="1.60s" dur="0.15s" from="0" to="1" fill="freeze"/>'
+            f'<image href="{pollito_b64}" x="{gif_x}" y="{gif_y}" height="{gif_h}" preserveAspectRatio="xMidYMid meet" style="border-radius: 6px;"/>'
+            f'</g>'
+        )
+
     y += 52
 
     # Subtitle
