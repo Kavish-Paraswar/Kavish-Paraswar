@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Generate premium tech stack SVG with 20% enlarged Base64 icons and centered text labels.
-
-Icons enlarged to 38x38px, labels centered underneath every icon, 9 complete categories,
-subtle green glow filter on GitHub icon, dynamic height calculation.
-"""
+"""Generate premium tech stack SVG with 25% enlarged Base64 icons (40x40px) and centered labels."""
 
 from __future__ import annotations
 
@@ -53,15 +49,14 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 def build_svg(profile: dict) -> str:
     tech_stack = profile["tech_stack"]
     PAD_LEFT = 40
-    COL_WIDTH = 130
-    ICON_SIZE = 38  # Increased icon size by 20%
+    COL_WIDTH = 135
+    ICON_SIZE = 40  # Enlarged icon size by 25%
     MAX_PER_ROW = 6
 
     elements: list[str] = []
     y = 80
     t = 0.15
 
-    # Filter for GitHub icon green glow
     glow_filter = '''<defs>
     <filter id="greenGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
@@ -79,9 +74,8 @@ def build_svg(profile: dict) -> str:
             f'from="0" to="1" fill="freeze"/></text>'
         )
         t += 0.08
-        y += 20
+        y += 22
 
-        # Render items in grid: 38x38 Icon on top, label directly under it
         row_idx = 0
         col_idx = 0
         for item in items:
@@ -90,10 +84,10 @@ def build_svg(profile: dict) -> str:
             data_uri = to_data_uri(icon_url)
 
             cell_x = PAD_LEFT + col_idx * COL_WIDTH
-            cell_y = y + row_idx * 78
+            cell_y = y + row_idx * 82
             icon_x = cell_x + (COL_WIDTH - ICON_SIZE) // 2
             text_x = cell_x + COL_WIDTH // 2
-            text_y = cell_y + ICON_SIZE + 20
+            text_y = cell_y + ICON_SIZE + 22
 
             is_github = "github" in name.lower() or ("github" in icon_url.lower() and "gitlab" not in icon_url.lower())
             filt = ' filter="url(#greenGlow)"' if is_github else ""
@@ -124,7 +118,7 @@ def build_svg(profile: dict) -> str:
                 row_idx += 1
 
         rows_count = row_idx + (1 if col_idx > 0 else 0)
-        y += max(1, rows_count) * 78 + 18
+        y += max(1, rows_count) * 82 + 18
         t += 0.06
 
     height = y + 20

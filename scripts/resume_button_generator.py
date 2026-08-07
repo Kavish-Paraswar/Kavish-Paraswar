@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate terminal-styled action button SVG for Resume download."""
+"""Generate terminal action button SVG for Resume download."""
 
 from __future__ import annotations
 
@@ -10,17 +10,17 @@ OUTPUT_PATH = ROOT / "assets" / "resume-button.svg"
 
 
 def build_svg() -> str:
-    return '''<svg xmlns="http://www.w3.org/2000/svg" width="220" height="44" viewBox="0 0 220 44" role="img" aria-label="Download Resume terminal button">
+    return '''<svg xmlns="http://www.w3.org/2000/svg" width="210" height="40" viewBox="0 0 210 40" role="img" aria-label="Cat resume.pdf terminal button">
   <rect width="100%" height="100%" fill="#0d1117" rx="8" stroke="#30363d" stroke-width="1.5"/>
-  <rect x="2" y="2" width="216" height="40" rx="6" fill="#010409"/>
+  <rect x="2" y="2" width="206" height="36" rx="6" fill="#010409"/>
   <style>
     .prompt { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }
-    .label  { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; font-weight: 700; }
-    .arrow  { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; }
+    .cmd    { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; font-weight: 600; }
+    .icon   { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; font-weight: 700; }
   </style>
-  <text x="16" y="26" class="prompt">$</text>
-  <text x="30" y="26" class="label">./resume.sh</text>
-  <text x="184" y="26" class="arrow">↓</text>
+  <text x="14" y="24" class="prompt">$</text>
+  <text x="28" y="24" class="cmd">cat resume.pdf</text>
+  <text x="180" y="24" class="icon">↓</text>
 </svg>'''
 
 

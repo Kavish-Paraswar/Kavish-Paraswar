@@ -2,61 +2,37 @@
   <img src="./assets/banner.svg" width="100%" alt="Animated terminal banner" />
 </div>
 
-<br/>
-
 <p align="center">
-  <a href="./assets/resume.pdf" style="text-decoration:none;"><img src="./assets/resume-button.svg" height="42" alt="Download Resume" /></a>
-  &nbsp;&nbsp;
-  <img src="./assets/misc/pollito.gif" height="42" alt="Pollito terminal gif" style="border-radius:6px; vertical-align:middle;" />
-  &nbsp;&nbsp;
-  <a href="https://github.com/Kavish-Paraswar" style="text-decoration:none;"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="42" alt="GitHub" /></a>
-  &nbsp;&nbsp;
-  <a href="https://linkedin.com/in/kavish-paraswar" style="text-decoration:none;"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" height="42" alt="LinkedIn" /></a>
+  <a href="./assets/resume.pdf" style="text-decoration: none;"><img src="./assets/resume-button.svg" height="40" alt="Download Resume" style="vertical-align: middle;" /></a>&nbsp;&nbsp;&nbsp;<img src="./assets/misc/pollito.gif" height="40" alt="Pollito" style="border-radius: 6px; vertical-align: middle;" />&nbsp;&nbsp;&nbsp;<a href="https://github.com/Kavish-Paraswar" style="text-decoration: none;"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="40" alt="GitHub" style="vertical-align: middle;" /></a>&nbsp;&nbsp;&nbsp;<a href="https://linkedin.com/in/kavish-paraswar" style="text-decoration: none;"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" height="40" alt="LinkedIn" style="vertical-align: middle;" /></a>
 </p>
-
-<br/>
 
 <p align="center">
   <img src="./assets/experience.svg" width="100%" alt="Experience timeline" />
 </p>
 
-<br/>
-
 <p align="center">
   <img src="./assets/tech-stack.svg" width="100%" alt="Tech stack" />
 </p>
-
-<br/>
 
 <p align="center">
   <img src="./assets/git-stats.svg" width="100%" alt="Contribution graph" />
 </p>
 
-<br/>
-
 <p align="center">
   <img src="./assets/projects.svg" width="100%" alt="Featured projects" />
 </p>
-
-<br/>
 
 <p align="center">
   <img src="./assets/achievements.svg" width="100%" alt="Achievements" />
 </p>
 
-<br/>
-
 <p align="center">
   <img src="./assets/coding.svg" width="100%" alt="Coding profiles" />
 </p>
 
-<br/>
-
 <p align="center">
   <img src="./assets/currently.svg" width="100%" alt="Current focus" />
 </p>
-
-<br/>
 
 <p align="center">
   <img src="./assets/badges/badge-01.svg" width="145" alt="Badge 01" />
@@ -72,13 +48,9 @@
   <img src="./assets/badges/badge-09.svg" width="145" alt="Badge 09" />
 </p>
 
-<br/>
-
 <p align="center">
   <img src="./assets/snake/snake.svg" width="100%" alt="Snake animation" />
 </p>
-
-<br/>
 
 <p align="center">
   <img src="./assets/footer.svg" width="100%" alt="Terminal Footer" />
