@@ -1,87 +1,39 @@
 #!/usr/bin/env python3
-"""Generate animated tech stack SVG with icons embedded as base64 data URIs.
+"""Generate premium tech stack SVG with base64-embedded icons and text labels.
 
-GitHub renders README images (including this SVG) via a plain <img> tag.
-Browsers treat an SVG loaded through <img> as a sandboxed image: it is not
-allowed to fetch further external resources, so any <image href="https://...">
-pointing at an outside URL (jsdelivr, etc.) renders as a broken icon even
-though the SVG itself loads fine. The fix is to inline every icon as a
-base64 data URI at generation time so the SVG is fully self-contained.
+All 9 categories from resume. Icons are downloaded and inlined as data URIs.
+GitHub icon gets a subtle green glow filter. Layout auto-sizes height.
 """
 
 from __future__ import annotations
 
 import base64
+import json
 from pathlib import Path
 
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
+PROFILE_PATH = ROOT / "data" / "profile.json"
 OUTPUT_PATH = ROOT / "assets" / "tech-stack.svg"
 
-CATEGORIES = [
-    (
-        "Cloud",
-        ["https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"],
-    ),
-    (
-        "Frontend",
-        [
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
-        ],
-    ),
-    (
-        "Backend",
-        ["https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"],
-    ),
-    (
-        "Languages",
-        [
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-        ],
-    ),
-    (
-        "Database",
-        [
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-        ],
-    ),
-    (
-        "AI/ML",
-        ["https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"],
-    ),
-    (
-        "Tools",
-        [
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-        ],
-    ),
-]
+DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
 
 _ICON_CACHE: dict[str, str] = {}
 
+# Icons that should get the green glow
+GLOW_URLS = {"github"}
+
+
+def load_profile() -> dict:
+    return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
+
 
 def to_data_uri(url: str) -> str:
-    """Download an icon once and return it as an inline base64 data URI."""
     if url in _ICON_CACHE:
         return _ICON_CACHE[url]
     try:
-        resp = requests.get(url, timeout=10)
+        resp = requests.get(url, timeout=15)
         resp.raise_for_status()
         encoded = base64.b64encode(resp.content).decode("ascii")
         data_uri = f"data:image/svg+xml;base64,{encoded}"
@@ -91,46 +43,110 @@ def to_data_uri(url: str) -> str:
     return data_uri
 
 
-def render_category(name: str, icons: list[str], y: int, begin: float) -> str:
-    parts = [
-        f"<g opacity='0'><animate attributeName='opacity' begin='{begin:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/>",
-        f"<text x='36' y='{y}' class='cat'>{name}</text>",
-        f"<text x='36' y='{y + 22}' class='arrow'>\u2193</text>",
-    ]
-    x = 84
-    for icon in icons:
-        data_uri = to_data_uri(icon)
-        if data_uri:
-            parts.append(f"<image href='{data_uri}' x='{x}' y='{y + 2}' width='34' height='34'/>")
-        x += 42
-    parts.append("</g>")
-    return "".join(parts)
+def traffic_dots(cx_start: int, cy: int) -> str:
+    return "".join(
+        f'<circle cx="{cx_start + i * 20}" cy="{cy}" r="6" fill="{c}"/>'
+        for i, c in enumerate(DOT_COLORS)
+    )
 
 
-def build_svg() -> str:
-    y = 72
-    begin = 0.2
-    blocks = []
-    for name, icons in CATEGORIES:
-        blocks.append(render_category(name, icons, y, begin))
-        y += 48
-        begin += 0.26
+def build_svg(profile: dict) -> str:
+    tech_stack = profile["tech_stack"]
+    PAD = 40
+    ICON_SIZE = 28
+    ICON_GAP = 38
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img" aria-label="Tech stack categories">
-  <rect width="100%" height="100%" fill="#0d1117" rx="14"/>
-  <rect x="12" y="12" width="876" height="406" rx="10" fill="#010409" stroke="#30363d"/>
-  <text x="24" y="36" class="cmd">$ ./tech-stack</text>
+    elements: list[str] = []
+    y = 80
+    t = 0.15
+
+    # Glow filter for GitHub icon
+    glow_filter = '''<defs>
+    <filter id="greenGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.247  0 0 0 0 0.725  0 0 0 0 0.314  0 0 0 0.5 0" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>'''
+
+    for cat_name, cat_data in tech_stack.items():
+        items = cat_data["items"]
+        icons = cat_data.get("icons", [])
+
+        # Category label
+        elements.append(
+            f'<text x="{PAD}" y="{y}" class="cat" opacity="0">{cat_name}'
+            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" '
+            f'from="0" to="1" fill="freeze"/></text>'
+        )
+        t += 0.08
+        y += 8
+
+        # Icons row
+        ix = PAD
+        for icon_url in icons:
+            data_uri = to_data_uri(icon_url)
+            if data_uri:
+                is_github = "github" in icon_url.lower() and "gitlab" not in icon_url.lower()
+                filt = ' filter="url(#greenGlow)"' if is_github else ""
+                elements.append(
+                    f'<image href="{data_uri}" x="{ix}" y="{y}" '
+                    f'width="{ICON_SIZE}" height="{ICON_SIZE}"{filt} opacity="0">'
+                    f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
+                    f'from="0" to="1" fill="freeze"/></image>'
+                )
+                ix += ICON_GAP
+        t += 0.06
+        y += ICON_SIZE + 8
+
+        # Text labels row - wrap if needed
+        label_str = "  ".join(items)
+        if len(label_str) > 80:
+            mid = len(items) // 2
+            row1 = "  ".join(items[:mid])
+            row2 = "  ".join(items[mid:])
+            elements.append(
+                f'<text x="{PAD}" y="{y}" class="label" opacity="0">{row1}'
+                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
+                f'from="0" to="1" fill="freeze"/></text>'
+            )
+            y += 20
+            elements.append(
+                f'<text x="{PAD}" y="{y}" class="label" opacity="0">{row2}'
+                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
+                f'from="0" to="1" fill="freeze"/></text>'
+            )
+        else:
+            elements.append(
+                f'<text x="{PAD}" y="{y}" class="label" opacity="0">{label_str}'
+                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
+                f'from="0" to="1" fill="freeze"/></text>'
+            )
+
+        t += 0.08
+        y += 32
+
+    height = y + 20
+    inner_h = height - 36
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Tech stack">
+  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+  <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
+  {traffic_dots(42, 40)}
+  {glow_filter}
+  <text x="{PAD}" y="62" class="prompt">$ cat tech-stack.yml</text>
   <style>
-    .cmd {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #8b949e; }}
-    .cat {{ font-family: 'JetBrains Mono', monospace; font-size: 18px; fill: #3fb950; font-weight: 700; }}
-    .arrow {{ font-family: 'JetBrains Mono', monospace; font-size: 18px; fill: #8b949e; }}
+    .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .cat    {{ font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #3fb950; font-weight: 700; }}
+    .label  {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #7d8590; }}
   </style>
-  {''.join(blocks)}
-</svg>"""
+  {''.join(elements)}
+</svg>'''
 
 
 def main() -> None:
-    OUTPUT_PATH.write_text(build_svg(), encoding="utf-8")
+    OUTPUT_PATH.write_text(build_svg(load_profile()), encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -6,32 +6,52 @@
 
 <p align="center">
   <a href="./assets/resume.pdf">
-    <img src="./assets/resume-button.svg" width="250" alt="Download Resume" />
+    <img src="./assets/resume-button.svg" width="200" alt="Download Resume" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/Kavish-Paraswar">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="36" alt="GitHub" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://linkedin.com/in/kavish-paraswar">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" height="36" alt="LinkedIn" />
   </a>
 </p>
 
 <br/><br/>
 
-<!-- <div align="center">
-  <img src="./assets/info-card.svg" width="780" alt="Neofetch profile card" />
-</div> -->
-
-<br/><br/>
-
 <p align="center">
-  <img src="./assets/experience.svg" width="100%" alt="Experience terminal card" />
+  <img src="./assets/experience.svg" width="100%" alt="Experience timeline" />
 </p>
 
 <br/><br/>
 
 <p align="center">
-  <img src="./assets/tech-stack.svg" width="100%" alt="Tech stack categories" />
+  <img src="./assets/tech-stack.svg" width="100%" alt="Tech stack" />
 </p>
 
 <br/><br/>
 
 <p align="center">
-  <img src="./assets/git-stats.svg" width="100%" alt="Git Statistics" />
+  <img src="./assets/git-stats.svg" width="100%" alt="Contribution graph" />
+</p>
+
+<br/><br/>
+
+<p align="center">
+  <img src="./assets/projects.svg" width="100%" alt="Featured projects" />
+</p>
+
+<br/><br/>
+
+<p align="center">
+  <img src="./assets/achievements.svg" width="100%" alt="Achievements" />
+</p>
+
+<br/><br/>
+
+<p align="center">
+  <img src="./assets/coding.svg" width="100%" alt="Coding profiles" />
 </p>
 
 <br/><br/>
@@ -48,24 +68,6 @@
   <img src="./assets/badges/badge-06.svg" width="145" alt="Badge 06" />
   <img src="./assets/badges/badge-08.svg" width="145" alt="Badge 08" />
   <img src="./assets/badges/badge-09.svg" width="145" alt="Badge 09" />
-</p>
-
-<br/><br/>
-
-<p align="center">
-  <img src="./assets/projects.svg" width="100%" alt="Featured project cards" />
-</p>
-
-<br/><br/>
-
-<p align="center">
-  <img src="./assets/coding.svg" width="100%" alt="Coding profiles" />
-</p>
-
-<br/><br/>
-
-<p align="center">
-  <img src="./assets/currently.svg" width="100%" alt="Current focus" />
 </p>
 
 <br/><br/>

@@ -1,21 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390" role="img" aria-label="Animated profile boot banner">
-  <rect width="100%" height="100%" fill="#0d1117" rx="18" />
-  <rect x="18" y="18" width="864" height="354" rx="12" fill="#010409" stroke="#30363d" />
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="644" viewBox="0 0 900 644" role="img" aria-label="Animated profile boot banner">
+  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+  <rect x="18" y="18" width="864" height="608" rx="12" fill="#010409" stroke="#21262d"/>
+  <circle cx="42" cy="40" r="6" fill="#f85149"/><circle cx="62" cy="40" r="6" fill="#d29922"/><circle cx="82" cy="40" r="6" fill="#3fb950"/>
   <style>
-    .boot { font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #8b949e; }
-    .cmd { font-family: 'JetBrains Mono', monospace; font-size: 24px; fill: #c9d1d9; }
-    .headline { font-family: 'JetBrains Mono', monospace; font-size: 32px; fill: #e6edf3; font-weight: 700; }
-    .role { font-family: 'JetBrains Mono', monospace; font-size: 23px; fill: #8b949e; }
-    .tag { font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; }
-    .ok { font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; }
+    .prompt { font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #7d8590; }
+    .cmd    { font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }
+    .muted  { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #484f58; }
+    .bar    { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; }
+    .greeting  { font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }
+    .name      { font-family: 'JetBrains Mono', monospace; font-size: 30px; fill: #e6edf3; font-weight: 700; }
+    .subtitle  { font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #8b949e; }
+    .interest  { font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }
+    .focus     { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #484f58; }
+    .ready     { font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #3fb950; font-weight: 700; }
   </style>
-  <circle cx="46" cy="44" r="6" fill="#f85149" opacity="0"><animate attributeName="opacity" begin="0.00s" dur="0.01s" from="0" to="1" fill="freeze"/></circle><circle cx="64" cy="44" r="6" fill="#d29922" opacity="0"><animate attributeName="opacity" begin="0.00s" dur="0.01s" from="0" to="1" fill="freeze"/></circle><circle cx="82" cy="44" r="6" fill="#3fb950" opacity="0"><animate attributeName="opacity" begin="0.00s" dur="0.01s" from="0" to="1" fill="freeze"/></circle>
-  <text x="40" y="80" class="boot" opacity="0">kavish@github:~$<animate attributeName="opacity" begin="0.28s" dur="0.01s" from="0" to="1" fill="freeze"/></text><text x="40" y="112" class="cmd" opacity="0">./init-profile<animate attributeName="opacity" begin="0.55s" dur="0.01s" from="0" to="1" fill="freeze"/></text><text x="40" y="148" class="boot" opacity="0">Loading modules...<animate attributeName="opacity" begin="0.90s" dur="0.01s" from="0" to="1" fill="freeze"/></text><text x="40" y="176" class="ok" opacity="0">████████████████████<animate attributeName="opacity" begin="1.25s" dur="0.01s" from="0" to="1" fill="freeze"/></text><text x="40" y="224" class="headline" opacity="0">I AM KAVISH PARASWAR<animate attributeName="opacity" begin="1.70s" dur="0.01s" from="0" to="1" fill="freeze"/></text><text x="40" y="258" class="role" opacity="0">I work on Backend • Frontend<animate attributeName="opacity" begin="2.00s" dur="0.01s" from="0" to="1" fill="freeze"/></text><text x="40" y="292" class="tag" opacity="0">Python • TypeScript • React • Node.js • PyTorch<animate attributeName="opacity" begin="2.30s" dur="0.01s" from="0" to="1" fill="freeze"/></text><text x="40" y="330" class="ok" opacity="0">Ready.<animate attributeName="opacity" begin="2.60s" dur="0.01s" from="0" to="1" fill="freeze"/></text>
-
-  <rect x="40" y="96" width="12" height="20" fill="#3fb950" opacity="1">
-    <animate attributeName="x" begin="0.55s" dur="2.5s" values="40;228;40;280;120;520;120" fill="freeze" />
-    <animate attributeName="y" begin="0.55s" dur="2.5s" values="96;96;132;132;206;206;350" fill="freeze" />
-    <animate attributeName="opacity" begin="0.55s" dur="0.24s" values="1;0;1" repeatCount="indefinite" />
-    <set attributeName="opacity" to="0" begin="3.15s" />
-  </rect>
+  <text x="40" y="80" class="prompt" opacity="0">kavish@github:~$<animate attributeName="opacity" begin="0.20s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="116" class="cmd" opacity="0">./init-profile<animate attributeName="opacity" begin="0.45s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="160" class="muted" opacity="0">Loading modules...<animate attributeName="opacity" begin="0.75s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="192" class="bar" opacity="0">██████████████████████████<animate attributeName="opacity" begin="1.05s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="244" class="greeting" opacity="0">Hey,<animate attributeName="opacity" begin="1.40s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="288" class="name" opacity="0">I'm Kavish Paraswar.<animate attributeName="opacity" begin="1.60s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="340" class="subtitle" opacity="0">I enjoy building<animate attributeName="opacity" begin="1.85s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="48" y="378" class="interest" opacity="0">• Backend Systems<animate attributeName="opacity" begin="2.00s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="48" y="410" class="interest" opacity="0">• AI-powered Products<animate attributeName="opacity" begin="2.15s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="48" y="442" class="interest" opacity="0">• Production Software<animate attributeName="opacity" begin="2.30s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="48" y="474" class="interest" opacity="0">• Open Source<animate attributeName="opacity" begin="2.45s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="526" class="focus" opacity="0">Currently focused on creating scalable software<animate attributeName="opacity" begin="2.70s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="556" class="focus" opacity="0">that solves real engineering problems.<animate attributeName="opacity" begin="2.85s" dur="0.15s" from="0" to="1" fill="freeze"/></text><text x="40" y="604" class="ready" opacity="0">Ready_<animate attributeName="opacity" begin="3.05s" dur="0.15s" from="0" to="1" fill="freeze"/></text><rect x="118" y="588" width="10" height="20" fill="#3fb950" opacity="0"><animate attributeName="opacity" begin="3.05s" dur="0.01s" from="0" to="1" fill="freeze"/><animate attributeName="opacity" begin="3.1s" dur="1s" values="1;0;1" repeatCount="indefinite"/></rect>
 </svg>

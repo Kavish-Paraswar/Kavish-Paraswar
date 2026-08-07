@@ -1,126 +1,151 @@
 {
   "name": "Kavish Paraswar",
   "title": "Software Engineer",
-  "tagline": "AI • Backend • Open Source",
+  "tagline": "AI · Backend · Open Source",
+  "summary": "Undergraduate CS student specializing in AI with hands-on experience building scalable web applications, contributing to open-source projects and delivering production-ready AI systems.",
   "education": [
-    "B.Tech Computer Science (Artificial Intelligence)",
-    "Vishwakarma Institute Of Technology"
+    {
+      "institution": "Vishwakarma Institute of Technology, Pune",
+      "degree": "BTech in Computer Science (Artificial Intelligence)",
+      "duration": "Aug 2023 – May 2027",
+      "cgpa": "9.32"
+    }
   ],
-  "location": "Pune",
+  "location": "Pune, India",
   "contact": "kavishp9721@gmail.com",
-  "languages": [
-    "Java",
-    "Python",
-    "C++",
-    "JavaScript",
-    "TypeScript"
-  ],
-  "frontend": [
-    "React",
-    "Redux",
-    "Vite"
-  ],
-  "backend": [
-    "Node.js",
-    "FastAPI"
-  ],
-  "database": [
-    "MongoDB",
-    "PostgreSQL",
-    "MySQL"
-  ],
-  "ai": [
-    "PyTorch",
-    "LangChain",
-    "RAG"
-  ],
-  "cloud": [
-    "Google Cloud"
+  "linkedin": "https://linkedin.com/in/kavish-paraswar",
+  "github": "https://github.com/Kavish-Paraswar",
+  "hero_interests": [
+    "Backend Systems",
+    "AI-powered Products",
+    "Production Software",
+    "Open Source"
   ],
   "experience": [
     {
       "company": "TakeTwo",
-      "role": "AI Software Engineering Intern",
+      "url": "https://trytaketwo.app",
+      "role": "AI Intern",
+      "duration": "Jan 2026 – Mar 2026",
       "highlights": [
-        "Built production AI video generation features",
-        "Improved generation pipelines",
-        "Reduced costs by 30%",
-        "Reduced inference latency by 40%"
-      ]
+        "Worked on a production-grade AI video generation platform for the film industry",
+        "Delivered 12+ core features including AI music generator and Canvas-style builder",
+        "Reduced overall costs by 30% through pipeline optimization",
+        "Improved generation latency by 40%"
+      ],
+      "technologies": ["Python", "AI", "Video Generation", "Pipeline Optimization"]
     },
     {
-      "company": "Barclays",
-      "role": "Software Engineering Intern",
+      "company": "GEDIT Coding Club",
+      "url": "",
+      "role": "Web Development Lead",
+      "duration": "May 2024 – May 2025",
       "highlights": [
-        "Built internal deployment monitoring system",
-        "Integrated enterprise APIs",
-        "OpenShift monitoring",
-        "Automated deployment validation"
-      ]
+        "Led a team of 6 developers to design and launch a Next.js Web Platform for 500+ members",
+        "Conducted 4 workshops on DSA, Web Dev and mentored 150+ students",
+        "Improved UI/UX and reduced page load time by 35%"
+      ],
+      "technologies": ["Next.js", "React", "TypeScript", "Performance Optimization"]
     }
   ],
+  "tech_stack": {
+    "Frontend": {
+      "items": ["React", "Next.js", "HTML", "CSS", "TypeScript"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+      ]
+    },
+    "Backend": {
+      "items": ["Node.js", "Flask", "FastAPI", "REST APIs"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+      ]
+    },
+    "Languages": {
+      "items": ["C", "C++", "Java", "Python", "JavaScript", "SQL"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+      ]
+    },
+    "AI / ML": {
+      "items": ["RAG", "Deep Learning", "GAN", "Neural Networks", "Generative AI"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+      ]
+    },
+    "Cloud": {
+      "items": ["AWS Lambda", "S3", "Elastic Beanstalk", "Google Cloud"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
+      ]
+    },
+    "DevOps": {
+      "items": ["Docker", "Kubernetes", "OpenShift", "GitLab CI"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg"
+      ]
+    },
+    "Databases": {
+      "items": ["PostgreSQL", "MySQL"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+      ]
+    },
+    "Observability": {
+      "items": ["Kafka", "Elasticsearch", "Kibana", "Logstash"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"
+      ]
+    },
+    "Tools": {
+      "items": ["Git", "GitHub", "VS Code", "Claude Code", "CodeRabbit"],
+      "icons": [
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+      ]
+    }
+  },
   "projects": [
     {
-      "title": "Yatri Mitra",
-      "description": "Smart travel assistant focused on route planning and local recommendations.",
-      "metrics": [
-        "1k+ itinerary generations",
-        "Sub-2s recommendation latency"
-      ],
-      "stack": [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "AI"
-      ],
+      "title": "Smart Krishi",
+      "description": "AI platform for farmers with 10+ features: crop disease prediction (98.9% accuracy on 61K images), weather forecasting, multilingual voice navigation, and Twilio AI voice call agent.",
+      "metrics": ["98.9% accuracy", "10+ AI features", "Twilio voice agent"],
+      "stack": ["React", "TypeScript", "Flask", "MySQL", "Docker"],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     },
     {
       "title": "Sketch2Face AI",
-      "description": "Transforms rough sketches into realistic face outputs using deep learning.",
-      "metrics": [
-        "85% user preference gain",
-        "Optimized inference workflow"
-      ],
-      "stack": [
-        "Python",
-        "PyTorch",
-        "Computer Vision"
-      ],
-      "github": "https://github.com/Kavish-Paraswar",
-      "demo": ""
-    },
-    {
-      "title": "ClubHub",
-      "description": "Campus community platform for clubs, events, and member collaboration.",
-      "metrics": [
-        "Multi-club event automation",
-        "Streamlined member onboarding"
-      ],
-      "stack": [
-        "React",
-        "FastAPI",
-        "PostgreSQL"
-      ],
-      "github": "https://github.com/Kavish-Paraswar",
-      "demo": ""
-    },
-    {
-      "title": "Resume Builder",
-      "description": "Terminal-inspired resume creator with templates and instant export options.",
-      "metrics": [
-        "Template-driven generation",
-        "Export-ready output"
-      ],
-      "stack": [
-        "TypeScript",
-        "Vite",
-        "Node.js"
-      ],
+      "description": "AI system converting hand-drawn sketches into photorealistic faces using Conditional GAN, fine-tuned on 30K facial images with 95% reconstruction accuracy.",
+      "metrics": ["95% accuracy", "30K training images", "Conditional GAN"],
+      "stack": ["React", "Flask", "Python", "CNN", "GAN"],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     }
+  ],
+  "achievements": [
+    {"icon": "🏆", "text": "Knight on LeetCode — Top 5%, max rating 1869"},
+    {"icon": "🥇", "text": "Winner of CodeMania 6.0 and Codeverse 2k26 contests"},
+    {"icon": "🌐", "text": "40+ merged PRs in GSSOC and Hacktoberfest"},
+    {"icon": "📊", "text": "AIR 71 (Starters 215) and AIR 168 (Starters 214) on CodeChef"},
+    {"icon": "⭐", "text": "3★ CodeChef (max 1604) · Specialist Codeforces (max 1414)"},
+    {"icon": "🎓", "text": "Amazon ML Summer School · Flipkart GRID participant"}
   ],
   "coding": {
     "LeetCode": {
@@ -131,7 +156,7 @@
     "CodeChef": {
       "tier": "3★",
       "max_rating": "1604",
-      "extra": ""
+      "extra": "AIR 71"
     },
     "Codeforces": {
       "tier": "Specialist",
@@ -144,16 +169,5 @@
     "Learning": "Distributed Systems",
     "Reading": "Designing Data Intensive Applications",
     "Open To": "Software Engineering Roles"
-  },
-  "focus_areas": [
-    "Backend",
-    "Frontend"
-  ],
-  "top_skills": [
-    "Python",
-    "TypeScript",
-    "React",
-    "Node.js",
-    "PyTorch"
-  ]
+  }
 }

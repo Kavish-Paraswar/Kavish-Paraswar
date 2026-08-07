@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Generate the premium one-shot terminal boot banner SVG."""
+"""Generate the premium terminal hero banner SVG — Warp/Linear inspired."""
+
+from __future__ import annotations
 
 from pathlib import Path
 import json
@@ -12,71 +14,116 @@ DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
 
 
 def load_profile() -> dict:
-    """Load profile metadata."""
     return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
 
 
-def line(text: str, y: int, begin: float, cls: str = "boot") -> str:
-    """Build an animated boot line."""
+def esc(text: str) -> str:
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def anim_line(text: str, x: int, y: int, begin: float, cls: str) -> str:
+    safe = esc(text)
     return (
-        f"<text x=\"40\" y=\"{y}\" class=\"{cls}\" opacity=\"0\">{text}"
-        f"<animate attributeName=\"opacity\" begin=\"{begin:.2f}s\" dur=\"0.01s\" from=\"0\" to=\"1\" fill=\"freeze\"/></text>"
+        f'<text x="{x}" y="{y}" class="{cls}" opacity="0">{safe}'
+        f'<animate attributeName="opacity" begin="{begin:.2f}s" dur="0.15s" '
+        f'from="0" to="1" fill="freeze"/></text>'
     )
 
 
-def traffic_dots(y: int, begin: float) -> str:
-    """Render the three red/yellow/green terminal window dots as real circles."""
+def traffic_dots(cx_start: int, cy: int) -> str:
     dots = []
     for i, color in enumerate(DOT_COLORS):
-        cx = 46 + i * 18
-        dots.append(
-            f"<circle cx=\"{cx}\" cy=\"{y}\" r=\"6\" fill=\"{color}\" opacity=\"0\">"
-            f"<animate attributeName=\"opacity\" begin=\"{begin:.2f}s\" dur=\"0.01s\" from=\"0\" to=\"1\" fill=\"freeze\"/></circle>"
-        )
+        cx = cx_start + i * 20
+        dots.append(f'<circle cx="{cx}" cy="{cy}" r="6" fill="{color}"/>')
     return "".join(dots)
 
 
 def build_svg(profile: dict) -> str:
-    """Render full banner SVG."""
-    focus = " • ".join(profile.get("focus_areas", []))
-    skills = " • ".join(profile.get("top_skills", []))
+    interests = profile.get("hero_interests", [])
+    name = profile["name"]
 
-    lines = [
-        line("kavish@github:~$", 80, 0.28),
-        line("./init-profile", 112, 0.55, "cmd"),
-        line("Loading modules...", 148, 0.9),
-        line("████████████████████", 176, 1.25, "ok"),
-        line(f"I AM {profile['name'].upper()}", 224, 1.7, "headline"),
-        line(f"I work on {focus}", 258, 2.0, "role"),
-        line(skills, 292, 2.3, "tag"),
-        line("Ready.", 330, 2.6, "ok"),
-    ]
+    PAD = 40
+    elements: list[str] = []
+    y = 80
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390" role="img" aria-label="Animated profile boot banner">
-  <rect width="100%" height="100%" fill="#0d1117" rx="18" />
-  <rect x="18" y="18" width="864" height="354" rx="12" fill="#010409" stroke="#30363d" />
+    # Command prompt
+    elements.append(anim_line("kavish@github:~$", PAD, y, 0.20, "prompt"))
+    y += 36
+
+    # Command
+    elements.append(anim_line("./init-profile", PAD, y, 0.45, "cmd"))
+    y += 44
+
+    # Loading
+    elements.append(anim_line("Loading modules...", PAD, y, 0.75, "muted"))
+    y += 32
+    elements.append(anim_line("██████████████████████████", PAD, y, 1.05, "bar"))
+    y += 52
+
+    # Greeting
+    elements.append(anim_line("Hey,", PAD, y, 1.40, "greeting"))
+    y += 44
+    elements.append(anim_line(f"I'm {name}.", PAD, y, 1.60, "name"))
+    y += 52
+
+    # Subtitle
+    elements.append(anim_line("I enjoy building", PAD, y, 1.85, "subtitle"))
+    y += 38
+
+    # Interest bullets
+    for i, interest in enumerate(interests):
+        elements.append(anim_line(f"• {interest}", PAD + 8, y, 2.0 + i * 0.15, "interest"))
+        y += 32
+
+    y += 20
+    elements.append(anim_line(
+        "Currently focused on creating scalable software",
+        PAD, y, 2.7, "focus"
+    ))
+    y += 30
+    elements.append(anim_line(
+        "that solves real engineering problems.",
+        PAD, y, 2.85, "focus"
+    ))
+    y += 48
+
+    # Ready with blinking cursor
+    elements.append(anim_line("Ready_", PAD, y, 3.05, "ready"))
+
+    # Blinking cursor
+    cursor_x = PAD + 78
+    cursor_y = y - 16
+    elements.append(
+        f'<rect x="{cursor_x}" y="{cursor_y}" width="10" height="20" fill="#3fb950" opacity="0">'
+        f'<animate attributeName="opacity" begin="3.05s" dur="0.01s" from="0" to="1" fill="freeze"/>'
+        f'<animate attributeName="opacity" begin="3.1s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
+        f'</rect>'
+    )
+
+    height = y + 40
+    inner_h = height - 36
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Animated profile boot banner">
+  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+  <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
+  {traffic_dots(42, 40)}
   <style>
-    .boot {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #8b949e; }}
-    .cmd {{ font-family: 'JetBrains Mono', monospace; font-size: 24px; fill: #c9d1d9; }}
-    .headline {{ font-family: 'JetBrains Mono', monospace; font-size: 32px; fill: #e6edf3; font-weight: 700; }}
-    .role {{ font-family: 'JetBrains Mono', monospace; font-size: 23px; fill: #8b949e; }}
-    .tag {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; }}
-    .ok {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; }}
+    .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #7d8590; }}
+    .cmd    {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }}
+    .muted  {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #484f58; }}
+    .bar    {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; }}
+    .greeting  {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }}
+    .name      {{ font-family: 'JetBrains Mono', monospace; font-size: 30px; fill: #e6edf3; font-weight: 700; }}
+    .subtitle  {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #8b949e; }}
+    .interest  {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }}
+    .focus     {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #484f58; }}
+    .ready     {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #3fb950; font-weight: 700; }}
   </style>
-  {traffic_dots(44, 0.0)}
-  {''.join(lines)}
-
-  <rect x="40" y="96" width="12" height="20" fill="#3fb950" opacity="1">
-    <animate attributeName="x" begin="0.55s" dur="2.5s" values="40;228;40;280;120;520;120" fill="freeze" />
-    <animate attributeName="y" begin="0.55s" dur="2.5s" values="96;96;132;132;206;206;350" fill="freeze" />
-    <animate attributeName="opacity" begin="0.55s" dur="0.24s" values="1;0;1" repeatCount="indefinite" />
-    <set attributeName="opacity" to="0" begin="3.15s" />
-  </rect>
-</svg>"""
+  {''.join(elements)}
+</svg>'''
 
 
 def main() -> None:
-    """Build and save the banner SVG."""
     OUTPUT_PATH.write_text(build_svg(load_profile()), encoding="utf-8")
 
 

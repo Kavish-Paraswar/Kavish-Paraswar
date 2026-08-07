@@ -1,140 +1,183 @@
 #!/usr/bin/env python3
-"""Generate animated terminal info, coding, and currently SVG cards."""
+"""Generate achievements, coding profiles, and currently cards."""
+
+from __future__ import annotations
 
 from pathlib import Path
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "data" / "profile.json"
-INFO_PATH = ROOT / "assets" / "info-card.svg"
+ACHIEVEMENTS_PATH = ROOT / "assets" / "achievements.svg"
 CODING_PATH = ROOT / "assets" / "coding.svg"
 CURRENTLY_PATH = ROOT / "assets" / "currently.svg"
 
+DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
+
 
 def load_profile() -> dict:
-    """Load profile content."""
     return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
 
 
-def row(label: str, value: str, y: int, idx: int) -> str:
-    """Create one animated row."""
-    begin = 0.28 + idx * 0.22
-    return f"""
-  <g opacity=\"0\" transform=\"translate(0,12)\">
-    <animate attributeName=\"opacity\" begin=\"{begin}s\" dur=\"0.24s\" from=\"0\" to=\"1\" fill=\"freeze\" />
-    <animateTransform attributeName=\"transform\" type=\"translate\" begin=\"{begin}s\" dur=\"0.24s\" from=\"0 12\" to=\"0 0\" fill=\"freeze\" />
-    <text x=\"28\" y=\"{y}\" class=\"label\">{label}</text>
-    <text x=\"186\" y=\"{y}\" class=\"value\">{value}</text>
-  </g>"""
+def esc(t: str) -> str:
+    return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def build_info(profile: dict) -> str:
-    """Build the whoami info card SVG."""
-    rows = [
-        ("Name", profile["name"]),
-        ("Education", profile["education"][0]),
-        ("", profile["education"][1]),
-        ("Location", profile["location"]),
-        ("Languages", " | ".join(profile["languages"])),
-        ("Frontend", " | ".join(profile["frontend"])),
-        ("Backend", " | ".join(profile["backend"])),
-        ("Database", " | ".join(profile["database"])),
-        ("AI", " | ".join(profile["ai"])),
-        ("Cloud", " | ".join(profile["cloud"])),
-        ("Contact", profile["contact"]),
-    ]
-    body = "\n".join(row(label, value, 78 + i * 32, i) for i, (label, value) in enumerate(rows))
-    return f"""<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"470\" viewBox=\"0 0 900 470\" role=\"img\" aria-label=\"Neofetch style info card\">
-  <rect width=\"100%\" height=\"100%\" fill=\"#0d1117\" rx=\"14\" />
-  <rect x=\"12\" y=\"12\" width=\"876\" height=\"446\" rx=\"10\" fill=\"#010409\" stroke=\"#30363d\" />
-  <text x=\"24\" y=\"36\" font-family=\"monospace\" font-size=\"14\" fill=\"#8b949e\">kavish@github:~$ neofetch</text>
+def traffic_dots(cx_start: int, cy: int) -> str:
+    return "".join(
+        f'<circle cx="{cx_start + i * 20}" cy="{cy}" r="6" fill="{c}"/>'
+        for i, c in enumerate(DOT_COLORS)
+    )
+
+
+def build_achievements(profile: dict) -> str:
+    """Card-style achievements section from resume."""
+    achievements = profile.get("achievements", [])
+    PAD = 40
+    y = 82
+    t = 0.15
+
+    elements: list[str] = []
+    for ach in achievements:
+        icon = ach["icon"]
+        text = esc(ach["text"])
+
+        # Wrap long lines
+        if len(text) > 75:
+            wrap_at = text.rfind(" ", 0, 75)
+            if wrap_at == -1:
+                wrap_at = 75
+            line1 = text[:wrap_at]
+            line2 = text[wrap_at:].lstrip()
+
+            elements.append(
+                f'<g opacity="0"><animate attributeName="opacity" begin="{t:.2f}s" '
+                f'dur="0.12s" from="0" to="1" fill="freeze"/>'
+                f'<rect x="{PAD - 4}" y="{y - 16}" width="830" height="48" rx="8" '
+                f'fill="#0d1117" stroke="#21262d"/>'
+                f'<text x="{PAD + 8}" y="{y + 2}" class="ach">{icon}  {line1}</text>'
+                f'<text x="{PAD + 30}" y="{y + 22}" class="ach">{line2}</text>'
+                f'</g>'
+            )
+            y += 60
+        else:
+            elements.append(
+                f'<g opacity="0"><animate attributeName="opacity" begin="{t:.2f}s" '
+                f'dur="0.12s" from="0" to="1" fill="freeze"/>'
+                f'<rect x="{PAD - 4}" y="{y - 16}" width="830" height="36" rx="8" '
+                f'fill="#0d1117" stroke="#21262d"/>'
+                f'<text x="{PAD + 8}" y="{y + 5}" class="ach">{icon}  {text}</text>'
+                f'</g>'
+            )
+            y += 48
+        t += 0.1
+
+    height = y + 20
+    inner_h = height - 36
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Achievements">
+  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+  <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
+  {traffic_dots(42, 40)}
+  <text x="{PAD}" y="62" class="prompt">$ cat achievements.log</text>
   <style>
-    .label {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
-    .value {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #c9d1d9; }}
+    .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .ach    {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }}
   </style>
-{body}
-</svg>"""
+  {''.join(elements)}
+</svg>'''
 
 
 def build_coding(coding: dict) -> str:
-    """Build requested coding panel output."""
-    entries = [
-        ("LeetCode", coding["LeetCode"]),
-        ("CodeChef", coding["CodeChef"]),
-        ("Codeforces", coding["Codeforces"]),
-    ]
+    """Coding profiles as horizontal cards."""
+    entries = list(coding.items())
+    PAD = 40
+    CARD_W = 260
+    CARD_H = 110
+    GAP = 24
 
-    parts = ["<text x='24' y='36' class='cmd'>$ cat coding.log</text>"]
+    cards: list[str] = []
+    t = 0.15
+    for idx, (name, details) in enumerate(entries):
+        cx = PAD + idx * (CARD_W + GAP)
+        cy = 76
+
+        tier_color = "#3fb950" if "Knight" in details["tier"] or "Specialist" in details["tier"] else "#e6edf3"
+
+        cards.append(
+            f'<g opacity="0"><animate attributeName="opacity" begin="{t:.2f}s" '
+            f'dur="0.15s" from="0" to="1" fill="freeze"/>'
+            f'<rect x="{cx}" y="{cy}" width="{CARD_W}" height="{CARD_H}" rx="10" '
+            f'fill="#0d1117" stroke="#21262d"/>'
+            f'<text x="{cx + 20}" y="{cy + 30}" class="platform">{esc(name)}</text>'
+            f'<text x="{cx + 20}" y="{cy + 55}" class="tier" fill="{tier_color}">{esc(details["tier"])}</text>'
+            f'<text x="{cx + 20}" y="{cy + 76}" class="rating">Max Rating: {details["max_rating"]}</text>'
+            f'<text x="{cx + 20}" y="{cy + 94}" class="extra">{esc(details.get("extra", ""))}</text>'
+            f'</g>'
+        )
+        t += 0.15
+
+    total_w = len(entries) * CARD_W + (len(entries) - 1) * GAP + 2 * PAD
+    width = max(900, total_w)
+    height = 76 + CARD_H + 30
+    inner_h = height - 36
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Coding profiles">
+  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+  <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
+  {traffic_dots(42, 40)}
+  <text x="{PAD}" y="62" class="prompt">$ cat coding-profiles.log</text>
+  <style>
+    .prompt   {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .platform {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
+    .tier     {{ font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; }}
+    .rating   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; }}
+    .extra    {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #7d8590; }}
+  </style>
+  {''.join(cards)}
+</svg>'''
+
+
+def build_currently(currently: dict) -> str:
+    """Compact terminal key-value card."""
+    PAD = 40
     y = 82
-    t = 0.2
-    for index, (name, details) in enumerate(entries):
-        parts.append(
-            f"<text x='28' y='{y}' class='label' opacity='0'>{name}<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
-        )
-        y += 30
-        t += 0.18
-        parts.append(
-            f"<text x='28' y='{y}' class='value' opacity='0'>{details['tier']}<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
-        )
-        y += 28
-        t += 0.16
-        parts.append(
-            f"<text x='28' y='{y}' class='value' opacity='0'>{details['max_rating']} Max Rating<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
-        )
-        y += 28
-        t += 0.16
-        if details.get("extra"):
-            parts.append(
-                f"<text x='28' y='{y}' class='muted' opacity='0'>{details['extra']}<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
-            )
-            y += 30
-            t += 0.16
-        if index < len(entries) - 1:
-            parts.append(
-                f"<text x='28' y='{y}' class='rule' opacity='0'>────────────<animate attributeName='opacity' begin='{t:.2f}s' dur='0.2s' from='0' to='1' fill='freeze'/></text>"
-            )
-            y += 32
-            t += 0.16
+    t = 0.15
 
-    height = max(390, y + 26)
-    return f"""<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"{height}\" viewBox=\"0 0 900 {height}\" role=\"img\" aria-label=\"Coding profiles\">
-  <rect width=\"100%\" height=\"100%\" fill=\"#0d1117\" rx=\"14\" />
-  <rect x=\"12\" y=\"12\" width=\"876\" height=\"{height - 24}\" rx=\"10\" fill=\"#010409\" stroke=\"#30363d\" />
+    elements: list[str] = []
+    for key, val in currently.items():
+        elements.append(
+            f'<g opacity="0"><animate attributeName="opacity" begin="{t:.2f}s" '
+            f'dur="0.15s" from="0" to="1" fill="freeze"/>'
+            f'<text x="{PAD}" y="{y}" class="key">{esc(key)}</text>'
+            f'<text x="{PAD + 160}" y="{y}" class="val">{esc(val)}</text>'
+            f'</g>'
+        )
+        y += 36
+        t += 0.12
+
+    height = y + 20
+    inner_h = height - 36
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Currently">
+  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
+  <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
+  {traffic_dots(42, 40)}
+  <text x="{PAD}" y="62" class="prompt">$ cat currently.yml</text>
   <style>
-    .cmd {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #8b949e; }}
-    .label {{ font-family: 'JetBrains Mono', monospace; font-size: 26px; fill: #3fb950; font-weight: 700; }}
-    .value {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #e6edf3; }}
-    .muted {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #c9d1d9; }}
-    .rule {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }}
+    .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .key    {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #3fb950; font-weight: 700; }}
+    .val    {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }}
   </style>
-  {''.join(parts)}
-</svg>"""
-
-
-def build_terminal_kv(title: str, command: str, entries: dict[str, str], height: int) -> str:
-    """Build a compact terminal key-value card."""
-    body = "\n".join(row(k, v, 84 + i * 42, i) for i, (k, v) in enumerate(entries.items()))
-    return f"""<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"{height}\" viewBox=\"0 0 900 {height}\" role=\"img\" aria-label=\"{title}\">
-  <rect width=\"100%\" height=\"100%\" fill=\"#0d1117\" rx=\"14\" />
-  <rect x=\"12\" y=\"12\" width=\"876\" height=\"{height - 24}\" rx=\"10\" fill=\"#010409\" stroke=\"#30363d\" />
-  <text x=\"24\" y=\"36\" font-family=\"monospace\" font-size=\"14\" fill=\"#8b949e\">kavish@github:~$ {command}</text>
-  <style>
-    .label {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; font-weight: 700; }}
-    .value {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #c9d1d9; }}
-  </style>
-{body}
-</svg>"""
+  {''.join(elements)}
+</svg>'''
 
 
 def main() -> None:
-    """Generate all data-driven terminal cards."""
     profile = load_profile()
-    INFO_PATH.write_text(build_info(profile), encoding="utf-8")
+    ACHIEVEMENTS_PATH.write_text(build_achievements(profile), encoding="utf-8")
     CODING_PATH.write_text(build_coding(profile["coding"]), encoding="utf-8")
-    CURRENTLY_PATH.write_text(
-        build_terminal_kv("Currently", "cat currently.log", profile["currently"], 290),
-        encoding="utf-8",
-    )
+    CURRENTLY_PATH.write_text(build_currently(profile["currently"]), encoding="utf-8")
 
 
 if __name__ == "__main__":
