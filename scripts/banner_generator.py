@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the compact terminal hero banner SVG with embedded action buttons & Pollito GIF."""
+"""Generate the compact terminal hero banner SVG with embedded action buttons, Pollito GIF, and contact line."""
 
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
 RESUME_URL = "https://raw.githubusercontent.com/Kavish-Paraswar/Kavish-Paraswar/main/assets/Kavish_Paraswar_CV.pdf"
 GITHUB_URL = "https://github.com/Kavish-Paraswar"
 LINKEDIN_URL = "https://linkedin.com/in/kavish-paraswar"
+EMAIL_URL = "mailto:kavishp9721@gmail.com"
 
 
 def load_profile() -> dict:
@@ -162,17 +163,31 @@ def build_svg(profile: dict) -> str:
             "focus",
         )
     )
-    y += 42
+    y += 32
 
-    # 8. Ready line + blinking cursor
-    elements.append(anim_line("Ready_", PAD, y, 2.80, "ready"))
+    # 8. Contact Line
+    contact_email = profile.get("contact", "kavishp9721@gmail.com")
+    elements.append(anim_line("$ contact --email", PAD, y, 2.70, "contact-cmd"))
+    y += 24
+    elements.append(
+        f'<a href="{EMAIL_URL}" target="_blank">'
+        f'<text x="{PAD}" y="{y}" class="contact-email" opacity="0">'
+        f'📧 {esc(contact_email)}'
+        f'<animate attributeName="opacity" begin="2.80s" dur="0.15s" from="0" to="1" fill="freeze"/>'
+        f'</text>'
+        f'</a>'
+    )
+    y += 36
+
+    # 9. Ready line + blinking cursor
+    elements.append(anim_line("Ready_", PAD, y, 2.95, "ready"))
 
     cursor_x = PAD + 78
     cursor_y = y - 16
     elements.append(
         f'<rect x="{cursor_x}" y="{cursor_y}" width="10" height="20" fill="#3fb950" opacity="0">'
-        f'<animate attributeName="opacity" begin="2.80s" dur="0.01s" from="0" to="1" fill="freeze"/>'
-        f'<animate attributeName="opacity" begin="2.85s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
+        f'<animate attributeName="opacity" begin="2.95s" dur="0.01s" from="0" to="1" fill="freeze"/>'
+        f'<animate attributeName="opacity" begin="3.00s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
         f'</rect>'
     )
 
@@ -184,21 +199,24 @@ def build_svg(profile: dict) -> str:
   <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
   {traffic_dots(42, 40)}
   <style>
-    .prompt     {{ font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #7d8590; }}
-    .cmd        {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }}
-    .muted      {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #484f58; }}
-    .bar        {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; }}
-    .btn-bg     {{ fill: #0d1117; stroke: #30363d; stroke-width: 1.5; transition: all 0.2s ease; }}
-    .btn-prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }}
-    .btn-text   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; font-weight: 600; }}
-    .btn-arrow  {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }}
+    .prompt        {{ font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #7d8590; }}
+    .cmd           {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }}
+    .muted         {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #484f58; }}
+    .bar           {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; }}
+    .btn-bg        {{ fill: #0d1117; stroke: #30363d; stroke-width: 1.5; transition: all 0.2s ease; }}
+    .btn-prompt    {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }}
+    .btn-text      {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; font-weight: 600; }}
+    .btn-arrow     {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }}
     .btn-group:hover .btn-bg {{ stroke: #3fb950; fill: #161b22; }}
-    .greeting   {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }}
-    .name       {{ font-family: 'JetBrains Mono', monospace; font-size: 28px; fill: #e6edf3; font-weight: 700; }}
-    .subtitle   {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #8b949e; }}
-    .interest   {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #e6edf3; }}
-    .focus      {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
-    .ready      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
+    .greeting      {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }}
+    .name          {{ font-family: 'JetBrains Mono', monospace; font-size: 28px; fill: #e6edf3; font-weight: 700; }}
+    .subtitle      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #8b949e; }}
+    .interest      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #e6edf3; }}
+    .focus         {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .contact-cmd   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #7d8590; }}
+    .contact-email {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; font-weight: 600; text-decoration: none; }}
+    .contact-email:hover {{ text-decoration: underline; }}
+    .ready         {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
   </style>
   {''.join(elements)}
 </svg>'''
