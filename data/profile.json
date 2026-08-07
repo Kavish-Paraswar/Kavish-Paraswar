@@ -60,7 +60,6 @@
     ],
     "Backend": [
       {"name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"},
-      {"name": "Flask", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"},
       {"name": "FastAPI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"},
       {"name": "REST APIs", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"}
     ],
@@ -73,11 +72,10 @@
       {"name": "SQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg"}
     ],
     "AI/ML": [
-      {"name": "RAG", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
-      {"name": "Deep Learning", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"},
-      {"name": "GAN", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"},
-      {"name": "Neural Networks", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"},
-      {"name": "Generative AI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"}
+      {"name": "PyTorch", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"},
+      {"name": "TensorFlow", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"},
+      {"name": "OpenCV", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"},
+      {"name": "Python AI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"}
     ],
     "Cloud": [
       {"name": "AWS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"},
@@ -118,7 +116,7 @@
         "Integrated Twilio AI voice call agent",
         "Multilingual voice-based navigation & PAN auth"
       ],
-      "stack": ["React", "TypeScript", "Flask", "MySQL", "Hugging Face", "Docker", "Vercel"],
+      "stack": ["React", "TypeScript", "FastAPI", "MySQL", "Hugging Face", "Docker", "Vercel"],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     },
@@ -130,7 +128,7 @@
         "Fine-tuned on 30K facial images",
         "Conditional GAN & CNN architecture"
       ],
-      "stack": ["React", "Flask", "Python", "CNN", "GAN"],
+      "stack": ["React", "FastAPI", "Python", "CNN", "GAN"],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     }

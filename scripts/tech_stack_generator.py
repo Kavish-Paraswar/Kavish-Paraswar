@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate premium tech stack SVG with 25% enlarged Base64 icons (40x40px) and centered labels."""
+"""Generate tech stack SVG with 48x48 Base64 icons, centered labels, and recalculated dynamic dimensions."""
 
 from __future__ import annotations
 
@@ -48,9 +48,9 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 def build_svg(profile: dict) -> str:
     tech_stack = profile["tech_stack"]
-    PAD_LEFT = 40
-    COL_WIDTH = 135
-    ICON_SIZE = 40  # Enlarged icon size by 25%
+    PAD_LEFT = 35
+    COL_WIDTH = 138
+    ICON_SIZE = 48  # Exact 48x48 icon size
     MAX_PER_ROW = 6
 
     elements: list[str] = []
@@ -74,7 +74,7 @@ def build_svg(profile: dict) -> str:
             f'from="0" to="1" fill="freeze"/></text>'
         )
         t += 0.08
-        y += 22
+        y += 24
 
         row_idx = 0
         col_idx = 0
@@ -84,7 +84,7 @@ def build_svg(profile: dict) -> str:
             data_uri = to_data_uri(icon_url)
 
             cell_x = PAD_LEFT + col_idx * COL_WIDTH
-            cell_y = y + row_idx * 82
+            cell_y = y + row_idx * 90
             icon_x = cell_x + (COL_WIDTH - ICON_SIZE) // 2
             text_x = cell_x + COL_WIDTH // 2
             text_y = cell_y + ICON_SIZE + 22
@@ -118,7 +118,7 @@ def build_svg(profile: dict) -> str:
                 row_idx += 1
 
         rows_count = row_idx + (1 if col_idx > 0 else 0)
-        y += max(1, rows_count) * 82 + 18
+        y += max(1, rows_count) * 90 + 20
         t += 0.06
 
     height = y + 20
