@@ -30,7 +30,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install beautifulsoup4 requests
 
-      - name: Refresh contribution streak
+      - name: Refresh contribution streak & heatmap
         run: |
           python scripts/fetch_contributions.py
           python scripts/render_heatmap.py
@@ -39,4 +39,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(streak): daily contribution refresh"
+          commit_user_name: "Kavish Paraswar"
+          commit_user_email: "kavishp9721@gmail.com"
+          commit_author: "Kavish Paraswar <kavishp9721@gmail.com>"
           file_pattern: data/contributions.json assets/git-stats.svg

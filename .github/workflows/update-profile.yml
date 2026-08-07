@@ -43,4 +43,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(profile): refresh generated assets"
+          commit_user_name: "Kavish Paraswar"
+          commit_user_email: "kavishp9721@gmail.com"
+          commit_author: "Kavish Paraswar <kavishp9721@gmail.com>"
           file_pattern: assets/*.svg assets/**/*.svg

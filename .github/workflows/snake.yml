@@ -1,8 +1,9 @@
-name: Generate Snake
+name: Generate Snake Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    # 02:25 UTC = 07:55 IST — runs every morning after contribution refresh
+    - cron: "25 2 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,14 +13,20 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: Platane/snk@v3
+      - name: Generate Snake SVG
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: Kavish-Paraswar
           outputs: assets/snake/snake.svg
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Commit if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(snake): refresh snake animation"
+          commit_user_name: "Kavish Paraswar"
+          commit_user_email: "kavishp9721@gmail.com"
+          commit_author: "Kavish Paraswar <kavishp9721@gmail.com>"
           file_pattern: assets/snake/snake.svg
