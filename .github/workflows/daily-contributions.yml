@@ -1,0 +1,42 @@
+name: Daily Contribution Refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 02:17 UTC = 07:47 IST — runs every morning
+    - cron: "17 2 * * *"
+
+concurrency:
+  group: daily-contribution-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 requests
+
+      - name: Refresh contribution streak
+        run: |
+          python scripts/fetch_contributions.py
+          python scripts/render_heatmap.py
+
+      - name: Commit if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(streak): daily contribution refresh"
+          file_pattern: data/contributions.json assets/git-stats.svg

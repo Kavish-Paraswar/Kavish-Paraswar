@@ -6,11 +6,17 @@ GitHub removed the `data-count` attribute from the contribution calendar's
 element's text (e.g. "4 contributions on August 24th." / "No contributions
 on August 3rd."). This parses both the old rect/data-count markup (kept as
 a fallback) and the current td + tool-tip markup.
+
+On failure (network blip, rate limit, another markup change) this leaves
+the existing data/contributions.json untouched rather than overwriting good
+data with an error state. The daily job should never regress the streak
+just because one run had a transient failure.
 """
 
 from __future__ import annotations
 
 import re
+import sys
 from datetime import UTC, date, datetime
 from pathlib import Path
 import json
@@ -139,16 +145,16 @@ def fetch_html() -> str:
     return response.text
 
 
-def write_payload(days: list[dict], error: str | None = None) -> None:
-    """Write normalized contribution JSON payload."""
+def write_payload(days: list[dict]) -> None:
+    """Write normalized contribution JSON payload. Only called on a successful fetch."""
     total = sum(day["count"] for day in days)
     max_count = max((day["count"] for day in days), default=0)
     current_streak, longest_streak = compute_streaks(days) if days else (0, 0)
     payload = {
         "username": "Kavish-Paraswar",
         "generated_at": datetime.now(UTC).isoformat(),
-        "fetch_succeeded": error is None,
-        "error": error,
+        "fetch_succeeded": True,
+        "error": None,
         "total": total,
         "current_streak": current_streak,
         "longest_streak": longest_streak,
@@ -159,12 +165,38 @@ def write_payload(days: list[dict], error: str | None = None) -> None:
 
 
 def main() -> None:
-    """Fetch, parse, compute stats, and save contributions data."""
+    """Fetch, parse, compute stats, and save contribution data.
+
+    On any failure, print a warning and leave the existing data file exactly
+    as it was. This guarantees a transient fetch failure never regresses the
+    committed streak/heatmap to an error state.
+    """
     try:
         days = parse_contributions(fetch_html())
         write_payload(days)
     except Exception as exc:  # noqa: BLE001
-        write_payload([], error=str(exc))
+        print(f"::warning::Contribution fetch failed, keeping previous data: {exc}", file=sys.stderr)
+        if not OUTPUT_PATH.exists():
+            # First-ever run with no prior data to fall back on: write an
+            # explicit failure record so render_heatmap.py can show a clear
+            # error card instead of crashing on a missing file.
+            OUTPUT_PATH.write_text(
+                json.dumps(
+                    {
+                        "username": "Kavish-Paraswar",
+                        "generated_at": datetime.now(UTC).isoformat(),
+                        "fetch_succeeded": False,
+                        "error": str(exc),
+                        "total": 0,
+                        "current_streak": 0,
+                        "longest_streak": 0,
+                        "max_count": 0,
+                        "days": [],
+                    },
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
 
 
 if __name__ == "__main__":

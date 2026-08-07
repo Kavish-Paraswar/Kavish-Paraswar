@@ -2,8 +2,12 @@ name: Update Profile Assets
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "17 2 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "data/profile.json"
+      - "scripts/**"
+      - ".github/workflows/update-profile.yml"
 
 jobs:
   refresh:
@@ -22,13 +26,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-              python -m pip install --upgrade pip
-              pip install beautifulsoup4 requests
-
-      - name: Refresh contribution data
-        run: |
-          python scripts/fetch_contributions.py
-          python scripts/render_heatmap.py
+          python -m pip install --upgrade pip
+          pip install beautifulsoup4 requests
 
       - name: Regenerate terminal assets
         run: |
@@ -43,4 +42,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(profile): refresh generated assets"
-          file_pattern: assets/*.svg assets/**/*.svg data/contributions.json
+          file_pattern: assets/*.svg assets/**/*.svg
