@@ -3,10 +3,6 @@
 </div>
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/Kavish-Paraswar/Kavish-Paraswar/main/assets/Kavish_Paraswar_CV.pdf" download="Kavish_Paraswar_CV.pdf" style="text-decoration: none;"><img src="./assets/resume-button.svg" height="40" alt="Download Resume" style="vertical-align: middle;" /></a>&nbsp;&nbsp;&nbsp;<a href="https://github.com/Kavish-Paraswar" style="text-decoration: none;"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="40" alt="GitHub" style="vertical-align: middle;" /></a>&nbsp;&nbsp;&nbsp;<a href="https://linkedin.com/in/kavish-paraswar" style="text-decoration: none;"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" height="40" alt="LinkedIn" style="vertical-align: middle;" /></a>
-</p>
-
-<p align="center">
   <img src="./assets/experience.svg" width="100%" alt="Experience timeline" />
 </p>
 
