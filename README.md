@@ -12,12 +12,6 @@
 
 <br/><br/>
 
-<div align="center">
-  <img src="./assets/ascii.svg" width="780" alt="ASCII portrait" />
-</div>
-
-<br/>
-
 <!-- <div align="center">
   <img src="./assets/info-card.svg" width="780" alt="Neofetch profile card" />
 </div> -->

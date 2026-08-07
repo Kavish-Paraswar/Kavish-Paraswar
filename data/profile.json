@@ -8,12 +8,35 @@
   ],
   "location": "Pune",
   "contact": "kavishp9721@gmail.com",
-  "languages": ["Java", "Python", "C++", "JavaScript", "TypeScript"],
-  "frontend": ["React", "Redux", "Vite"],
-  "backend": ["Node.js", "FastAPI"],
-  "database": ["MongoDB", "PostgreSQL", "MySQL"],
-  "ai": ["PyTorch", "LangChain", "RAG"],
-  "cloud": ["Google Cloud"],
+  "languages": [
+    "Java",
+    "Python",
+    "C++",
+    "JavaScript",
+    "TypeScript"
+  ],
+  "frontend": [
+    "React",
+    "Redux",
+    "Vite"
+  ],
+  "backend": [
+    "Node.js",
+    "FastAPI"
+  ],
+  "database": [
+    "MongoDB",
+    "PostgreSQL",
+    "MySQL"
+  ],
+  "ai": [
+    "PyTorch",
+    "LangChain",
+    "RAG"
+  ],
+  "cloud": [
+    "Google Cloud"
+  ],
   "experience": [
     {
       "company": "TakeTwo",
@@ -40,32 +63,61 @@
     {
       "title": "Yatri Mitra",
       "description": "Smart travel assistant focused on route planning and local recommendations.",
-      "metrics": ["1k+ itinerary generations", "Sub-2s recommendation latency"],
-      "stack": ["React", "Node.js", "MongoDB", "AI"],
+      "metrics": [
+        "1k+ itinerary generations",
+        "Sub-2s recommendation latency"
+      ],
+      "stack": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "AI"
+      ],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     },
     {
       "title": "Sketch2Face AI",
       "description": "Transforms rough sketches into realistic face outputs using deep learning.",
-      "metrics": ["85% user preference gain", "Optimized inference workflow"],
-      "stack": ["Python", "PyTorch", "Computer Vision"],
+      "metrics": [
+        "85% user preference gain",
+        "Optimized inference workflow"
+      ],
+      "stack": [
+        "Python",
+        "PyTorch",
+        "Computer Vision"
+      ],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     },
     {
       "title": "ClubHub",
       "description": "Campus community platform for clubs, events, and member collaboration.",
-      "metrics": ["Multi-club event automation", "Streamlined member onboarding"],
-      "stack": ["React", "FastAPI", "PostgreSQL"],
+      "metrics": [
+        "Multi-club event automation",
+        "Streamlined member onboarding"
+      ],
+      "stack": [
+        "React",
+        "FastAPI",
+        "PostgreSQL"
+      ],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     },
     {
       "title": "Resume Builder",
       "description": "Terminal-inspired resume creator with templates and instant export options.",
-      "metrics": ["Template-driven generation", "Export-ready output"],
-      "stack": ["TypeScript", "Vite", "Node.js"],
+      "metrics": [
+        "Template-driven generation",
+        "Export-ready output"
+      ],
+      "stack": [
+        "TypeScript",
+        "Vite",
+        "Node.js"
+      ],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     }
@@ -92,5 +144,16 @@
     "Learning": "Distributed Systems",
     "Reading": "Designing Data Intensive Applications",
     "Open To": "Software Engineering Roles"
-  }
+  },
+  "focus_areas": [
+    "Backend",
+    "Frontend"
+  ],
+  "top_skills": [
+    "Python",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "PyTorch"
+  ]
 }

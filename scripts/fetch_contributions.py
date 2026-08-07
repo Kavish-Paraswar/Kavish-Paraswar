@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
-"""Fetch GitHub contribution activity with resilient parsing and error handling."""
+"""Fetch GitHub contribution activity with resilient parsing and error handling.
+
+GitHub removed the `data-count` attribute from the contribution calendar's
+<td> cells at some point. The count now only lives in a linked <tool-tip>
+element's text (e.g. "4 contributions on August 24th." / "No contributions
+on August 3rd."). This parses both the old rect/data-count markup (kept as
+a fallback) and the current td + tool-tip markup.
+"""
 
 from __future__ import annotations
 
+import re
 from datetime import UTC, date, datetime
 from pathlib import Path
 import json
@@ -16,14 +24,15 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "data" / "contributions.json"
 URL = "https://github.com/users/Kavish-Paraswar/contributions"
 
+COUNT_RE = re.compile(r"(\d+)\s+contributions?", re.IGNORECASE)
+
 
 class ContributionFetchError(RuntimeError):
     """Raised when contributions could not be fetched."""
 
 
-def parse_contributions(html: str) -> list[dict]:
-    """Parse contribution day entries from current and legacy GitHub markup."""
-    soup = BeautifulSoup(html, "html.parser")
+def _parse_legacy(soup: BeautifulSoup) -> list[dict]:
+    """Old markup: rect/td elements carry data-count directly."""
     cells = soup.select("rect[data-date][data-count], td[data-date][data-count]")
     days = []
     for cell in cells:
@@ -37,6 +46,42 @@ def parse_contributions(html: str) -> list[dict]:
                 "level": int(cell.get("data-level", "0") or 0),
             }
         )
+    return days
+
+
+def _parse_tooltip(soup: BeautifulSoup) -> list[dict]:
+    """Current markup: td[data-date] + a separate tool-tip[for=<td id>] with the count in its text."""
+    tooltip_by_for = {
+        tip.get("for"): tip.get_text(strip=True)
+        for tip in soup.select("tool-tip[for]")
+        if tip.get("for")
+    }
+
+    days = []
+    for cell in soup.select("td[data-date]"):
+        date_value = cell.get("data-date", "")
+        if not date_value:
+            continue
+        tooltip_text = tooltip_by_for.get(cell.get("id", ""), "")
+        match = COUNT_RE.search(tooltip_text)
+        count = int(match.group(1)) if match else 0
+        days.append(
+            {
+                "date": date_value,
+                "count": count,
+                "level": int(cell.get("data-level", "0") or 0),
+            }
+        )
+    return days
+
+
+def parse_contributions(html: str) -> list[dict]:
+    """Parse contribution day entries, trying legacy markup first, then the tool-tip based markup."""
+    soup = BeautifulSoup(html, "html.parser")
+
+    days = _parse_legacy(soup)
+    if not days:
+        days = _parse_tooltip(soup)
 
     unique_days = {item["date"]: item for item in days}
     parsed = sorted(unique_days.values(), key=lambda d: d["date"])
