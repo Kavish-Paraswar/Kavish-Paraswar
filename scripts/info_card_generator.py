@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Generate achievements, coding profiles, and currently cards."""
+"""Generate achievements, coding profiles, and currently cards with interactive terminal styling."""
 
 from __future__ import annotations
 
-from pathlib import Path
+import base64
 import json
+from pathlib import Path
+
+import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "data" / "profile.json"
@@ -13,6 +16,7 @@ CODING_PATH = ROOT / "assets" / "coding.svg"
 CURRENTLY_PATH = ROOT / "assets" / "currently.svg"
 
 DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
+_ICON_CACHE: dict[str, str] = {}
 
 
 def load_profile() -> dict:
@@ -21,6 +25,27 @@ def load_profile() -> dict:
 
 def esc(t: str) -> str:
     return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def to_data_uri(url: str, color_override: str | None = None) -> str:
+    if url in _ICON_CACHE:
+        return _ICON_CACHE[url]
+    try:
+        resp = requests.get(url, timeout=15)
+        resp.raise_for_status()
+        content = resp.text
+        if color_override and "fill=" in content:
+            content = content.replace('fill="currentColor"', f'fill="{color_override}"')
+            content = content.replace('fill="#000000"', f'fill="{color_override}"')
+            content = content.replace('fill="#000"', f'fill="{color_override}"')
+        elif color_override and "<path" in content and "fill=" not in content:
+            content = content.replace('<path', f'<path fill="{color_override}"')
+        encoded = base64.b64encode(content.encode("utf-8")).decode("ascii")
+        data_uri = f"data:image/svg+xml;base64,{encoded}"
+    except requests.RequestException:
+        data_uri = ""
+    _ICON_CACHE[url] = data_uri
+    return data_uri
 
 
 def traffic_dots(cx_start: int, cy: int) -> str:
@@ -89,37 +114,55 @@ def build_achievements(profile: dict) -> str:
 
 
 def build_coding(coding: dict) -> str:
-    """Coding profiles as horizontal cards."""
+    """Interactive horizontal cards for coding profiles with Base64 logos and hover effects."""
     entries = list(coding.items())
     PAD = 40
-    CARD_W = 260
-    CARD_H = 110
-    GAP = 24
+    CARD_W = 250
+    CARD_H = 135
+    GAP = 27
+    ICON_SIZE = 44
 
     cards: list[str] = []
     t = 0.15
+
     for idx, (name, details) in enumerate(entries):
         cx = PAD + idx * (CARD_W + GAP)
         cy = 76
 
-        tier_color = "#3fb950" if "Knight" in details["tier"] or "Specialist" in details["tier"] else "#e6edf3"
+        url = details.get("url", "#")
+        icon_url = details.get("icon", "")
+        extra_text = details.get("extra", "")
+
+        # Determine icon color fill if simple-icons
+        color_override = "#e6edf3" if "simple-icons" in icon_url else None
+        data_uri = to_data_uri(icon_url, color_override=color_override)
+
+        icon_x = cx + (CARD_W - ICON_SIZE) // 2
+        center_x = cx + CARD_W // 2
+
+        icon_markup = (
+            f'<image href="{data_uri}" x="{icon_x}" y="{cy + 14}" '
+            f'width="{ICON_SIZE}" height="{ICON_SIZE}"/>'
+            if data_uri
+            else ""
+        )
 
         cards.append(
-            f'<g opacity="0"><animate attributeName="opacity" begin="{t:.2f}s" '
-            f'dur="0.15s" from="0" to="1" fill="freeze"/>'
+            f'<a href="{esc(url)}" target="_blank" class="card-link">'
+            f'<g class="card-group" opacity="0">'
+            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
             f'<rect x="{cx}" y="{cy}" width="{CARD_W}" height="{CARD_H}" rx="10" '
-            f'fill="#0d1117" stroke="#21262d"/>'
-            f'<text x="{cx + 20}" y="{cy + 30}" class="platform">{esc(name)}</text>'
-            f'<text x="{cx + 20}" y="{cy + 55}" class="tier" fill="{tier_color}">{esc(details["tier"])}</text>'
-            f'<text x="{cx + 20}" y="{cy + 76}" class="rating">Max Rating: {details["max_rating"]}</text>'
-            f'<text x="{cx + 20}" y="{cy + 94}" class="extra">{esc(details.get("extra", ""))}</text>'
+            f'class="card-bg"/>'
+            f'{icon_markup}'
+            f'<text x="{center_x}" y="{cy + 82}" class="platform" text-anchor="middle">{esc(name)}</text>'
+            f'<text x="{center_x}" y="{cy + 106}" class="extra" text-anchor="middle">{esc(extra_text)}</text>'
+            f'<text x="{cx + CARD_W - 20}" y="{cy + 24}" class="arrow" text-anchor="middle">↗</text>'
             f'</g>'
+            f'</a>'
         )
         t += 0.15
 
-    total_w = len(entries) * CARD_W + (len(entries) - 1) * GAP + 2 * PAD
-    width = max(900, total_w)
-    height = 76 + CARD_H + 30
+    height = 76 + CARD_H + 28
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Coding profiles">
@@ -128,11 +171,13 @@ def build_coding(coding: dict) -> str:
   {traffic_dots(42, 40)}
   <text x="{PAD}" y="62" class="prompt">$ cat coding-profiles.log</text>
   <style>
-    .prompt   {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
-    .platform {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
-    .tier     {{ font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; }}
-    .rating   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; }}
-    .extra    {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #7d8590; }}
+    .prompt    {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .card-bg   {{ fill: #0d1117; stroke: #21262d; stroke-width: 1.5; transition: all 0.2s ease; }}
+    .platform  {{ font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #3fb950; font-weight: 700; }}
+    .extra     {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #8b949e; }}
+    .arrow     {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; transition: fill 0.2s ease; }}
+    .card-group:hover .card-bg {{ stroke: #3fb950; fill: #161b22; }}
+    .card-group:hover .arrow   {{ fill: #3fb950; }}
   </style>
   {''.join(cards)}
 </svg>'''

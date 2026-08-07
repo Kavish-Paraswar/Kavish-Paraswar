@@ -135,24 +135,24 @@
   "achievements": [
     {"icon": "🥇", "text": "Winner of CodeMania 6.0 and Codeverse 2k26 Contests"},
     {"icon": "📊", "text": "Secured AIR 71 (Starters 215) and AIR 168 (Starters 214) among 30,000 participants on CodeChef"},
-    {"icon": "⭐", "text": "3 Stars CodeChef (Max Rating 1604) · Specialist Rank on Codeforces (Max Rating 1414)"},
+    {"icon": "⭐", "text": "CodeChef (Max Rating 1604) · Codeforces (Max Rating 1414)"},
     {"icon": "🎓", "text": "Amazon ML Summer School Participant · Flipkart GRID 8.0 Semifinalist"}
   ],
   "coding": {
     "LeetCode": {
-      "tier": "Knight",
-      "max_rating": "1869",
-      "extra": "Top 5%"
+      "url": "https://leetcode.com/u/_Kavish_/",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/leetcode/leetcode-original.svg",
+      "extra": "Max Rating 1869 · Knight"
     },
     "CodeChef": {
-      "tier": "3★",
-      "max_rating": "1604",
-      "extra": "AIR 71"
+      "url": "https://www.codechef.com/users/matcross7",
+      "icon": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/codechef.svg",
+      "extra": "Max Rating 1604 · AIR 71"
     },
     "Codeforces": {
-      "tier": "Specialist",
-      "max_rating": "1414",
-      "extra": "Codeforces"
+      "url": "https://codeforces.com/profile/Kavish_97",
+      "icon": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/codeforces.svg",
+      "extra": "Max Rating 1414 · Specialist"
     }
   },
   "currently": {
