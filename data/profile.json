@@ -67,25 +67,27 @@
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
       ]
     },
-    "Languages": {
-      "items": ["C", "C++", "Java", "Python", "JavaScript", "SQL"],
+    "Programming": {
+      "items": ["C", "C++", "Java", "Python", "JavaScript", "TypeScript", "SQL"],
       "icons": [
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
       ]
     },
-    "AI / ML": {
+    "AI/ML": {
       "items": ["RAG", "Deep Learning", "GAN", "Neural Networks", "Generative AI"],
       "icons": [
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
       ]
     },
     "Cloud": {
-      "items": ["AWS Lambda", "S3", "Elastic Beanstalk", "Google Cloud"],
+      "items": ["AWS (Lambda, S3, Elastic Beanstalk)", "Google Cloud"],
       "icons": [
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"
@@ -95,7 +97,8 @@
       "items": ["Docker", "Kubernetes", "OpenShift", "GitLab CI"],
       "icons": [
         "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg"
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg",
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"
       ]
     },
     "Databases": {
@@ -124,28 +127,37 @@
   "projects": [
     {
       "title": "Smart Krishi",
-      "description": "AI platform for farmers with 10+ features: crop disease prediction (98.9% accuracy on 61K images), weather forecasting, multilingual voice navigation, and Twilio AI voice call agent.",
-      "metrics": ["98.9% accuracy", "10+ AI features", "Twilio voice agent"],
-      "stack": ["React", "TypeScript", "Flask", "MySQL", "Docker"],
+      "description": "One-stop AI platform for farmers integrating crop disease prediction using KNN optimized on 61K images with 98.9% accuracy, crop/fertilizer/yield prediction, multilingual voice navigation, and a Twilio-based AI voice call agent enabling farmers to receive recommendations via phone calls.",
+      "metrics": [
+        "98.9% crop disease accuracy on 61K images",
+        "97% yield prediction accuracy",
+        "Integrated Twilio AI voice call agent",
+        "Multilingual voice-based navigation & PAN auth"
+      ],
+      "stack": ["React", "TypeScript", "Flask", "MySQL", "Hugging Face", "Docker", "Vercel"],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     },
     {
       "title": "Sketch2Face AI",
-      "description": "AI system converting hand-drawn sketches into photorealistic faces using Conditional GAN, fine-tuned on 30K facial images with 95% reconstruction accuracy.",
-      "metrics": ["95% accuracy", "30K training images", "Conditional GAN"],
+      "description": "AI system converting hand-drawn sketches into photorealistic human faces using Conditional GAN, fine-tuned on 30K facial images with 95% reconstruction accuracy.",
+      "metrics": [
+        "95% facial reconstruction accuracy",
+        "Fine-tuned on 30K facial images",
+        "Conditional GAN & CNN architecture"
+      ],
       "stack": ["React", "Flask", "Python", "CNN", "GAN"],
       "github": "https://github.com/Kavish-Paraswar",
       "demo": ""
     }
   ],
   "achievements": [
-    {"icon": "🏆", "text": "Knight on LeetCode — Top 5%, max rating 1869"},
-    {"icon": "🥇", "text": "Winner of CodeMania 6.0 and Codeverse 2k26 contests"},
-    {"icon": "🌐", "text": "40+ merged PRs in GSSOC and Hacktoberfest"},
-    {"icon": "📊", "text": "AIR 71 (Starters 215) and AIR 168 (Starters 214) on CodeChef"},
-    {"icon": "⭐", "text": "3★ CodeChef (max 1604) · Specialist Codeforces (max 1414)"},
-    {"icon": "🎓", "text": "Amazon ML Summer School · Flipkart GRID participant"}
+    {"icon": "🏆", "text": "Knight on LeetCode — Top 5%, Max Rating 1869"},
+    {"icon": "🥇", "text": "Winner of CodeMania 6.0 and Codeverse 2k26 Contests"},
+    {"icon": "🌐", "text": "40+ Merged Pull Requests as Open Source Contributor in GSSOC & Hacktoberfest"},
+    {"icon": "📊", "text": "Secured AIR 71 (Starters 215) and AIR 168 (Starters 214) among 30,000 participants on CodeChef"},
+    {"icon": "⭐", "text": "3 Stars CodeChef (Max Rating 1604) · Specialist Rank on Codeforces (Max Rating 1414)"},
+    {"icon": "🎓", "text": "Amazon ML Summer School Participant · Flipkart GRID Participant"}
   ],
   "coding": {
     "LeetCode": {
@@ -161,13 +173,13 @@
     "Codeforces": {
       "tier": "Specialist",
       "max_rating": "1414",
-      "extra": ""
+      "extra": "Codeforces"
     }
   },
   "currently": {
-    "Building": "AI Agents",
-    "Learning": "Distributed Systems",
-    "Reading": "Designing Data Intensive Applications",
-    "Open To": "Software Engineering Roles"
+    "Building": "AI Agents & Generative Workflows",
+    "Learning": "Distributed Systems & System Architecture",
+    "Reading": "Designing Data-Intensive Applications",
+    "Open To": "Software Engineering, Backend & AI Engineering Roles"
   }
 }

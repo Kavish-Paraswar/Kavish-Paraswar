@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Generate premium tech stack SVG with base64-embedded icons and text labels.
-
-All 9 categories from resume. Icons are downloaded and inlined as data URIs.
-GitHub icon gets a subtle green glow filter. Layout auto-sizes height.
-"""
+"""Generate premium tech stack SVG with Base64 icons, text labels, and GitHub green glow."""
 
 from __future__ import annotations
 
@@ -21,12 +17,13 @@ DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
 
 _ICON_CACHE: dict[str, str] = {}
 
-# Icons that should get the green glow
-GLOW_URLS = {"github"}
-
 
 def load_profile() -> dict:
     return json.loads(PROFILE_PATH.read_text(encoding="utf-8"))
+
+
+def esc(text: str) -> str:
+    return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def to_data_uri(url: str) -> str:
@@ -54,18 +51,18 @@ def build_svg(profile: dict) -> str:
     tech_stack = profile["tech_stack"]
     PAD = 40
     ICON_SIZE = 28
-    ICON_GAP = 38
+    ICON_GAP = 36
 
     elements: list[str] = []
     y = 80
     t = 0.15
 
-    # Glow filter for GitHub icon
+    # Filter for GitHub icon green glow
     glow_filter = '''<defs>
     <filter id="greenGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
       <feColorMatrix in="blur" type="matrix"
-        values="0 0 0 0 0.247  0 0 0 0 0.725  0 0 0 0 0.314  0 0 0 0.5 0" result="glow"/>
+        values="0 0 0 0 0.247  0 0 0 0 0.725  0 0 0 0 0.314  0 0 0 0.6 0" result="glow"/>
       <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>'''
@@ -74,9 +71,9 @@ def build_svg(profile: dict) -> str:
         items = cat_data["items"]
         icons = cat_data.get("icons", [])
 
-        # Category label
+        # Category Header
         elements.append(
-            f'<text x="{PAD}" y="{y}" class="cat" opacity="0">{cat_name}'
+            f'<text x="{PAD}" y="{y}" class="cat" opacity="0">{esc(cat_name)}'
             f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" '
             f'from="0" to="1" fill="freeze"/></text>'
         )
@@ -98,34 +95,18 @@ def build_svg(profile: dict) -> str:
                 )
                 ix += ICON_GAP
         t += 0.06
-        y += ICON_SIZE + 8
+        y += ICON_SIZE + 10
 
-        # Text labels row - wrap if needed
-        label_str = "  ".join(items)
-        if len(label_str) > 80:
-            mid = len(items) // 2
-            row1 = "  ".join(items[:mid])
-            row2 = "  ".join(items[mid:])
-            elements.append(
-                f'<text x="{PAD}" y="{y}" class="label" opacity="0">{row1}'
-                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
-                f'from="0" to="1" fill="freeze"/></text>'
-            )
-            y += 20
-            elements.append(
-                f'<text x="{PAD}" y="{y}" class="label" opacity="0">{row2}'
-                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
-                f'from="0" to="1" fill="freeze"/></text>'
-            )
-        else:
-            elements.append(
-                f'<text x="{PAD}" y="{y}" class="label" opacity="0">{label_str}'
-                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
-                f'from="0" to="1" fill="freeze"/></text>'
-            )
+        # Tech item names below icons
+        label_str = "  ·  ".join(items)
+        elements.append(
+            f'<text x="{PAD}" y="{y}" class="label" opacity="0">{esc(label_str)}'
+            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" '
+            f'from="0" to="1" fill="freeze"/></text>'
+        )
 
         t += 0.08
-        y += 32
+        y += 34
 
     height = y + 20
     inner_h = height - 36
@@ -138,8 +119,8 @@ def build_svg(profile: dict) -> str:
   <text x="{PAD}" y="62" class="prompt">$ cat tech-stack.yml</text>
   <style>
     .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
-    .cat    {{ font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #3fb950; font-weight: 700; }}
-    .label  {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #7d8590; }}
+    .cat    {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
+    .label  {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }}
   </style>
   {''.join(elements)}
 </svg>'''

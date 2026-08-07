@@ -57,6 +57,12 @@
 <br/><br/>
 
 <p align="center">
+  <img src="./assets/currently.svg" width="100%" alt="Current focus" />
+</p>
+
+<br/><br/>
+
+<p align="center">
   <img src="./assets/badges/badge-01.svg" width="145" alt="Badge 01" />
   <img src="./assets/badges/badge-02.svg" width="145" alt="Badge 02" />
   <img src="./assets/badges/badge-03.svg" width="145" alt="Badge 03" />

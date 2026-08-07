@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Render contribution heatmap SVG styled like GitHub's native graph.
+"""Render clean light-mode GitHub-style contribution heatmap SVG.
 
-Light-on-dark terminal card with the heatmap grid, streak stats,
-current year label, and a legend. Auto-sizes to fit the data.
+Light/white terminal card layout with classic GitHub green contribution palette,
+month labels, streak metrics sidebar, and a Less/More legend.
 """
 
 from __future__ import annotations
@@ -15,10 +15,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "contributions.json"
 OUTPUT_PATH = ROOT / "assets" / "git-stats.svg"
 
-# GitHub-style green scale
-COLORS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
+# Classic GitHub light theme contribution palette
+COLORS = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"]
+DOT_COLORS = ["#ff5f56", "#ffbd2e", "#27c93f"]
 
-DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
 CELL = 12
 GAP = 3
 GRID_LEFT = 40
@@ -46,12 +46,12 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 def render_error(message: str) -> str:
     safe = message.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" role="img" aria-label="Contribution error">
-  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
-  <rect x="18" y="18" width="864" height="164" rx="12" fill="#010409" stroke="#21262d"/>
+  <rect width="100%" height="100%" fill="#ffffff" rx="16"/>
+  <rect x="18" y="18" width="864" height="164" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
   {traffic_dots(42, 40)}
-  <text x="40" y="62" font-family="monospace" font-size="14" fill="#7d8590">$ ./contributions.sh</text>
-  <text x="40" y="100" font-family="monospace" font-size="14" fill="#f85149">Error: {safe}</text>
-  <text x="40" y="130" font-family="monospace" font-size="13" fill="#484f58">Will retry on next scheduled refresh.</text>
+  <text x="40" y="62" font-family="monospace" font-size="14" fill="#57606a">$ ./contributions.sh</text>
+  <text x="40" y="100" font-family="monospace" font-size="14" fill="#cf222e">Error: {safe}</text>
+  <text x="40" y="130" font-family="monospace" font-size="13" fill="#57606a">Will retry on next scheduled refresh.</text>
 </svg>'''
 
 
@@ -63,14 +63,11 @@ def render(data: dict) -> str:
     if not days:
         return render_error("No contribution data found.")
 
-    # Build lookup
     day_map = {d["date"]: d for d in days}
-
     first = datetime.strptime(days[0]["date"], "%Y-%m-%d")
     last = datetime.strptime(days[-1]["date"], "%Y-%m-%d")
-    start = first - timedelta(days=(first.weekday() + 1) % 7)  # align to Sunday
+    start = first - timedelta(days=(first.weekday() + 1) % 7)
 
-    # Compute grid
     total_days = (last - start).days + 1
     total_weeks = (total_days + 6) // 7
 
@@ -86,11 +83,8 @@ def render(data: dict) -> str:
             y = GRID_TOP + weekday * (CELL + GAP)
 
             item = day_map.get(date_str)
-            if item:
-                level = min(item.get("level", 0), 4)
-                color = COLORS[level]
-            else:
-                color = COLORS[0]
+            level = min(item.get("level", 0), 4) if item else 0
+            color = COLORS[level]
 
             delay = round(week * 0.008, 3)
             cells.append(
@@ -100,7 +94,6 @@ def render(data: dict) -> str:
                 f'from="0" to="1" fill="freeze"/></rect>'
             )
 
-            # Month labels
             if current.month != prev_month and weekday == 0:
                 month_labels.append(
                     f'<text x="{x}" y="{GRID_TOP - 8}" class="month">'
@@ -108,7 +101,7 @@ def render(data: dict) -> str:
                 )
                 prev_month = current.month
 
-    # Stats section
+    # Stats sidebar
     grid_right = GRID_LEFT + total_weeks * (CELL + GAP)
     stats_x = max(grid_right + 30, 680)
     total = data.get("total", 0)
@@ -144,16 +137,16 @@ def render(data: dict) -> str:
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Contribution graph">
-  <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
-  <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
+  <rect width="100%" height="100%" fill="#ffffff" rx="16"/>
+  <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#f6f8fa" stroke="#d0d7de"/>
   {traffic_dots(42, 40)}
   <text x="40" y="62" class="prompt">$ ./contributions.sh</text>
   <style>
-    .prompt      {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
-    .month       {{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #7d8590; }}
-    .stat-label  {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #7d8590; }}
-    .stat-value  {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
-    .legend-text {{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #484f58; }}
+    .prompt      {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #57606a; }}
+    .month       {{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #57606a; }}
+    .stat-label  {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #57606a; }}
+    .stat-value  {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #1f883d; font-weight: 700; }}
+    .legend-text {{ font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #57606a; }}
   </style>
   {''.join(month_labels)}
   {''.join(cells)}

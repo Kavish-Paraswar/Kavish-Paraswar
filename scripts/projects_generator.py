@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
-"""Generate auto-sizing project cards SVG with proper text wrapping."""
+"""Generate dynamic, auto-sizing project cards SVG without text overflow."""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
+import textwrap
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "data" / "profile.json"
 OUTPUT_PATH = ROOT / "assets" / "projects.svg"
 
 DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
-CARD_W = 408
-CARD_PAD = 20
-TEXT_MAX_W = CARD_W - 2 * CARD_PAD  # 368px available
-CHAR_WIDTH = 7.2  # approximate monospace char width at 12px
-MAX_CHARS = int(TEXT_MAX_W / CHAR_WIDTH)  # ~51 chars per line
+CARD_WIDTH = 836  # Full width card inside 864px inner container
+PAD_LEFT = 24
+TEXT_WIDTH = CARD_WIDTH - 2 * PAD_LEFT  # 788px text area
 
 
 def load_profile() -> dict:
@@ -33,118 +32,98 @@ def traffic_dots(cx_start: int, cy: int) -> str:
     )
 
 
-def wrap_text(text: str, max_chars: int) -> list[str]:
-    """Word-wrap text into lines of max_chars width."""
-    words = text.split()
-    lines: list[str] = []
-    current = ""
-    for word in words:
-        test = f"{current} {word}".strip() if current else word
-        if len(test) <= max_chars:
-            current = test
-        else:
-            if current:
-                lines.append(current)
-            current = word
-    if current:
-        lines.append(current)
-    return lines
-
-
-def card(project: dict, x: int, y: int, begin: float) -> tuple[str, int]:
-    """Build a single project card. Returns (svg_str, card_height)."""
-    parts: list[str] = []
-    cy = 32  # local y within the card
+def render_card(project: dict, x: int, y: int, begin: float) -> tuple[str, int]:
+    """Render a single full-width card with dynamic height calculation."""
+    elements: list[str] = []
+    cy = 30  # Relative y inside card
 
     # Title
-    parts.append(
-        f'<text x="{CARD_PAD}" y="{cy}" class="title">{esc(project["title"])}</text>'
+    elements.append(
+        f'<text x="{PAD_LEFT}" y="{cy}" class="title">{esc(project["title"])}</text>'
     )
-    cy += 8
+    cy += 14
 
     # Separator
-    cy += 10
-    parts.append(
-        f'<line x1="{CARD_PAD}" y1="{cy}" x2="{CARD_W - CARD_PAD}" y2="{cy}" '
+    elements.append(
+        f'<line x1="{PAD_LEFT}" y1="{cy}" x2="{CARD_WIDTH - PAD_LEFT}" y2="{cy}" '
         f'stroke="#21262d" stroke-width="1"/>'
     )
-    cy += 18
+    cy += 22
 
-    # Description (wrapped)
-    desc_lines = wrap_text(project["description"], MAX_CHARS)
+    # Description (wrapped at ~95 chars for 788px width)
+    desc_lines = textwrap.wrap(project["description"], width=95)
     for dl in desc_lines:
-        parts.append(f'<text x="{CARD_PAD}" y="{cy}" class="desc">{esc(dl)}</text>')
-        cy += 18
-    cy += 8
+        elements.append(
+            f'<text x="{PAD_LEFT}" y="{cy}" class="desc">{esc(dl)}</text>'
+        )
+        cy += 20
+    cy += 10
 
-    # Metrics
-    for metric in project.get("metrics", []):
-        parts.append(
-            f'<text x="{CARD_PAD}" y="{cy}" class="metric">▸ {esc(metric)}</text>'
+    # Key Metrics
+    metrics = project.get("metrics", [])
+    if metrics:
+        elements.append(
+            f'<text x="{PAD_LEFT}" y="{cy}" class="section-hdr">Key Metrics:</text>'
+        )
+        cy += 20
+        for m in metrics:
+            elements.append(
+                f'<text x="{PAD_LEFT + 12}" y="{cy}" class="metric">▸ {esc(m)}</text>'
+            )
+            cy += 18
+        cy += 10
+
+    # Tech Stack
+    stack_str = " · ".join(project["stack"])
+    stack_lines = textwrap.wrap(f"Tech Stack: {stack_str}", width=100)
+    for sl in stack_lines:
+        elements.append(
+            f'<text x="{PAD_LEFT}" y="{cy}" class="stack">{esc(sl)}</text>'
         )
         cy += 18
-    cy += 8
+    cy += 16
 
-    # Stack
-    stack_str = " · ".join(project["stack"])
-    stack_lines = wrap_text(stack_str, MAX_CHARS)
-    for sl in stack_lines:
-        parts.append(f'<text x="{CARD_PAD}" y="{cy}" class="stack">{esc(sl)}</text>')
-        cy += 16
-    cy += 12
-
-    # GitHub button pinned at bottom
+    # GitHub Button pinned at bottom
     btn_y = cy
-    parts.append(
+    elements.append(
         f'<a href="{project["github"]}">'
-        f'<rect x="{CARD_PAD}" y="{btn_y}" width="100" height="28" rx="6" '
+        f'<rect x="{PAD_LEFT}" y="{btn_y}" width="110" height="30" rx="6" '
         f'fill="#21262d" stroke="#30363d"/>'
-        f'<text x="{CARD_PAD + 14}" y="{btn_y + 18}" class="btn">GitHub ↗</text>'
+        f'<text x="{PAD_LEFT + 18}" y="{btn_y + 20}" class="btn">GitHub ↗</text>'
         f'</a>'
     )
-    cy = btn_y + 28 + CARD_PAD
+    cy = btn_y + 30 + 24  # Card bottom padding
 
-    card_h = cy
-    svg = (
+    card_height = cy
+
+    card_svg = (
         f'<g transform="translate({x},{y})" opacity="0">'
         f'<animate attributeName="opacity" begin="{begin:.2f}s" dur="0.2s" '
         f'from="0" to="1" fill="freeze"/>'
-        f'<rect width="{CARD_W}" height="{card_h}" rx="10" fill="#0d1117" stroke="#21262d"/>'
-        + "".join(parts)
+        f'<rect width="{CARD_WIDTH}" height="{card_height}" rx="10" '
+        f'fill="#0d1117" stroke="#21262d"/>'
+        + "".join(elements)
         + "</g>"
     )
-    return svg, card_h
+    return card_svg, card_height
 
 
 def build_svg(projects: list[dict]) -> str:
-    GAP_X = 32
-    GAP_Y = 20
-    START_X = 32
+    CARD_X = 32
     START_Y = 76
+    GAP_Y = 24
 
-    # Build cards in a 2-column grid, dynamically computing row heights
-    cards_svg: list[str] = []
-    row_y = START_Y
+    cards_markup: list[str] = []
+    current_y = START_Y
     t = 0.2
 
-    for i in range(0, len(projects), 2):
-        left_proj = projects[i]
-        left_svg, left_h = card(left_proj, START_X, row_y, t)
-        cards_svg.append(left_svg)
-        t += 0.2
+    for project in projects:
+        c_svg, c_h = render_card(project, CARD_X, current_y, t)
+        cards_markup.append(c_svg)
+        current_y += c_h + GAP_Y
+        t += 0.25
 
-        row_h = left_h
-        if i + 1 < len(projects):
-            right_proj = projects[i + 1]
-            right_x = START_X + CARD_W + GAP_X
-            right_svg, right_h = card(right_proj, right_x, row_y, t)
-            cards_svg.append(right_svg)
-            row_h = max(left_h, right_h)
-            t += 0.2
-
-        row_y += row_h + GAP_Y
-
-    height = row_y + 20
+    height = current_y + 16
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Featured projects">
@@ -153,14 +132,15 @@ def build_svg(projects: list[dict]) -> str:
   {traffic_dots(42, 40)}
   <text x="40" y="62" class="prompt">$ ls featured-projects/</text>
   <style>
-    .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
-    .title  {{ font-family: 'JetBrains Mono', monospace; font-size: 18px; fill: #3fb950; font-weight: 700; }}
-    .desc   {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #e6edf3; }}
-    .metric {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #8b949e; }}
-    .stack  {{ font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #3fb950; opacity: 0.7; }}
-    .btn    {{ font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #e6edf3; font-weight: 700; }}
+    .prompt      {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .title       {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #3fb950; font-weight: 700; }}
+    .desc        {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }}
+    .section-hdr {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; font-weight: 700; }}
+    .metric      {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #8b949e; }}
+    .stack       {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.8; }}
+    .btn         {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #e6edf3; font-weight: 700; }}
   </style>
-  {''.join(cards_svg)}
+  {''.join(cards_markup)}
 </svg>'''
 
 
