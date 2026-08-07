@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate dynamic, auto-sizing project cards SVG without text overflow."""
+"""Generate dynamic, auto-sizing project cards SVG with polished inner padding and spacing."""
 
 from __future__ import annotations
 
@@ -13,8 +13,8 @@ OUTPUT_PATH = ROOT / "assets" / "projects.svg"
 
 DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
 CARD_WIDTH = 836  # Full width card inside 864px inner container
-PAD_LEFT = 24
-TEXT_WIDTH = CARD_WIDTH - 2 * PAD_LEFT  # 788px text area
+PAD_LEFT = 32     # Increased inner padding
+TEXT_WIDTH = CARD_WIDTH - 2 * PAD_LEFT  # 772px text area
 
 
 def load_profile() -> dict:
@@ -35,29 +35,29 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 def render_card(project: dict, x: int, y: int, begin: float) -> tuple[str, int]:
     """Render a single full-width card with dynamic height calculation."""
     elements: list[str] = []
-    cy = 30  # Relative y inside card
+    cy = 34  # Relative y inside card
 
     # Title
     elements.append(
         f'<text x="{PAD_LEFT}" y="{cy}" class="title">{esc(project["title"])}</text>'
     )
-    cy += 14
+    cy += 16
 
     # Separator
     elements.append(
         f'<line x1="{PAD_LEFT}" y1="{cy}" x2="{CARD_WIDTH - PAD_LEFT}" y2="{cy}" '
         f'stroke="#21262d" stroke-width="1"/>'
     )
-    cy += 22
+    cy += 24
 
-    # Description (wrapped at ~95 chars for 788px width)
-    desc_lines = textwrap.wrap(project["description"], width=95)
+    # Description (wrapped at ~90 chars for 772px width)
+    desc_lines = textwrap.wrap(project["description"], width=90)
     for dl in desc_lines:
         elements.append(
             f'<text x="{PAD_LEFT}" y="{cy}" class="desc">{esc(dl)}</text>'
         )
-        cy += 20
-    cy += 10
+        cy += 22
+    cy += 12
 
     # Key Metrics
     metrics = project.get("metrics", [])
@@ -65,34 +65,34 @@ def render_card(project: dict, x: int, y: int, begin: float) -> tuple[str, int]:
         elements.append(
             f'<text x="{PAD_LEFT}" y="{cy}" class="section-hdr">Key Metrics:</text>'
         )
-        cy += 20
+        cy += 22
         for m in metrics:
             elements.append(
-                f'<text x="{PAD_LEFT + 12}" y="{cy}" class="metric">▸ {esc(m)}</text>'
+                f'<text x="{PAD_LEFT + 14}" y="{cy}" class="metric">▸ {esc(m)}</text>'
             )
-            cy += 18
-        cy += 10
+            cy += 20
+        cy += 12
 
     # Tech Stack
     stack_str = " · ".join(project["stack"])
-    stack_lines = textwrap.wrap(f"Tech Stack: {stack_str}", width=100)
+    stack_lines = textwrap.wrap(f"Tech Stack: {stack_str}", width=95)
     for sl in stack_lines:
         elements.append(
             f'<text x="{PAD_LEFT}" y="{cy}" class="stack">{esc(sl)}</text>'
         )
-        cy += 18
-    cy += 16
+        cy += 20
+    cy += 18
 
     # GitHub Button pinned at bottom
     btn_y = cy
     elements.append(
         f'<a href="{project["github"]}">'
-        f'<rect x="{PAD_LEFT}" y="{btn_y}" width="110" height="30" rx="6" '
+        f'<rect x="{PAD_LEFT}" y="{btn_y}" width="115" height="32" rx="6" '
         f'fill="#21262d" stroke="#30363d"/>'
-        f'<text x="{PAD_LEFT + 18}" y="{btn_y + 20}" class="btn">GitHub ↗</text>'
+        f'<text x="{PAD_LEFT + 20}" y="{btn_y + 21}" class="btn">GitHub ↗</text>'
         f'</a>'
     )
-    cy = btn_y + 30 + 24  # Card bottom padding
+    cy = btn_y + 32 + 28  # Card bottom padding
 
     card_height = cy
 
@@ -111,7 +111,7 @@ def render_card(project: dict, x: int, y: int, begin: float) -> tuple[str, int]:
 def build_svg(projects: list[dict]) -> str:
     CARD_X = 32
     START_Y = 76
-    GAP_Y = 24
+    GAP_Y = 28
 
     cards_markup: list[str] = []
     current_y = START_Y
@@ -137,7 +137,7 @@ def build_svg(projects: list[dict]) -> str:
     .desc        {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }}
     .section-hdr {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; font-weight: 700; }}
     .metric      {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #8b949e; }}
-    .stack       {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.8; }}
+    .stack       {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.85; }}
     .btn         {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #e6edf3; font-weight: 700; }}
   </style>
   {''.join(cards_markup)}

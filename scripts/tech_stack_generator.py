@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Generate premium tech stack SVG with Icon on top and label directly underneath.
+"""Generate premium tech stack SVG with 20% enlarged Base64 icons and centered text labels.
 
-Self-contained Base64 icons, centered monospace labels underneath every icon,
-subtle green glow filter on GitHub icon, 9 complete resume-driven categories,
-dynamic height calculation.
+Icons enlarged to 38x38px, labels centered underneath every icon, 9 complete categories,
+subtle green glow filter on GitHub icon, dynamic height calculation.
 """
 
 from __future__ import annotations
@@ -54,8 +53,8 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 def build_svg(profile: dict) -> str:
     tech_stack = profile["tech_stack"]
     PAD_LEFT = 40
-    COL_WIDTH = 120
-    ICON_SIZE = 32
+    COL_WIDTH = 130
+    ICON_SIZE = 38  # Increased icon size by 20%
     MAX_PER_ROW = 6
 
     elements: list[str] = []
@@ -80,9 +79,9 @@ def build_svg(profile: dict) -> str:
             f'from="0" to="1" fill="freeze"/></text>'
         )
         t += 0.08
-        y += 18
+        y += 20
 
-        # Render items in grid: Icon on top, label directly under it
+        # Render items in grid: 38x38 Icon on top, label directly under it
         row_idx = 0
         col_idx = 0
         for item in items:
@@ -91,10 +90,10 @@ def build_svg(profile: dict) -> str:
             data_uri = to_data_uri(icon_url)
 
             cell_x = PAD_LEFT + col_idx * COL_WIDTH
-            cell_y = y + row_idx * 72
+            cell_y = y + row_idx * 78
             icon_x = cell_x + (COL_WIDTH - ICON_SIZE) // 2
             text_x = cell_x + COL_WIDTH // 2
-            text_y = cell_y + ICON_SIZE + 18
+            text_y = cell_y + ICON_SIZE + 20
 
             is_github = "github" in name.lower() or ("github" in icon_url.lower() and "gitlab" not in icon_url.lower())
             filt = ' filter="url(#greenGlow)"' if is_github else ""
@@ -125,7 +124,7 @@ def build_svg(profile: dict) -> str:
                 row_idx += 1
 
         rows_count = row_idx + (1 if col_idx > 0 else 0)
-        y += max(1, rows_count) * 72 + 16
+        y += max(1, rows_count) * 78 + 18
         t += 0.06
 
     height = y + 20
@@ -140,7 +139,7 @@ def build_svg(profile: dict) -> str:
   <style>
     .prompt {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
     .cat    {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #3fb950; font-weight: 700; }}
-    .label  {{ font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #c9d1d9; }}
+    .label  {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #c9d1d9; }}
   </style>
   {''.join(elements)}
 </svg>'''

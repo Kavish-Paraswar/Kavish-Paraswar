@@ -23,6 +23,20 @@
   ],
   "experience": [
     {
+      "company": "Barclays",
+      "url": "",
+      "role": "Software Engineering Intern",
+      "duration": "June 2026 – July 2026",
+      "highlights": [
+        "Architected a Health Monitoring & Observability System for microservices architecture",
+        "Deployed on Kubernetes/OpenShift monitoring 250+ active system resources",
+        "Achieved 2–3 second dashboard load times and 500 ms–2 s query latency",
+        "Implemented token refresh mechanism ensuring zero-downtime authentication",
+        "Reduced deployment validation time by 15–20 minutes and overall MTTR by 70%"
+      ],
+      "technologies": ["Node.js", "OpenShift", "Kubernetes", "Kafka", "ELK", "REST APIs"]
+    },
+    {
       "company": "TakeTwo",
       "url": "https://trytaketwo.app",
       "role": "AI Intern",
@@ -34,18 +48,6 @@
         "Improved generation latency by 40%"
       ],
       "technologies": ["Python", "AI", "Video Generation", "Pipeline Optimization"]
-    },
-    {
-      "company": "GEDIT Coding Club",
-      "url": "",
-      "role": "Web Development Lead",
-      "duration": "May 2024 – May 2025",
-      "highlights": [
-        "Led a team of 6 developers to design and launch a Next.js Web Platform for 500+ members",
-        "Conducted 4 workshops on DSA, Web Dev and mentored 150+ students",
-        "Improved UI/UX and reduced page load time by 35%"
-      ],
-      "technologies": ["Next.js", "React", "TypeScript", "Performance Optimization"]
     }
   ],
   "tech_stack": {
@@ -103,9 +105,7 @@
     "Tools": [
       {"name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},
       {"name": "GitHub", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"},
-      {"name": "VS Code", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"},
-      {"name": "Claude Code", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
-      {"name": "CodeRabbit", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"}
+      {"name": "VS Code", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"}
     ]
   },
   "projects": [
@@ -136,12 +136,10 @@
     }
   ],
   "achievements": [
-    {"icon": "🏆", "text": "Knight on LeetCode — Top 5%, Max Rating 1869"},
     {"icon": "🥇", "text": "Winner of CodeMania 6.0 and Codeverse 2k26 Contests"},
-    {"icon": "🌐", "text": "40+ Merged Pull Requests as Open Source Contributor in GSSOC & Hacktoberfest"},
     {"icon": "📊", "text": "Secured AIR 71 (Starters 215) and AIR 168 (Starters 214) among 30,000 participants on CodeChef"},
     {"icon": "⭐", "text": "3 Stars CodeChef (Max Rating 1604) · Specialist Rank on Codeforces (Max Rating 1414)"},
-    {"icon": "🎓", "text": "Amazon ML Summer School Participant · Flipkart GRID Participant"}
+    {"icon": "🎓", "text": "Amazon ML Summer School Participant · Flipkart GRID 8.0 Semifinalist"}
   ],
   "coding": {
     "LeetCode": {

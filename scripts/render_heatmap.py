@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Render clean, properly bounded contribution heatmap SVG.
+"""Render clean, properly bounded contribution heatmap SVG with polished stats alignment.
 
 Heatmap grid with month labels, Less/More legend, and stats tiles positioned
-under the heatmap grid inside the card container boundaries so nothing overflows.
+under the heatmap grid with generous bottom padding so nothing feels cramped.
 """
 
 from __future__ import annotations
@@ -102,11 +102,10 @@ def render(data: dict) -> str:
                 prev_month = current.month
 
     # Heatmap grid height
-    grid_bottom = GRID_TOP + 7 * (CELL + GAP) + 16
+    grid_bottom = GRID_TOP + 7 * (CELL + GAP) + 24
 
-    # Bottom bar inside card: Legend on Left, Stats Tiles on Right (all inside 864px inner card width)
-    # Legend
-    legend_y = grid_bottom + 12
+    # Legend aligned with grid on left
+    legend_y = grid_bottom + 14
     legend_parts = [
         f'<text x="{GRID_LEFT}" y="{legend_y + 10}" class="legend-text">Less</text>'
     ]
@@ -120,29 +119,29 @@ def render(data: dict) -> str:
         f'<text x="{lx + len(COLORS) * 16 + 6}" y="{legend_y + 10}" class="legend-text">More</text>'
     )
 
-    # Stats Section placed cleanly below heatmap grid (x from 420px to 840px inside card)
+    # Stats Section comfortably placed under heatmap grid
     total = data.get("total", 0)
     current_streak = data.get("current_streak", 0)
     longest_streak = data.get("longest_streak", 0)
     year = datetime.now().strftime("%Y")
 
-    stat_box_y = grid_bottom - 4
+    stat_box_y = grid_bottom
     stats_markup = [
         # Stat Tile 1: Total
-        f'<rect x="420" y="{stat_box_y}" width="130" height="42" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
-        f'<text x="485" y="{stat_box_y + 16}" class="stat-lbl" text-anchor="middle">Total ({year})</text>',
-        f'<text x="485" y="{stat_box_y + 34}" class="stat-val" text-anchor="middle">{total}</text>',
+        f'<rect x="420" y="{stat_box_y}" width="130" height="44" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
+        f'<text x="485" y="{stat_box_y + 17}" class="stat-lbl" text-anchor="middle">Total ({year})</text>',
+        f'<text x="485" y="{stat_box_y + 35}" class="stat-val" text-anchor="middle">{total}</text>',
         # Stat Tile 2: Current Streak
-        f'<rect x="562" y="{stat_box_y}" width="130" height="42" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
-        f'<text x="627" y="{stat_box_y + 16}" class="stat-lbl" text-anchor="middle">Current Streak</text>',
-        f'<text x="627" y="{stat_box_y + 34}" class="stat-val" text-anchor="middle">{current_streak} days</text>',
+        f'<rect x="562" y="{stat_box_y}" width="130" height="44" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
+        f'<text x="627" y="{stat_box_y + 17}" class="stat-lbl" text-anchor="middle">Current Streak</text>',
+        f'<text x="627" y="{stat_box_y + 35}" class="stat-val" text-anchor="middle">{current_streak} days</text>',
         # Stat Tile 3: Longest Streak
-        f'<rect x="704" y="{stat_box_y}" width="130" height="42" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
-        f'<text x="769" y="{stat_box_y + 16}" class="stat-lbl" text-anchor="middle">Longest Streak</text>',
-        f'<text x="769" y="{stat_box_y + 34}" class="stat-val" text-anchor="middle">{longest_streak} days</text>',
+        f'<rect x="704" y="{stat_box_y}" width="130" height="44" rx="6" fill="#ffffff" stroke="#d0d7de"/>',
+        f'<text x="769" y="{stat_box_y + 17}" class="stat-lbl" text-anchor="middle">Longest Streak</text>',
+        f'<text x="769" y="{stat_box_y + 35}" class="stat-val" text-anchor="middle">{longest_streak} days</text>',
     ]
 
-    height = stat_box_y + 42 + 24
+    height = stat_box_y + 44 + 32  # Generous bottom padding
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Contribution graph">

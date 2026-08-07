@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Generate premium timeline-style experience card SVG from resume data."""
+"""Generate experience timeline SVG with Barclays first, TakeTwo second, and GEDIT removed."""
 
 from __future__ import annotations
 
-from pathlib import Path
 import json
+from pathlib import Path
+import textwrap
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "data" / "profile.json"
@@ -29,134 +30,98 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 
 def build_svg(profile: dict) -> str:
-    experiences = profile["experience"]
-    PAD_L = 40
-    TIMELINE_X = 56
-    CONTENT_X = 80
+    exp_list = profile["experience"]
+    PAD_LEFT = 40
+    TIMELINE_X = PAD_LEFT + 12
 
     elements: list[str] = []
-    y = 80
+    y = 90
+    t = 0.2
 
-    # Command header
-    elements.append(
-        f'<text x="{PAD_L}" y="{y}" class="prompt">$ cat experience.log</text>'
-    )
-    y += 44
+    start_y = y
 
-    t = 0.25
-    for idx, exp in enumerate(experiences):
-        block_start = y
+    for entry in exp_list:
+        company = entry["company"]
+        role = entry["role"]
+        duration = entry["duration"]
+        highlights = entry.get("highlights", [])
+        techs = entry.get("technologies", [])
 
-        # Timeline dot
+        # Timeline node circle
         elements.append(
-            f'<circle cx="{TIMELINE_X}" cy="{y}" r="5" fill="#3fb950" opacity="0">'
-            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-            f'</circle>'
+            f'<circle cx="{TIMELINE_X}" cy="{y}" r="6" fill="#3fb950" stroke="#010409" stroke-width="2"/>'
         )
 
-        # Company name
+        # Role & Company Header
+        company_link = f' ({entry["url"]})' if entry.get("url") else ""
+        header_text = f'{role} @ {company}'
         elements.append(
-            f'<text x="{CONTENT_X}" y="{y + 5}" class="company" opacity="0">{esc(exp["company"])}'
-            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-            f'</text>'
+            f'<text x="{TIMELINE_X + 22}" y="{y + 5}" class="role-title" opacity="0">{esc(header_text)}'
+            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/></text>'
         )
-        t += 0.12
-        y += 28
 
-        # Role + Duration
+        # Duration right-aligned
         elements.append(
-            f'<text x="{CONTENT_X}" y="{y}" class="role" opacity="0">{esc(exp["role"])}'
-            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-            f'</text>'
+            f'<text x="836" y="{y + 5}" class="duration" text-anchor="end" opacity="0">{esc(duration)}'
+            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/></text>'
         )
-        duration = exp.get("duration", "")
-        if duration:
-            elements.append(
-                f'<text x="860" y="{y}" class="duration" text-anchor="end" opacity="0">{esc(duration)}'
-                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-                f'</text>'
-            )
-        t += 0.10
-        y += 28
+        t += 0.1
+        y += 26
 
-        # Highlights
-        for bullet in exp.get("highlights", []):
-            safe = esc(bullet)
-            # Word-wrap long bullets at ~85 chars
-            if len(safe) > 85:
-                wrap_at = safe.rfind(" ", 0, 85)
-                if wrap_at == -1:
-                    wrap_at = 85
-                line1 = safe[:wrap_at]
-                line2 = safe[wrap_at:].lstrip()
+        # Bullet highlights (wrapped)
+        for h in highlights:
+            lines = textwrap.wrap(h, width=82)
+            for i, line in enumerate(lines):
+                bullet = "• " if i == 0 else "  "
                 elements.append(
-                    f'<text x="{CONTENT_X}" y="{y}" class="bullet" opacity="0">▸ {line1}'
-                    f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/>'
-                    f'</text>'
+                    f'<text x="{TIMELINE_X + 22}" y="{y}" class="bullet" opacity="0">{esc(bullet + line)}'
+                    f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/></text>'
                 )
-                y += 24
-                elements.append(
-                    f'<text x="{CONTENT_X + 16}" y="{y}" class="bullet" opacity="0">{line2}'
-                    f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/>'
-                    f'</text>'
-                )
-            else:
-                elements.append(
-                    f'<text x="{CONTENT_X}" y="{y}" class="bullet" opacity="0">▸ {safe}'
-                    f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/>'
-                    f'</text>'
-                )
-            t += 0.08
-            y += 24
+                y += 20
+            t += 0.05
+        y += 6
 
-        # Technologies
-        techs = exp.get("technologies", [])
+        # Tech tags
         if techs:
-            y += 4
-            tech_str = " · ".join(techs)
+            tech_str = "  ·  ".join(techs)
             elements.append(
-                f'<text x="{CONTENT_X}" y="{y}" class="tech" opacity="0">{esc(tech_str)}'
-                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/>'
-                f'</text>'
+                f'<text x="{TIMELINE_X + 22}" y="{y}" class="tech-tag" opacity="0">{esc(tech_str)}'
+                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/></text>'
             )
-            t += 0.10
-            y += 12
+            y += 26
 
-        # Timeline line segment (connect to next)
-        if idx < len(experiences) - 1:
-            line_top = block_start + 8
-            line_bot = y + 20
-            elements.append(
-                f'<line x1="{TIMELINE_X}" y1="{line_top}" x2="{TIMELINE_X}" y2="{line_bot}" '
-                f'stroke="#21262d" stroke-width="2" opacity="0">'
-                f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-                f'</line>'
-            )
-            y += 32
-        else:
-            y += 12
+        y += 28
 
-    height = y + 30
+    end_y = y - 36
+    # Connecting line behind nodes
+    connecting_line = (
+        f'<line x1="{TIMELINE_X}" y1="{start_y}" x2="{TIMELINE_X}" y2="{end_y}" '
+        f'stroke="#21262d" stroke-width="2"/>'
+    )
+
+    height = y + 20
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Experience timeline">
   <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
   <rect x="18" y="18" width="864" height="{inner_h}" rx="12" fill="#010409" stroke="#21262d"/>
   {traffic_dots(42, 40)}
+  <text x="{PAD_LEFT}" y="62" class="prompt">$ cat experience.log</text>
   <style>
-    .prompt   {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
-    .company  {{ font-family: 'JetBrains Mono', monospace; font-size: 22px; fill: #3fb950; font-weight: 700; }}
-    .role     {{ font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #e6edf3; }}
-    .duration {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #7d8590; }}
-    .bullet   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; }}
-    .tech     {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.7; }}
+    .prompt     {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
+    .role-title {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; font-weight: 700; }}
+    .duration   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; }}
+    .bullet     {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; }}
+    .tech-tag   {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.85; }}
   </style>
+  {connecting_line}
   {''.join(elements)}
 </svg>'''
 
 
 def main() -> None:
-    OUTPUT_PATH.write_text(build_svg(load_profile()), encoding="utf-8")
+    profile = load_profile()
+    OUTPUT_PATH.write_text(build_svg(profile), encoding="utf-8")
 
 
 if __name__ == "__main__":
