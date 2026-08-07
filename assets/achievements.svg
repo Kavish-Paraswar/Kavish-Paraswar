@@ -1,91 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="258" viewBox="0 0 900 258" role="img" aria-label="Achievements">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="306" viewBox="0 0 900 306" role="img" aria-label="Achievements">
   <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
-  <rect x="18" y="18" width="864" height="222" rx="12" fill="#010409" stroke="#21262d"/>
-
-  <circle cx="42" cy="40" r="6" fill="#f85149"/>
-  <circle cx="62" cy="40" r="6" fill="#d29922"/>
-  <circle cx="82" cy="40" r="6" fill="#3fb950"/>
-
-  <style>
-    .prompt{
-      font-family:'JetBrains Mono',monospace;
-      font-size:14px;
-      fill:#7d8590;
-    }
-
-    .ach{
-      font-family:'JetBrains Mono',monospace;
-      font-size:13px;
-      fill:#e6edf3;
-    }
-  </style>
-
+  <rect x="18" y="18" width="864" height="270" rx="12" fill="#010409" stroke="#21262d"/>
+  <circle cx="42" cy="40" r="6" fill="#f85149"/><circle cx="62" cy="40" r="6" fill="#d29922"/><circle cx="82" cy="40" r="6" fill="#3fb950"/>
   <text x="40" y="62" class="prompt">$ cat achievements.log</text>
-
-  <!-- Achievement 1 -->
-  <g opacity="0">
-    <animate attributeName="opacity"
-             begin="0.15s"
-             dur="0.12s"
-             from="0"
-             to="1"
-             fill="freeze"/>
-
-    <rect x="36"
-          y="66"
-          width="830"
-          height="36"
-          rx="8"
-          fill="#0d1117"
-          stroke="#21262d"/>
-
-    <text x="48" y="87" class="ach">
-      🥇 Winner of CodeMania 6.0 and Codeverse 2k26 Contests
-    </text>
-  </g>
-
-  <!-- Achievement 2 -->
-  <g opacity="0">
-    <animate attributeName="opacity"
-             begin="0.25s"
-             dur="0.12s"
-             from="0"
-             to="1"
-             fill="freeze"/>
-
-    <rect x="36"
-          y="114"
-          width="830"
-          height="36"
-          rx="8"
-          fill="#0d1117"
-          stroke="#21262d"/>
-
-    <text x="48" y="135" class="ach">
-      📊 Secured AIR 71 (Starters 215) and AIR 168 (Starters 214) on CodeChef
-    </text>
-  </g>
-
-  <!-- Achievement 3 -->
-  <g opacity="0">
-    <animate attributeName="opacity"
-             begin="0.35s"
-             dur="0.12s"
-             from="0"
-             to="1"
-             fill="freeze"/>
-
-    <rect x="36"
-          y="162"
-          width="830"
-          height="36"
-          rx="8"
-          fill="#0d1117"
-          stroke="#21262d"/>
-
-    <text x="48" y="183" class="ach">
-      🎓 Amazon ML Summer School Participant · Flipkart GRID 8.0 Semifinalist
-    </text>
-  </g>
-
+  <style>
+    .prompt { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }
+    .ach    { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }
+  </style>
+  <g opacity="0"><animate attributeName="opacity" begin="0.15s" dur="0.12s" from="0" to="1" fill="freeze"/><rect x="36" y="66" width="830" height="36" rx="8" fill="#0d1117" stroke="#21262d"/><text x="48" y="87" class="ach">🥇  Winner of CodeMania 6.0 and Codeverse 2k26 Contests</text></g><g opacity="0"><animate attributeName="opacity" begin="0.25s" dur="0.12s" from="0" to="1" fill="freeze"/><rect x="36" y="114" width="830" height="48" rx="8" fill="#0d1117" stroke="#21262d"/><text x="48" y="132" class="ach">📊  Secured AIR 71 (Starters 215) and AIR 168 (Starters 214) among 30,000</text><text x="70" y="152" class="ach">participants on CodeChef</text></g><g opacity="0"><animate attributeName="opacity" begin="0.35s" dur="0.12s" from="0" to="1" fill="freeze"/><rect x="36" y="174" width="830" height="36" rx="8" fill="#0d1117" stroke="#21262d"/><text x="48" y="195" class="ach">⭐  CodeChef (Max Rating 1604) · Codeforces (Max Rating 1414)</text></g><g opacity="0"><animate attributeName="opacity" begin="0.45s" dur="0.12s" from="0" to="1" fill="freeze"/><rect x="36" y="222" width="830" height="36" rx="8" fill="#0d1117" stroke="#21262d"/><text x="48" y="243" class="ach">🎓  Amazon ML Summer School Participant · Flipkart GRID 8.0 Semifinalist</text></g>
 </svg>
