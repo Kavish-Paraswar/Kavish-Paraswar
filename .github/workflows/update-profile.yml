@@ -2,6 +2,9 @@ name: Update Profile Assets
 
 on:
   workflow_dispatch:
+  schedule:
+    # 01:30 UTC = 07:00 IST — daily scheduled run
+    - cron: "30 1 * * *"
   push:
     branches: [main]
     paths:
@@ -32,12 +35,30 @@ jobs:
       - name: Regenerate terminal assets
         run: |
           python scripts/banner_generator.py
-          python scripts/info_card_generator.py
           python scripts/experience_generator.py
+          python scripts/info_card_generator.py
           python scripts/tech_stack_generator.py
-          python scripts/footer_generator.py
-          python scripts/resume_button_generator.py
           python scripts/projects_generator.py
+          python scripts/resume_button_generator.py
+          python scripts/footer_generator.py
+
+      - name: Verify generated SVG assets
+        run: |
+          echo "=== Verifying SVG Files ==="
+          test -f assets/banner.svg
+          test -f assets/experience.svg
+          test -f assets/achievements.svg
+          test -f assets/coding.svg
+          test -f assets/currently.svg
+          test -f assets/tech-stack.svg
+          test -f assets/projects.svg
+          test -f assets/resume-button.svg
+          test -f assets/footer.svg
+          echo "All required SVGs verified successfully."
+          echo "=== Git Status ==="
+          git status
+          echo "=== Git Diff Stat ==="
+          git diff --stat
 
       - name: Commit generated changes
         uses: stefanzweifel/git-auto-commit-action@v5
