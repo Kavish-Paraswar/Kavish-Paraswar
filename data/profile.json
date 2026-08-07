@@ -34,7 +34,7 @@
         "Implemented token refresh mechanism ensuring zero-downtime authentication",
         "Reduced deployment validation time by 15–20 minutes and overall MTTR by 70%"
       ],
-      "technologies": ["Node.js", "OpenShift", "Kubernetes", "Kafka", "ELK", "REST APIs"]
+      "technologies": ["Node.js", "OpenShift", "Kubernetes", "Kafka", "ELK"]
     },
     {
       "company": "TakeTwo",
@@ -60,8 +60,7 @@
     ],
     "Backend": [
       {"name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"},
-      {"name": "FastAPI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"},
-      {"name": "REST APIs", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"}
+      {"name": "FastAPI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"}
     ],
     "Programming Languages": [
       {"name": "C", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"},
