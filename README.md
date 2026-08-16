@@ -3,14 +3,13 @@
 </div>
 
 <p align="center">
-  <a href="https://github.com/Kavish-Paraswar/Kavish-Paraswar/blob/main/assets/Kavish_Paraswar_CV.pdf" target="_blank">
+  <a href="https://raw.githubusercontent.com/Kavish-Paraswar/Kavish-Paraswar/main/assets/Kavish_Paraswar_CV.pdf" target="_blank">
     <img src="./assets/resume-button.svg" width="210" alt="Download Resume" />
   </a>&nbsp;&nbsp;
   <a href="https://linkedin.com/in/kavish-paraswar" target="_blank">
     <img src="./assets/linkedin-button.svg" width="130" alt="LinkedIn Profile" />
   </a>
 </p>
-
 <p align="center">
   <img src="./assets/experience.svg" width="100%" alt="Experience timeline" />
 </p>
