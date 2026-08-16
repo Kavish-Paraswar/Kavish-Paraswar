@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="210" height="40" viewBox="0 0 210 40" role="img" aria-label="Cat resume.pdf terminal button">
   <rect width="100%" height="100%" fill="#0d1117" rx="8" stroke="#30363d" stroke-width="1.5"/>
   <rect x="2" y="2" width="206" height="36" rx="6" fill="#010409"/>
+
   <style>
     .prompt { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }
     .cmd    { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; font-weight: 600; }
     .icon   { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; font-weight: 700; }
   </style>
+
   <text x="14" y="24" class="prompt">$</text>
   <text x="28" y="24" class="cmd">cat resume.pdf</text>
   <text x="180" y="24" class="icon">↓</text>
