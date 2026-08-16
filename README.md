@@ -3,6 +3,15 @@
 </div>
 
 <p align="center">
+  <a href="./assets/Kavish_Paraswar_CV.pdf">
+    <img src="./assets/resume-button.svg" width="160" alt="Resume" />
+  </a>
+  <a href="https://linkedin.com/in/kavish-paraswar" target="_blank">
+    <img src="./assets/linkedin-button.svg" width="130" alt="LinkedIn" />
+  </a>
+</p>
+
+<p align="center">
   <img src="./assets/experience.svg" width="100%" alt="Experience timeline" />
 </p>
 
