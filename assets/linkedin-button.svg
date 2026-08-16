@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="36" viewBox="0 0 130 36">
+  <rect
+    x="1"
+    y="1"
+    width="128"
+    height="34"
+    rx="6"
+    fill="#0d1117"
+    stroke="#30363d"
+    stroke-width="1.5"
+  />
+
+  <text
+    x="16"
+    y="24"
+    font-family="monospace"
+    font-size="13"
+    fill="#e6edf3"
+    font-weight="600"
+  >LinkedIn</text>
+
+  <text
+    x="106"
+    y="24"
+    font-family="monospace"
+    font-size="13"
+    fill="#3fb950"
+    font-weight="700"
+  >↗</text>
+</svg>
