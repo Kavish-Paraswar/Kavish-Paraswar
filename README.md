@@ -5,7 +5,7 @@
 <p align="center">
   <a href="./assets/Kavish_Paraswar_CV.pdf">
     <img src="./assets/resume-button.svg" width="160" alt="Resume" />
-  </a>
+  </a>&nbsp;&nbsp;
   <a href="https://linkedin.com/in/kavish-paraswar" target="_blank">
     <img src="./assets/linkedin-button.svg" width="130" alt="LinkedIn" />
   </a>
