@@ -1,16 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="856" viewBox="0 0 900 856" role="img" aria-label="Featured projects">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Featured projects">
   <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
-  <rect x="18" y="18" width="864" height="820" rx="12" fill="#010409" stroke="#21262d"/>
-  <circle cx="42" cy="40" r="6" fill="#f85149"/><circle cx="62" cy="40" r="6" fill="#d29922"/><circle cx="82" cy="40" r="6" fill="#3fb950"/>
+  <rect x="18" y="18" width="864" height="484" rx="12" fill="#010409" stroke="#21262d"/>
+
+  <circle cx="42" cy="40" r="6" fill="#f85149"/>
+  <circle cx="62" cy="40" r="6" fill="#d29922"/>
+  <circle cx="82" cy="40" r="6" fill="#3fb950"/>
+
   <text x="40" y="62" class="prompt">$ ls featured-projects/</text>
+
   <style>
-    .prompt      { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }
-    .title       { font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #3fb950; font-weight: 700; }
-    .desc        { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }
-    .section-hdr { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; font-weight: 700; }
-    .metric      { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #8b949e; }
-    .stack       { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.85; }
-    .btn         { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #e6edf3; font-weight: 700; }
+    .prompt { font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }
+    .title  { font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #3fb950; font-weight: 700; }
+    .desc   { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; }
+    .metric { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; }
+    .stack  { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.85; }
   </style>
-  <g transform="translate(32,76)" opacity="0"><animate attributeName="opacity" begin="0.20s" dur="0.2s" from="0" to="1" fill="freeze"/><rect width="836" height="386" rx="10" fill="#0d1117" stroke="#21262d"/><text x="32" y="34" class="title">Smart Krishi</text><line x1="32" y1="50" x2="804" y2="50" stroke="#21262d" stroke-width="1"/><text x="32" y="74" class="desc">One-stop AI platform for farmers integrating crop disease prediction using KNN optimized</text><text x="32" y="96" class="desc">on 61K images with 98.9% accuracy, crop/fertilizer/yield prediction, multilingual voice</text><text x="32" y="118" class="desc">navigation, and a Twilio-based AI voice call agent enabling farmers to receive</text><text x="32" y="140" class="desc">recommendations via phone calls.</text><text x="32" y="174" class="section-hdr">Key Metrics:</text><text x="46" y="196" class="metric">▸ 98.9% crop disease accuracy on 61K images</text><text x="46" y="216" class="metric">▸ 97% yield prediction accuracy</text><text x="46" y="236" class="metric">▸ Integrated Twilio AI voice call agent</text><text x="46" y="256" class="metric">▸ Multilingual voice-based navigation &amp; PAN auth</text><text x="32" y="288" class="stack">Tech Stack: React · TypeScript · FastAPI · MySQL · Hugging Face · Docker · Vercel</text><a href="https://github.com/Kavish-Paraswar"><rect x="32" y="326" width="115" height="32" rx="6" fill="#21262d" stroke="#30363d"/><text x="52" y="347" class="btn">GitHub ↗</text></a></g><g transform="translate(32,490)" opacity="0"><animate attributeName="opacity" begin="0.45s" dur="0.2s" from="0" to="1" fill="freeze"/><rect width="836" height="322" rx="10" fill="#0d1117" stroke="#21262d"/><text x="32" y="34" class="title">Sketch2Face AI</text><line x1="32" y1="50" x2="804" y2="50" stroke="#21262d" stroke-width="1"/><text x="32" y="74" class="desc">AI system converting hand-drawn sketches into photorealistic human faces using Conditional</text><text x="32" y="96" class="desc">GAN, fine-tuned on 30K facial images with 95% reconstruction accuracy.</text><text x="32" y="130" class="section-hdr">Key Metrics:</text><text x="46" y="152" class="metric">▸ 95% facial reconstruction accuracy</text><text x="46" y="172" class="metric">▸ Fine-tuned on 30K facial images</text><text x="46" y="192" class="metric">▸ Conditional GAN &amp; CNN architecture</text><text x="32" y="224" class="stack">Tech Stack: React · FastAPI · Python · CNN · GAN</text><a href="https://github.com/Kavish-Paraswar"><rect x="32" y="262" width="115" height="32" rx="6" fill="#21262d" stroke="#30363d"/><text x="52" y="283" class="btn">GitHub ↗</text></a></g>
+
+  <g transform="translate(32,80)" opacity="0">
+    <animate attributeName="opacity" begin="0.20s" dur="0.2s" from="0" to="1" fill="freeze"/>
+    <rect width="836" height="190" rx="10" fill="#0d1117" stroke="#21262d"/>
+
+    <text x="32" y="34" class="title">Smart Krishi</text>
+    <line x1="32" y1="50" x2="804" y2="50" stroke="#21262d" stroke-width="1"/>
+
+    <text x="32" y="76" class="desc">AI-powered platform for crop intelligence and farmer assistance.</text>
+
+    <text x="32" y="112" class="metric">▸ 98.9% disease prediction accuracy on 61K images</text>
+    <text x="32" y="138" class="metric">▸ 97% yield prediction accuracy with AI voice assistance</text>
+    <text x="32" y="166" class="stack">Tech: React · TypeScript · FastAPI · MySQL · Docker · Hugging Face</text>
+  </g>
+
+  <g transform="translate(32,290)" opacity="0">
+    <animate attributeName="opacity" begin="0.45s" dur="0.2s" from="0" to="1" fill="freeze"/>
+    <rect width="836" height="190" rx="10" fill="#0d1117" stroke="#21262d"/>
+
+    <text x="32" y="34" class="title">Sketch2Face AI</text>
+    <line x1="32" y1="50" x2="804" y2="50" stroke="#21262d" stroke-width="1"/>
+
+    <text x="32" y="76" class="desc">AI system converting hand-drawn sketches into photorealistic faces.</text>
+
+    <text x="32" y="112" class="metric">▸ 95% facial reconstruction accuracy</text>
+    <text x="32" y="138" class="metric">▸ Fine-tuned Conditional GAN on 30K facial images</text>
+    <text x="32" y="166" class="stack">Tech: React · FastAPI · Python · CNN · GAN</text>
+  </g>
 </svg>
