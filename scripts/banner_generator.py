@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the compact terminal hero banner SVG with embedded Pollito GIF and contact line."""
+"""Generate the compact terminal hero banner SVG with embedded Pollito GIF and contact line, without action buttons."""
 
 from __future__ import annotations
 
