@@ -81,6 +81,7 @@ def render_card(project: dict, x: int, y: int, begin: float) -> tuple[str, int]:
     card_height = cy
 
     card_svg = (
+        f'<a href="{esc(project["github"])}" target="_blank" class="project-link">'
         f'<g transform="translate({x},{y})" opacity="0">'
         f'<animate attributeName="opacity" begin="{begin:.2f}s" dur="0.2s" '
         f'from="0" to="1" fill="freeze"/>'
@@ -88,6 +89,7 @@ def render_card(project: dict, x: int, y: int, begin: float) -> tuple[str, int]:
         f'fill="#0d1117" stroke="#21262d"/>'
         + "".join(elements)
         + "</g>"
+        f'</a>'
     )
     return card_svg, card_height
 
@@ -121,6 +123,7 @@ def build_svg(projects: list[dict]) -> str:
     .metric      {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #8b949e; }}
     .stack       {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #3fb950; opacity: 0.85; }}
     .btn         {{ font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #e6edf3; font-weight: 700; }}
+    .project-link {{ text-decoration: none; }}
   </style>
   {''.join(cards_markup)}
 </svg>'''
