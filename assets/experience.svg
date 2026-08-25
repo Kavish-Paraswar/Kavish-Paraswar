@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Experience timeline">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 365" role="img" aria-label="Experience timeline">
   <rect width="100%" height="100%" fill="#0d1117" rx="16"/>
-  <rect x="18" y="18" width="864" height="264" rx="12" fill="#010409" stroke="#21262d"/>
+  <rect x="18" y="18" width="864" height="329" rx="12" fill="#010409" stroke="#21262d"/>
 
   <circle cx="42" cy="40" r="6" fill="#f85149"/>
   <circle cx="62" cy="40" r="6" fill="#d29922"/>
@@ -68,7 +68,7 @@
   </text>
 
   <text x="74" y="290" class="tech-tag" opacity="0">
-    Python  ·  AI  ·  React  ·  Node.js
+    Python  ·  Typescript  ·  React  ·  Node.js
     <animate attributeName="opacity" begin="0.70s" dur="0.12s" from="0" to="1" fill="freeze"/>
   </text>
 </svg>
