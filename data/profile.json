@@ -15,155 +15,34 @@
   "contact": "kavishp9721@gmail.com",
   "linkedin": "https://linkedin.com/in/kavish-paraswar",
   "github": "https://github.com/Kavish-Paraswar",
-  "hero_interests": [
-    "Backend Systems",
-    "AI-powered Products",
-    "Production Software",
-    "Open Source"
-  ],
+  "hero_interests": ["Backend Systems", "AI-powered Products", "Production Software", "Open Source"],
   "experience": [
-    {
-      "company": "Barclays",
-      "url": "",
-      "role": "Software Engineering Intern",
-      "duration": "June 2026 – July 2026",
-      "highlights": [
-        "Architected a Health Monitoring & Observability System for microservices architecture",
-        "Deployed on Kubernetes/OpenShift monitoring 250+ active system resources",
-        "Achieved 2–3 second dashboard load times and 500 ms–2 s query latency",
-        "Implemented token refresh mechanism ensuring zero-downtime authentication",
-        "Reduced deployment validation time by 15–20 minutes and overall MTTR by 70%"
-      ],
-      "technologies": ["Node.js", "OpenShift", "Kubernetes", "Kafka", "ELK"]
-    },
-    {
-      "company": "TakeTwo",
-      "url": "https://trytaketwo.app",
-      "role": "AI Intern",
-      "duration": "Jan 2026 – Mar 2026",
-      "highlights": [
-        "Worked on a production-grade AI video generation platform for the film industry",
-        "Delivered 12+ core features including AI music generator and Canvas-style builder",
-        "Reduced overall costs by 30% through pipeline optimization",
-        "Improved generation latency by 40%"
-      ],
-      "technologies": ["Python", "AI", "Video Generation", "Pipeline Optimization"]
-    }
+    {"company":"Barclays","url":"","role":"Software Engineering Intern","duration":"June 2026 – July 2026","highlights":["Architected a Health Monitoring & Observability System for microservices architecture","Deployed on Kubernetes/OpenShift monitoring 250+ active system resources","Achieved 2–3 second dashboard load times and 500 ms–2 s query latency","Implemented token refresh mechanism ensuring zero-downtime authentication","Reduced deployment validation time by 15–20 minutes and overall MTTR by 70%"],"technologies":["Node.js","OpenShift","Kubernetes","Kafka","ELK"]},
+    {"company":"TakeTwo","url":"https://trytaketwo.app","role":"AI Intern","duration":"Jan 2026 – Mar 2026","highlights":["Worked on a production-grade AI video generation platform for the film industry","Delivered 12+ core features including AI music generator and Canvas-style builder","Reduced overall costs by 30% through pipeline optimization","Improved generation latency by 40%"],"technologies":["Python","AI","Video Generation","Pipeline Optimization"]}
   ],
   "tech_stack": {
-    "Frontend": [
-      {"name": "React", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},
-      {"name": "Next.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"},
-      {"name": "HTML", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"},
-      {"name": "CSS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"},
-      {"name": "TypeScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"}
-    ],
-    "Backend": [
-      {"name": "Node.js", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"},
-      {"name": "FastAPI", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"}
-    ],
-    "Programming Languages": [
-      {"name": "C", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"},
-      {"name": "C++", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"},
-      {"name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"},
-      {"name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},
-      {"name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"},
-      {"name": "SQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg"}
-    ],
-    "AI/ML": [
-      {"name": "PyTorch", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"},
-      {"name": "TensorFlow", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"},
-      {"name": "OpenCV", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"}
-    ],
-    "Cloud": [
-      {"name": "AWS", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"},
-      {"name": "AWS Lambda", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"},
-      {"name": "S3", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"},
-      {"name": "Elastic Beanstalk", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"},
-      {"name": "Google Cloud", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"}
-    ],
-    "DevOps": [
-      {"name": "Docker", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},
-      {"name": "Kubernetes", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg"},
-      {"name": "OpenShift", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg"},
-      {"name": "GitLab CI/CD", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"}
-    ],
-    "Databases": [
-      {"name": "PostgreSQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"},
-      {"name": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"}
-    ],
-    "Observability": [
-      {"name": "Kafka", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"},
-      {"name": "Elasticsearch", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"},
-      {"name": "Kibana", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kibana/kibana-original.svg"},
-      {"name": "Logstash", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/logstash/logstash-original.svg"}
-    ],
-    "Tools": [
-      {"name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},
-      {"name": "GitHub", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"},
-      {"name": "VS Code", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"}
-    ]
+    "Frontend":[{"name":"React","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"},{"name":"Next.js","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"},{"name":"HTML","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg"},{"name":"CSS","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg"},{"name":"TypeScript","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"}],
+    "Backend":[{"name":"Node.js","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"},{"name":"FastAPI","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"}],
+    "Programming Languages":[{"name":"C","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"},{"name":"C++","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"},{"name":"Java","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"},{"name":"Python","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"},{"name":"JavaScript","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"},{"name":"SQL","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg"}],
+    "AI/ML":[{"name":"PyTorch","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"},{"name":"TensorFlow","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"},{"name":"OpenCV","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"}],
+    "Cloud":[{"name":"AWS","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"},{"name":"AWS Lambda","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"},{"name":"S3","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"},{"name":"Elastic Beanstalk","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"},{"name":"Google Cloud","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"}],
+    "DevOps":[{"name":"Docker","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"},{"name":"Kubernetes","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg"},{"name":"OpenShift","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redhat/redhat-original.svg"},{"name":"GitLab CI/CD","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"}],
+    "Databases":[{"name":"PostgreSQL","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"},{"name":"MySQL","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"}],
+    "Observability":[{"name":"Kafka","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg"},{"name":"Elasticsearch","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg"},{"name":"Kibana","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kibana/kibana-original.svg"},{"name":"Logstash","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/logstash/logstash-original.svg"}],
+    "Tools":[{"name":"Git","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"},{"name":"GitHub","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"},{"name":"VS Code","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"}]
   },
   "projects": [
-    {
-      "title": "Smart Krishi",
-      "description": "One-stop AI platform for farmers integrating crop disease prediction using KNN optimized on 61K images with 98.9% accuracy, crop/fertilizer/yield prediction, multilingual voice navigation, and a Twilio-based AI voice call agent enabling farmers to receive recommendations via phone calls.",
-      "metrics": [
-        "98.9% crop disease accuracy on 61K images",
-        "97% yield prediction accuracy",
-        "Integrated Twilio AI voice call agent",
-        "Multilingual voice-based navigation & PAN auth"
-      ],
-      "stack": ["React", "TypeScript", "FastAPI", "MySQL", "Hugging Face", "Docker", "Vercel"],
-      "github": "https://github.com/Kavish-Paraswar",
-      "demo": ""
-    },
-    {
-      "title": "Sketch2Face AI",
-      "description": "AI system converting hand-drawn sketches into photorealistic human faces using Conditional GAN, fine-tuned on 30K facial images with 95% reconstruction accuracy.",
-      "metrics": [
-        "95% facial reconstruction accuracy",
-        "Fine-tuned on 30K facial images",
-        "Conditional GAN & CNN architecture"
-      ],
-      "stack": ["React", "FastAPI", "Python", "CNN", "GAN"],
-      "github": "https://github.com/Kavish-Paraswar",
-      "demo": ""
-    }
+    {"title":"Smart Krishi","description":"One-stop AI platform for farmers integrating crop disease prediction using KNN optimized on 61K images with 98.9% accuracy, crop/fertilizer/yield prediction, multilingual voice navigation, and a Twilio-based AI voice call agent enabling farmers to receive recommendations via phone calls.","metrics":["98.9% crop disease accuracy on 61K images","97% yield prediction accuracy","Integrated Twilio AI voice call agent","Multilingual voice-based navigation & PAN auth"],"stack":["React","TypeScript","FastAPI","MySQL","Hugging Face","Docker","Vercel"],"github":"https://github.com/Kavish-Paraswar","demo":""},
+    {"title":"Sketch2Face AI","description":"AI system converting hand-drawn sketches into photorealistic human faces using Conditional GAN, fine-tuned on 30K facial images with 95% reconstruction accuracy.","metrics":["95% facial reconstruction accuracy","Fine-tuned on 30K facial images","Conditional GAN & CNN architecture"],"stack":["React","FastAPI","Python","CNN","GAN"],"github":"https://github.com/Kavish-Paraswar","demo":""}
   ],
   "achievements": [
-    {
-      "name": "Amazon ML Summer School 2026",
-      "subtitle": "Participant · ML & AI Systems",
-      "icon": "https://api.iconify.design/simple-icons:amazon.svg"
-    },
-    {
-      "name": "Flipkart GRID 8.0",
-      "subtitle": "Shortlisted · National AI Hackathon",
-      "icon": "https://api.iconify.design/simple-icons:flipkart.svg"
-    }
+    {"name":"Amazon ML Summer School 2026","subtitle":"Participant · ML & AI Systems","icon":"https://api.iconify.design/simple-icons:amazon.svg"},
+    {"name":"Flipkart GRID 8.0","subtitle":"Shortlisted","icon":"https://api.iconify.design/simple-icons:flipkart.svg"}
   ],
   "coding": {
-    "LeetCode": {
-      "url": "https://leetcode.com/u/_Kavish_/",
-      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/leetcode/leetcode-original.svg",
-      "extra": "Max Rating 1869 · Knight"
-    },
-    "CodeChef": {
-      "url": "https://www.codechef.com/users/matcross7",
-      "icon": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/codechef.svg",
-      "extra": "Max Rating 1604 · AIR 71"
-    },
-    "Codeforces": {
-      "url": "https://codeforces.com/profile/Kavish_97",
-      "icon": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/codeforces.svg",
-      "extra": "Max Rating 1414 · Specialist"
-    }
+    "LeetCode":{"url":"https://leetcode.com/u/_Kavish_/","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/leetcode/leetcode-original.svg","extra":"Max Rating 1869 · Knight"},
+    "CodeChef":{"url":"https://www.codechef.com/users/matcross7","icon":"https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/codechef.svg","extra":"Max Rating 1604 · AIR 71"},
+    "Codeforces":{"url":"https://codeforces.com/profile/Kavish_97","icon":"https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/codeforces.svg","extra":"Max Rating 1414 · Specialist"}
   },
-  "currently": {
-    "Building": "AI Agents & Generative Workflows",
-    "Learning": "Distributed Systems & System Architecture",
-    "Reading": "Designing Data-Intensive Applications",
-    "Open To": "Software Engineering, Backend & AI Engineering Roles"
-  }
+  "currently": {"Building":"AI Agents & Generative Workflows","Learning":"Distributed Systems & System Architecture","Reading":"Designing Data-Intensive Applications","Open To":"Software Engineering, Backend & AI Engineering Roles"}
 }
