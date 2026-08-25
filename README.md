@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/achievements.svg" width="100%" alt="Achievements" />
+  123
 </p>
 
 <p align="center">
