@@ -47,35 +47,56 @@ def traffic_dots(cx_start: int, cy: int) -> str:
     return "".join(dots)
 
 
-def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
-    slot = 2.5
-    fade = 0.25
-    hold = 2.0
-    cycle = slot * len(items)
+def get_cycle_animation(index: int, total_items: int = 4, total_duration_sec: float = 10.0) -> str:
+    time_per_item = total_duration_sec / total_items
+    start_time = index * time_per_item
+    end_time = start_time + time_per_item
+    fade_dur = 0.25
 
+    t_start = start_time / total_duration_sec
+    t_fade_in = (start_time + fade_dur) / total_duration_sec
+    t_fade_out = (end_time - fade_dur) / total_duration_sec
+    t_end = end_time / total_duration_sec
+
+    key_times = []
+    values = []
+
+    if t_start > 0:
+        key_times.extend([0.0, t_start])
+        values.extend([0, 0])
+
+    key_times.extend([t_fade_in, t_fade_out, t_end])
+    values.extend([1, 1, 0])
+
+    if t_end < 1.0:
+        key_times.append(1.0)
+        values.append(0)
+
+    key_times_str = ";".join(f"{value:.4f}" for value in key_times)
+    values_str = ";".join(str(value) for value in values)
+
+    return (
+        f'<animate attributeName="opacity" values="{values_str}" '
+        f'keyTimes="{key_times_str}" dur="{total_duration_sec:.2f}s" '
+        f'begin="0s" repeatCount="indefinite"/>'
+    )
+
+
+def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
+    total_items = len(items)
+    total_duration = 10.0
     parts = ["<g>"]
 
-    for i, item in enumerate(items):
-        start = i * slot
-        fade_in_start = start
-        fade_in_end = start + fade
-        fade_out_start = start + fade + hold
-        fade_out_end = start + slot
-
+    for index, item in enumerate(items):
+        animation = get_cycle_animation(
+            index=index,
+            total_items=total_items,
+            total_duration_sec=total_duration,
+        )
+        initial_opacity = "1" if index == 0 else "0"
         parts.append(
-            f'<text x="{x}" y="{y}" class="{cls}" opacity="0">{esc(item)}'
-            f'<animate attributeName="opacity" '
-            f'values="0;1;1;0;0" '
-            f'keyTimes="'
-            f'{fade_in_start / cycle:.4f};'
-            f'{fade_in_end / cycle:.4f};'
-            f'{fade_out_start / cycle:.4f};'
-            f'{fade_out_end / cycle:.4f};'
-            f'1" '
-            f'begin="{begin + start:.2f}s" '
-            f'dur="{cycle:.2f}s" '
-            f'repeatCount="indefinite"/>'
-            f'</text>'
+            f'<text x="{x}" y="{y}" class="{cls}" opacity="{initial_opacity}">{esc(item)}'
+            f'{animation}</text>'
         )
 
     parts.append("</g>")
