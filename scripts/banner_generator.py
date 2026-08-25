@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the compact terminal hero banner SVG with embedded action buttons, Pollito GIF, and contact line."""
+"""Generate the compact terminal hero banner SVG with embedded Pollito GIF and contact line."""
 
 from __future__ import annotations
 
@@ -13,9 +13,6 @@ POLLITO_PATH = ROOT / "assets" / "misc" / "pollito.gif"
 OUTPUT_PATH = ROOT / "assets" / "banner.svg"
 
 DOT_COLORS = ["#f85149", "#d29922", "#3fb950"]
-RESUME_URL = "https://raw.githubusercontent.com/Kavish-Paraswar/Kavish-Paraswar/main/assets/Kavish_Paraswar_CV.pdf"
-GITHUB_URL = "https://github.com/Kavish-Paraswar"
-LINKEDIN_URL = "https://linkedin.com/in/kavish-paraswar"
 EMAIL_URL = "mailto:kavishp9721@gmail.com"
 
 
@@ -56,93 +53,37 @@ def build_svg(profile: dict) -> str:
     elements: list[str] = []
     y = 80
 
-    # 1. Command prompt
     elements.append(anim_line("kavish@github:~$", PAD, y, 0.20, "prompt"))
     y += 32
 
-    # 2. Executable command
     elements.append(anim_line("./init-profile", PAD, y, 0.40, "cmd"))
     y += 38
 
-    # 3. Loading status & progress bar
     elements.append(anim_line("Loading modules...", PAD, y, 0.65, "muted"))
     y += 26
     elements.append(anim_line("██████████████", PAD, y, 0.90, "bar"))
     y += 38
 
-    # 4. Command / Action Row directly below loading bar
-    btn_y = y
-    btn_begin = 1.15
-    btn_h = 36
-
-    # Button 1: Resume
-    b1_x = PAD
-    b1_w = 160
-    elements.append(
-        f'<a href="{RESUME_URL}" target="_blank" download="Kavish_Paraswar_CV.pdf" class="btn-link">'
-        f'<g opacity="0" class="btn-group">'
-        f'<animate attributeName="opacity" begin="{btn_begin:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-        f'<rect x="{b1_x}" y="{btn_y}" width="{b1_w}" height="{btn_h}" rx="6" class="btn-bg"/>'
-        f'<text x="{b1_x + 14}" y="{btn_y + 23}" class="btn-prompt">$</text>'
-        f'<text x="{b1_x + 28}" y="{btn_y + 23}" class="btn-text">./resume.pdf</text>'
-        f'<text x="{b1_x + b1_w - 20}" y="{btn_y + 23}" class="btn-arrow">↓</text>'
-        f'</g>'
-        f'</a>'
-    )
-
-    # Button 2: GitHub
-    b2_x = b1_x + b1_w + 16
-    b2_w = 120
-    elements.append(
-        f'<a href="{GITHUB_URL}" target="_blank" class="btn-link">'
-        f'<g opacity="0" class="btn-group">'
-        f'<animate attributeName="opacity" begin="{(btn_begin + 0.1):.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-        f'<rect x="{b2_x}" y="{btn_y}" width="{b2_w}" height="{btn_h}" rx="6" class="btn-bg"/>'
-        f'<text x="{b2_x + 16}" y="{btn_y + 23}" class="btn-text">GitHub</text>'
-        f'<text x="{b2_x + b2_w - 20}" y="{btn_y + 23}" class="btn-arrow">↗</text>'
-        f'</g>'
-        f'</a>'
-    )
-
-    # Button 3: LinkedIn
-    b3_x = b2_x + b2_w + 16
-    b3_w = 130
-    elements.append(
-        f'<a href="{LINKEDIN_URL}" target="_blank" class="btn-link">'
-        f'<g opacity="0" class="btn-group">'
-        f'<animate attributeName="opacity" begin="{(btn_begin + 0.2):.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/>'
-        f'<rect x="{b3_x}" y="{btn_y}" width="{b3_w}" height="{btn_h}" rx="6" class="btn-bg"/>'
-        f'<text x="{b3_x + 16}" y="{btn_y + 23}" class="btn-text">LinkedIn</text>'
-        f'<text x="{b3_x + b3_w - 20}" y="{btn_y + 23}" class="btn-arrow">↗</text>'
-        f'</g>'
-        f'</a>'
-    )
-
-    y += btn_h + 38
-
-    # 5. Name Row: "Hey, I'm Kavish Paraswar." + Pollito GIF beside it
     name_baseline = y
-    elements.append(anim_line("Hey, I'm Kavish Paraswar.", PAD, name_baseline, 1.50, "name"))
+    elements.append(anim_line("Hey, I'm Kavish Paraswar.", PAD, name_baseline, 1.10, "name"))
 
     pollito_b64 = get_pollito_b64()
     if pollito_b64:
-        gif_x = PAD + 435  # ~20px horizontal spacing after "Hey, I'm Kavish Paraswar."
+        gif_x = PAD + 435
         gif_y = name_baseline - 48
         gif_h = 75
         elements.append(
             f'<g opacity="0">'
-            f'<animate attributeName="opacity" begin="1.50s" dur="0.15s" from="0" to="1" fill="freeze"/>'
+            f'<animate attributeName="opacity" begin="1.10s" dur="0.15s" from="0" to="1" fill="freeze"/>'
             f'<image href="{pollito_b64}" x="{gif_x}" y="{gif_y}" height="{gif_h}" preserveAspectRatio="xMidYMid meet" style="border-radius: 6px;"/>'
             f'</g>'
         )
 
     y += 48
 
-    # 6. Subtitle
-    elements.append(anim_line("I enjoy building", PAD, y, 1.75, "subtitle"))
+    elements.append(anim_line("I enjoy building", PAD, y, 1.35, "subtitle"))
     y += 32
 
-    # 7. Bullets
     bullets = [
         "Backend Systems",
         "AI-powered Products",
@@ -150,7 +91,7 @@ def build_svg(profile: dict) -> str:
         "Open Source",
     ]
     for i, b in enumerate(bullets):
-        elements.append(anim_line(f"• {b}", PAD + 8, y, 1.95 + i * 0.12, "interest"))
+        elements.append(anim_line(f"• {b}", PAD + 8, y, 1.55 + i * 0.12, "interest"))
         y += 28
 
     y += 14
@@ -159,35 +100,33 @@ def build_svg(profile: dict) -> str:
             "Currently focused on creating scalable software that solves real engineering problems.",
             PAD,
             y,
-            2.55,
+            2.15,
             "focus",
         )
     )
     y += 32
 
-    # 8. Contact Line
     contact_email = profile.get("contact", "kavishp9721@gmail.com")
-    elements.append(anim_line("$ contact --email", PAD, y, 2.70, "contact-cmd"))
+    elements.append(anim_line("$ contact --email", PAD, y, 2.30, "contact-cmd"))
     y += 24
     elements.append(
         f'<a href="{EMAIL_URL}" target="_blank">'
         f'<text x="{PAD}" y="{y}" class="contact-email" opacity="0">'
         f'📧 {esc(contact_email)}'
-        f'<animate attributeName="opacity" begin="2.80s" dur="0.15s" from="0" to="1" fill="freeze"/>'
+        f'<animate attributeName="opacity" begin="2.40s" dur="0.15s" from="0" to="1" fill="freeze"/>'
         f'</text>'
         f'</a>'
     )
     y += 36
 
-    # 9. Ready line + blinking cursor
-    elements.append(anim_line("Ready_", PAD, y, 2.95, "ready"))
+    elements.append(anim_line("Ready_", PAD, y, 2.55, "ready"))
 
     cursor_x = PAD + 78
     cursor_y = y - 16
     elements.append(
         f'<rect x="{cursor_x}" y="{cursor_y}" width="10" height="20" fill="#3fb950" opacity="0">'
-        f'<animate attributeName="opacity" begin="2.95s" dur="0.01s" from="0" to="1" fill="freeze"/>'
-        f'<animate attributeName="opacity" begin="3.00s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
+        f'<animate attributeName="opacity" begin="2.55s" dur="0.01s" from="0" to="1" fill="freeze"/>'
+        f'<animate attributeName="opacity" begin="2.60s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
         f'</rect>'
     )
 
@@ -203,12 +142,6 @@ def build_svg(profile: dict) -> str:
     .cmd           {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; }}
     .muted         {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #484f58; }}
     .bar           {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; }}
-    .btn-bg        {{ fill: #0d1117; stroke: #30363d; stroke-width: 1.5; transition: all 0.2s ease; }}
-    .btn-prompt    {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }}
-    .btn-text      {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #e6edf3; font-weight: 600; }}
-    .btn-arrow     {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #3fb950; font-weight: 700; }}
-    .btn-group:hover .btn-bg {{ stroke: #3fb950; fill: #161b22; }}
-    .greeting      {{ font-family: 'JetBrains Mono', monospace; font-size: 20px; fill: #8b949e; }}
     .name          {{ font-family: 'JetBrains Mono', monospace; font-size: 28px; fill: #e6edf3; font-weight: 700; }}
     .subtitle      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #8b949e; }}
     .interest      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #e6edf3; }}
