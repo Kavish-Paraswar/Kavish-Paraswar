@@ -53,16 +53,16 @@ def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
     fade = 0.35
     slot = visible + fade
     total = slot * len(items)
+    fade_in_end = fade / total
+    hold_end = visible / total
     parts = ["<g>"]
     for i, item in enumerate(items):
-        offset = i * slot
-        start_time = begin + offset
+        start_time = begin + i * slot
         parts.append(
             f'<text x="{x}" y="{y}" class="{cls}" opacity="0">{esc(item)}'
-            f'<animate attributeName="opacity" '
-            f'values="0;1;1;0" keyTimes="0;0.10;0.80;1" '
-            f'begin="{start_time:.2f}s" dur="{slot:.2f}s" fill="freeze" '
-            f'repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="0;1;1;0;0" '
+            f'keyTimes="0;{fade_in_end:.6f};{hold_end:.6f};{(slot/total):.6f};1" '
+            f'begin="{start_time:.2f}s" dur="{total:.2f}s" repeatCount="indefinite"/>'
             f'</text>'
         )
     parts.append("</g>")
