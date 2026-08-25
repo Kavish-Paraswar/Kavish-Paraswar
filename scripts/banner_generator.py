@@ -50,24 +50,23 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
     visible = 2.8
-    transition = 0.45
-    slot = visible + transition
+    fade = 0.35
+    slot = visible + fade
     total = slot * len(items)
-    parts = ['<g>']
+    parts = ["<g>"]
     for i, item in enumerate(items):
-        start = i * slot
-        fade_in_end = start + transition
-        fade_out_start = start + visible
-        fade_out_end = start + slot
+        offset = i * slot
+        start_time = begin + offset
         parts.append(
             f'<text x="{x}" y="{y}" class="{cls}" opacity="0">{esc(item)}'
-            f'<animate attributeName="opacity" values="0;1;1;0" '
-            f'keyTimes="0;{start/total:.6f};{fade_out_start/total:.6f};{fade_out_end/total:.6f}" '
-            f'begin="{begin:.2f}s" dur="{total:.2f}s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" '
+            f'values="0;1;1;0" keyTimes="0;0.10;0.80;1" '
+            f'begin="{start_time:.2f}s" dur="{slot:.2f}s" fill="freeze" '
+            f'repeatCount="indefinite"/>'
             f'</text>'
         )
-    parts.append('</g>')
-    return ''.join(parts)
+    parts.append("</g>")
+    return "".join(parts)
 
 
 def build_svg(profile: dict) -> str:
