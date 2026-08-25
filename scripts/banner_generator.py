@@ -84,15 +84,21 @@ def build_svg(profile: dict) -> str:
     elements.append(anim_line("I enjoy building", PAD, y, 1.35, "subtitle"))
     y += 32
 
-    bullets = [
-        "Backend Systems",
-        "AI-powered Products",
-        "Production Software",
-        "Open Source",
-    ]
-    for i, b in enumerate(bullets):
-        elements.append(anim_line(f"• {b}", PAD + 8, y, 1.55 + i * 0.12, "interest"))
-        y += 28
+    cycle_y = y
+    cycle_items = ["Backend Systems", "AI-powered Products", "Production Software", "Open Source"]
+    for i, item in enumerate(cycle_items):
+        start = i * 3.5
+        end = start + 0.45
+        fade_out = end + 2.55
+        next_fade = end + 2.95
+        values = "0;1;1;0"
+        key_times = f"0;{start/14:.4f};{fade_out/14:.4f};{next_fade/14:.4f}"
+        elements.append(
+            f'<text x="{PAD + 8}" y="{cycle_y}" class="interest" opacity="0">{esc(item)}'
+            f'<animate attributeName="opacity" values="{values}" keyTimes="{key_times}" dur="14s" repeatCount="indefinite"/>'
+            f'</text>'
+        )
+    y += 38
 
     y += 14
     elements.append(
