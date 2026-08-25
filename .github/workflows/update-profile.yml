@@ -67,7 +67,7 @@ jobs:
           git config user.name "Kavish Paraswar"
           git config user.email "kavishp9721@gmail.com"
           git fetch origin main
-          git rebase origin/main
+          git merge --ff-only origin/main
 
       - name: Commit generated changes
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -77,3 +77,4 @@ jobs:
           commit_user_email: "kavishp9721@gmail.com"
           commit_author: "Kavish Paraswar <kavishp9721@gmail.com>"
           file_pattern: assets/*.svg assets/**/*.svg
+          push_options: --force-with-lease
