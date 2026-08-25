@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Generate experience timeline SVG with Barclays first, TakeTwo second, and GEDIT removed."""
+"""Generate a compact experience timeline SVG with Barclays first and TakeTwo second."""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
-import textwrap
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE_PATH = ROOT / "data" / "profile.json"
@@ -30,76 +29,79 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 
 def build_svg(profile: dict) -> str:
-    exp_list = profile["experience"]
+    experiences = profile["experience"][:2]
+    compact = {
+        "Barclays": {
+            "highlights": [
+                "Built a health monitoring system for microservices",
+                "Reduced MTTR by 70% across 250+ system resources",
+            ],
+            "technologies": ["Node.js", "OpenShift", "Kubernetes", "Kafka", "ELK"],
+        },
+        "TakeTwo": {
+            "highlights": [
+                "Built 12+ features for an AI platform",
+                "Cut pipeline costs by 30% and generation latency by 40%",
+            ],
+            "technologies": ["Python", "AI", "React", "Node.js"],
+        },
+    }
+
     PAD_LEFT = 40
     TIMELINE_X = PAD_LEFT + 12
-
     elements: list[str] = []
     y = 90
     t = 0.2
-
     start_y = y
 
-    for entry in exp_list:
+    for entry in experiences:
         company = entry["company"]
         role = entry["role"]
         duration = entry["duration"]
-        highlights = entry.get("highlights", [])
-        techs = entry.get("technologies", [])
+        data = compact.get(company, {})
+        highlights = data.get("highlights", entry.get("highlights", [])[:2])
+        techs = data.get("technologies", entry.get("technologies", [])[:5])
 
-        # Timeline node circle
         elements.append(
             f'<circle cx="{TIMELINE_X}" cy="{y}" r="6" fill="#3fb950" stroke="#010409" stroke-width="2"/>'
         )
-
-        # Role & Company Header
-        company_link = f' ({entry["url"]})' if entry.get("url") else ""
         header_text = f'{role} @ {company}'
         elements.append(
             f'<text x="{TIMELINE_X + 22}" y="{y + 5}" class="role-title" opacity="0">{esc(header_text)}'
             f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/></text>'
         )
-
-        # Duration right-aligned
         elements.append(
             f'<text x="836" y="{y + 5}" class="duration" text-anchor="end" opacity="0">{esc(duration)}'
             f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.15s" from="0" to="1" fill="freeze"/></text>'
         )
         t += 0.1
-        y += 26
+        y += 27
 
-        # Bullet highlights (wrapped)
-        for h in highlights:
-            lines = textwrap.wrap(h, width=82)
-            for i, line in enumerate(lines):
-                bullet = "• " if i == 0 else "  "
-                elements.append(
-                    f'<text x="{TIMELINE_X + 22}" y="{y}" class="bullet" opacity="0">{esc(bullet + line)}'
-                    f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/></text>'
-                )
-                y += 20
-            t += 0.05
-        y += 6
-
-        # Tech tags
-        if techs:
-            tech_str = "  ·  ".join(techs)
+        for highlight in highlights:
             elements.append(
-                f'<text x="{TIMELINE_X + 22}" y="{y}" class="tech-tag" opacity="0">{esc(tech_str)}'
+                f'<text x="{TIMELINE_X + 22}" y="{y}" class="bullet" opacity="0">• {esc(highlight)}'
                 f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/></text>'
             )
-            y += 26
+            y += 24
+            t += 0.05
 
+        elements.append(
+            f'<text x="{TIMELINE_X + 22}" y="{y}" class="tech-tag" opacity="0">{esc("  ·  ".join(techs))}'
+            f'<animate attributeName="opacity" begin="{t:.2f}s" dur="0.12s" from="0" to="1" fill="freeze"/></text>'
+        )
         y += 28
+        t += 0.05
 
-    end_y = y - 36
-    # Connecting line behind nodes
+        if company == "Barclays":
+            y += 22
+
+    end_y = y - 28
     connecting_line = (
         f'<line x1="{TIMELINE_X}" y1="{start_y}" x2="{TIMELINE_X}" y2="{end_y}" '
         f'stroke="#21262d" stroke-width="2"/>'
     )
 
-    height = y + 20
+    height = 340
     inner_h = height - 36
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="900" height="{height}" viewBox="0 0 900 {height}" role="img" aria-label="Experience timeline">
@@ -120,8 +122,7 @@ def build_svg(profile: dict) -> str:
 
 
 def main() -> None:
-    profile = load_profile()
-    OUTPUT_PATH.write_text(build_svg(profile), encoding="utf-8")
+    OUTPUT_PATH.write_text(build_svg(load_profile()), encoding="utf-8")
 
 
 if __name__ == "__main__":
