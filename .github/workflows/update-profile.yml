@@ -3,7 +3,6 @@ name: Update Profile Assets
 on:
   workflow_dispatch:
   schedule:
-    # 01:30 UTC = 07:00 IST — daily scheduled run
     - cron: "30 1 * * *"
   push:
     branches: [main]
@@ -11,6 +10,10 @@ on:
       - "data/profile.json"
       - "scripts/**"
       - ".github/workflows/update-profile.yml"
+
+concurrency:
+  group: update-profile-assets-main
+  cancel-in-progress: false
 
 jobs:
   refresh:
@@ -34,8 +37,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install beautifulsoup4 requests
 
+      - name: Sync with latest main
+        run: |
+          git fetch origin main
+          git checkout main
+          git reset --hard origin/main
+
       - name: Regenerate terminal assets
         run: |
+          python -m py_compile scripts/banner_generator.py
           python scripts/banner_generator.py
           python scripts/experience_generator.py
           python scripts/info_card_generator.py
@@ -46,35 +56,42 @@ jobs:
 
       - name: Verify generated SVG assets
         run: |
-          echo "=== Verifying SVG Files ==="
-          test -f assets/banner.svg
-          test -f assets/experience.svg
-          test -f assets/achievements.svg
-          test -f assets/coding.svg
-          test -f assets/currently.svg
-          test -f assets/tech-stack.svg
-          test -f assets/projects.svg
-          test -f assets/resume-button.svg
-          test -f assets/footer.svg
-          echo "All required SVGs verified successfully."
-          echo "=== Git Status ==="
-          git status
-          echo "=== Git Diff Stat ==="
-          git diff --stat
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
 
-      - name: Sync generated changes with latest main
+          required = [
+              "assets/banner.svg",
+              "assets/experience.svg",
+              "assets/achievements.svg",
+              "assets/coding.svg",
+              "assets/currently.svg",
+              "assets/tech-stack.svg",
+              "assets/projects.svg",
+              "assets/resume-button.svg",
+              "assets/footer.svg",
+          ]
+
+          for filename in required:
+              path = Path(filename)
+              if not path.is_file():
+                  raise SystemExit(f"Missing generated asset: {filename}")
+              ET.parse(path)
+              print(f"OK: {filename}")
+          PY
+
+      - name: Commit and push generated changes
         run: |
           git config user.name "Kavish Paraswar"
           git config user.email "kavishp9721@gmail.com"
-          git fetch origin main
-          git merge --ff-only origin/main
+          git add assets/*.svg assets/**/*.svg
 
-      - name: Commit generated changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore(profile): refresh generated assets"
-          commit_user_name: "Kavish Paraswar"
-          commit_user_email: "kavishp9721@gmail.com"
-          commit_author: "Kavish Paraswar <kavishp9721@gmail.com>"
-          file_pattern: assets/*.svg assets/**/*.svg
-          push_options: --force-with-lease
+          if git diff --cached --quiet; then
+            echo "No generated SVG changes."
+            exit 0
+          fi
+
+          git commit -m "chore(profile): refresh generated assets"
+          git fetch origin main
+          git rebase origin/main
+          git push origin main
