@@ -36,8 +36,8 @@
     {"title":"Sketch2Face AI","description":"AI system converting hand-drawn sketches into photorealistic human faces using Conditional GAN, fine-tuned on 30K facial images with 95% reconstruction accuracy.","metrics":["95% facial reconstruction accuracy","Fine-tuned on 30K facial images","Conditional GAN & CNN architecture"],"stack":["React","FastAPI","Python","CNN","GAN"],"github":"https://github.com/Kavish-Paraswar","demo":""}
   ],
   "achievements": [
-    {"name":"Amazon ML Summer School 2026","subtitle":"Participant · ML & AI Systems","icon":"https://api.iconify.design/simple-icons:amazon.svg"},
-    {"name":"Flipkart GRID 8.0","subtitle":"Shortlisted","icon":"https://api.iconify.design/simple-icons:flipkart.svg"}
+    {"name":"Amazon ML Summer School 2026","subtitle":"Shortlisted","icon":"https://api.iconify.design/simple-icons:amazon.svg"},
+    {"name":"Flipkart GRID 8.0","subtitle":"National Semi-Finalists","icon":"https://api.iconify.design/simple-icons:flipkart.svg"}
   ],
   "coding": {
     "LeetCode":{"url":"https://leetcode.com/u/_Kavish_/","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/leetcode/leetcode-original.svg","extra":"Max Rating 1869 · Knight"},
