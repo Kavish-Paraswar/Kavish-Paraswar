@@ -49,16 +49,11 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 
 def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
-    cycle = 10.0
-    slot = cycle / len(items)
-    fade = 0.20
-    visible = slot - (fade * 2)
-    key_times = (
-        "0;"
-        f"{fade / slot:.4f};"
-        f"{(fade + visible) / slot:.4f};"
-        "1"
-    )
+    slot = 2.5
+    fade = 0.25
+    fade_start = fade / slot
+    fade_end = 1 - fade / slot
+    key_times = f"0;{fade_start:.4f};{fade_end:.4f};1"
     parts = ["<g>"]
 
     for i, item in enumerate(items):
@@ -66,7 +61,7 @@ def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
         parts.append(
             f'<text x="{x}" y="{y}" class="{cls}" opacity="0">{esc(item)}'
             f'<animate attributeName="opacity" values="0;1;1;0" '
-            f'keyTimes="{key_times}" begin="{start:.2f}s" dur="{cycle:.2f}s" '
+            f'keyTimes="{key_times}" begin="{start:.2f}s" dur="{slot:.2f}s" '
             f'repeatCount="indefinite"/>'
             f'</text>'
         )
@@ -153,7 +148,7 @@ def build_svg(profile: dict) -> str:
     .bar           {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; }}
     .name          {{ font-family: 'JetBrains Mono', monospace; font-size: 28px; fill: #e6edf3; font-weight: 700; }}
     .subtitle      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #8b949e; }}
-    .interest      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #e6edf3; }}
+    .interest      {{ font-family: 'JetBrains Mono', monospace; font-size: 17px; fill: #e6edf3; font-weight: 700; }}
     .contact-cmd   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #7d8590; }}
     .contact-email {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; font-weight: 600; text-decoration: none; }}
     .contact-email:hover {{ text-decoration: underline; }}
