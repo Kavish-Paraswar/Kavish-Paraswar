@@ -48,6 +48,28 @@ def traffic_dots(cx_start: int, cy: int) -> str:
     return "".join(dots)
 
 
+def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
+    visible = 2.8
+    transition = 0.45
+    slot = visible + transition
+    total = slot * len(items)
+    parts = ['<g>']
+    for i, item in enumerate(items):
+        start = i * slot
+        fade_in_end = start + transition
+        fade_out_start = start + visible
+        fade_out_end = start + slot
+        parts.append(
+            f'<text x="{x}" y="{y}" class="{cls}" opacity="0">{esc(item)}'
+            f'<animate attributeName="opacity" values="0;1;1;0" '
+            f'keyTimes="0;{start/total:.6f};{fade_out_start/total:.6f};{fade_out_end/total:.6f}" '
+            f'begin="{begin:.2f}s" dur="{total:.2f}s" repeatCount="indefinite"/>'
+            f'</text>'
+        )
+    parts.append('</g>')
+    return ''.join(parts)
+
+
 def build_svg(profile: dict) -> str:
     PAD = 40
     elements: list[str] = []
@@ -84,45 +106,31 @@ def build_svg(profile: dict) -> str:
     elements.append(anim_line("I enjoy building", PAD, y, 1.35, "subtitle"))
     y += 32
 
-    cycle_y = y
     cycle_items = ["Backend Systems", "AI-powered Products", "Production Software", "Open Source"]
-    for i, item in enumerate(cycle_items):
-        start = i * 3.5
-        fade_in_end = start + 0.45
-        hold_end = start + 2.75
-        fade_out_end = start + 3.5
-        values = "0;1;1;0"
-        key_times = f"0;{start/14:.4f};{hold_end/14:.4f};{fade_out_end/14:.4f}"
-        elements.append(
-            f'<text x="{PAD + 8}" y="{cycle_y}" class="interest" opacity="0">{esc(item)}'
-            f'<animate attributeName="opacity" values="{values}" keyTimes="{key_times}" dur="14s" repeatCount="indefinite"/>'
-            f'</text>'
-        )
+    elements.append(cycle_line(cycle_items, PAD + 8, y, 1.55, "interest"))
     y += 38
 
-    y += 14
-
     contact_email = profile.get("contact", "kavishp9721@gmail.com")
-    elements.append(anim_line("$ contact --email", PAD, y, 2.15, "contact-cmd"))
+    elements.append(anim_line("$ contact --email", PAD, y, 1.95, "contact-cmd"))
     y += 24
     elements.append(
         f'<a href="{EMAIL_URL}" target="_blank">'
         f'<text x="{PAD}" y="{y}" class="contact-email" opacity="0">'
-        f'📧 {esc(contact_email)}'
-        f'<animate attributeName="opacity" begin="2.25s" dur="0.15s" from="0" to="1" fill="freeze"/>'
+        f'{esc(contact_email)}'
+        f'<animate attributeName="opacity" begin="2.05s" dur="0.15s" from="0" to="1" fill="freeze"/>'
         f'</text>'
         f'</a>'
     )
     y += 36
 
-    elements.append(anim_line("Ready_", PAD, y, 2.40, "ready"))
+    elements.append(anim_line("Ready_", PAD, y, 2.20, "ready"))
 
     cursor_x = PAD + 78
     cursor_y = y - 16
     elements.append(
         f'<rect x="{cursor_x}" y="{cursor_y}" width="10" height="20" fill="#3fb950" opacity="0">'
-        f'<animate attributeName="opacity" begin="2.40s" dur="0.01s" from="0" to="1" fill="freeze"/>'
-        f'<animate attributeName="opacity" begin="2.45s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
+        f'<animate attributeName="opacity" begin="2.20s" dur="0.01s" from="0" to="1" fill="freeze"/>'
+        f'<animate attributeName="opacity" begin="2.25s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
         f'</rect>'
     )
 
