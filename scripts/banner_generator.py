@@ -49,37 +49,30 @@ def traffic_dots(cx_start: int, cy: int) -> str:
 
 
 def cycle_line(items: list[str], x: int, y: int, begin: float, cls: str) -> str:
-    cycle = 12.6
-    fade = 0.35
-    hold = 2.8
-    parts = ['<g>']
+    cycle = 10.0
+    slot = cycle / len(items)
+    fade = 0.20
+    visible = slot - (fade * 2)
+    key_times = (
+        "0;"
+        f"{fade / slot:.4f};"
+        f"{(fade + visible) / slot:.4f};"
+        "1"
+    )
+    parts = ["<g>"]
+
     for i, item in enumerate(items):
-        start = i * 3.15
-        fade_in_start = start
-        fade_in_end = start + fade
-        hold_end = start + hold
-        fade_out_end = start + 3.15
-        if i == 0:
-            values = "1;1;1;0;0"
-            key_times = (
-                f"0;{fade_in_end / cycle:.6f};{hold_end / cycle:.6f};"
-                f"{fade_out_end / cycle:.6f};1"
-            )
-        else:
-            values = "0;1;1;0;0"
-            key_times = (
-                f"0;{fade_in_start / cycle:.6f};{fade_in_end / cycle:.6f};"
-                f"{hold_end / cycle:.6f};{fade_out_end / cycle:.6f}"
-            )
+        start = begin + i * slot
         parts.append(
             f'<text x="{x}" y="{y}" class="{cls}" opacity="0">{esc(item)}'
-            f'<animate attributeName="opacity" values="{values}" '
-            f'keyTimes="{key_times}" begin="{begin:.2f}s" dur="{cycle:.2f}s" '
+            f'<animate attributeName="opacity" values="0;1;1;0" '
+            f'keyTimes="{key_times}" begin="{start:.2f}s" dur="{cycle:.2f}s" '
             f'repeatCount="indefinite"/>'
             f'</text>'
         )
-    parts.append('</g>')
-    return ''.join(parts)
+
+    parts.append("</g>")
+    return "".join(parts)
 
 
 def build_svg(profile: dict) -> str:
