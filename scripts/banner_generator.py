@@ -88,11 +88,11 @@ def build_svg(profile: dict) -> str:
     cycle_items = ["Backend Systems", "AI-powered Products", "Production Software", "Open Source"]
     for i, item in enumerate(cycle_items):
         start = i * 3.5
-        end = start + 0.45
-        fade_out = end + 2.55
-        next_fade = end + 2.95
+        fade_in_end = start + 0.45
+        hold_end = start + 2.75
+        fade_out_end = start + 3.5
         values = "0;1;1;0"
-        key_times = f"0;{start/14:.4f};{fade_out/14:.4f};{next_fade/14:.4f}"
+        key_times = f"0;{start/14:.4f};{hold_end/14:.4f};{fade_out_end/14:.4f}"
         elements.append(
             f'<text x="{PAD + 8}" y="{cycle_y}" class="interest" opacity="0">{esc(item)}'
             f'<animate attributeName="opacity" values="{values}" keyTimes="{key_times}" dur="14s" repeatCount="indefinite"/>'
@@ -101,38 +101,28 @@ def build_svg(profile: dict) -> str:
     y += 38
 
     y += 14
-    elements.append(
-        anim_line(
-            "Currently focused on creating scalable software that solves real engineering problems.",
-            PAD,
-            y,
-            2.15,
-            "focus",
-        )
-    )
-    y += 32
 
     contact_email = profile.get("contact", "kavishp9721@gmail.com")
-    elements.append(anim_line("$ contact --email", PAD, y, 2.30, "contact-cmd"))
+    elements.append(anim_line("$ contact --email", PAD, y, 2.15, "contact-cmd"))
     y += 24
     elements.append(
         f'<a href="{EMAIL_URL}" target="_blank">'
         f'<text x="{PAD}" y="{y}" class="contact-email" opacity="0">'
         f'📧 {esc(contact_email)}'
-        f'<animate attributeName="opacity" begin="2.40s" dur="0.15s" from="0" to="1" fill="freeze"/>'
+        f'<animate attributeName="opacity" begin="2.25s" dur="0.15s" from="0" to="1" fill="freeze"/>'
         f'</text>'
         f'</a>'
     )
     y += 36
 
-    elements.append(anim_line("Ready_", PAD, y, 2.55, "ready"))
+    elements.append(anim_line("Ready_", PAD, y, 2.40, "ready"))
 
     cursor_x = PAD + 78
     cursor_y = y - 16
     elements.append(
         f'<rect x="{cursor_x}" y="{cursor_y}" width="10" height="20" fill="#3fb950" opacity="0">'
-        f'<animate attributeName="opacity" begin="2.55s" dur="0.01s" from="0" to="1" fill="freeze"/>'
-        f'<animate attributeName="opacity" begin="2.60s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
+        f'<animate attributeName="opacity" begin="2.40s" dur="0.01s" from="0" to="1" fill="freeze"/>'
+        f'<animate attributeName="opacity" begin="2.45s" dur="1s" values="1;0;1" repeatCount="indefinite"/>'
         f'</rect>'
     )
 
@@ -151,7 +141,6 @@ def build_svg(profile: dict) -> str:
     .name          {{ font-family: 'JetBrains Mono', monospace; font-size: 28px; fill: #e6edf3; font-weight: 700; }}
     .subtitle      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #8b949e; }}
     .interest      {{ font-family: 'JetBrains Mono', monospace; font-size: 16px; fill: #e6edf3; }}
-    .focus         {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #7d8590; }}
     .contact-cmd   {{ font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #7d8590; }}
     .contact-email {{ font-family: 'JetBrains Mono', monospace; font-size: 14px; fill: #3fb950; font-weight: 600; text-decoration: none; }}
     .contact-email:hover {{ text-decoration: underline; }}
