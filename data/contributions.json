@@ -1,48 +1,13 @@
 {
   "username": "Kavish-Paraswar",
-  "generated_at": "2026-09-05T06:55:51.534250+00:00",
+  "generated_at": "2026-09-06T07:07:03.356191+00:00",
   "fetch_succeeded": true,
   "error": null,
-  "total": 670,
-  "current_streak": 38,
-  "longest_streak": 38,
+  "total": 669,
+  "current_streak": 39,
+  "longest_streak": 39,
   "max_count": 41,
   "days": [
-    {
-      "date": "2025-08-31",
-      "count": 2,
-      "level": 1
-    },
-    {
-      "date": "2025-09-01",
-      "count": 1,
-      "level": 1
-    },
-    {
-      "date": "2025-09-02",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-03",
-      "count": 1,
-      "level": 1
-    },
-    {
-      "date": "2025-09-04",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-05",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-06",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2025-09-07",
       "count": 0,
@@ -1860,6 +1825,11 @@
     },
     {
       "date": "2026-09-05",
+      "count": 3,
+      "level": 1
+    },
+    {
+      "date": "2026-09-06",
       "count": 1,
       "level": 1
     }
